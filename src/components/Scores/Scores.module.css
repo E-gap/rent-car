@@ -1,0 +1,57 @@
+.wrapperScores {
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.highlight {
+  font-size: var(--min-font-size);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--default-color);
+
+  @media screen and (min-width: 768px) {
+    font-size: var(--middle-font-size);
+  }
+}
+
+.listButtonsSort {
+  display: flex;
+  justify-content: space-around;
+}
+
+.scoresHistory {
+  display: block;
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 150px;
+}
+
+.scoresHistory thead {
+  background-color: aqua;
+  position: sticky;
+  top: 0;
+}
+
+.scoresHistory td,
+.scoresHistory th,
+.scoresHistory thead {
+  border: 1px solid black;
+}
+
+.pair {
+  background-color: bisque;
+}
+
+.odd {
+  background-color: burlywood;
+}

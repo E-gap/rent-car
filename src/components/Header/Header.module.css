@@ -1,0 +1,17 @@
+.header {
+  margin-bottom: var(--default-interval);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.userName {
+  display: inline;
+  font-size: var(--middle-font-size);
+  color: var(--default-color);
+  font-weight: 700;
+  margin-right: var(--default-interval);
+}

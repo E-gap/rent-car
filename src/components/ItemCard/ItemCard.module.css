@@ -1,0 +1,36 @@
+.item {
+  position: relative;
+  flex-basis: calc((100% - 3 * 10px) / 4);
+  max-width: 60px;
+  height: 90px;
+  transition: 0.1s ease-in-out;
+  background-color: lightskyblue;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../images/shirt.jpg);
+  background-size: cover;
+
+  @media screen and (min-width: 1200px) {
+    max-width: 100px;
+    height: 150px;
+  }
+}
+
+.rotatedItem {
+  background-image: unset;
+  background-color: yellow;
+  rotate: 1 2 1 360deg;
+  border: 2px solid green;
+}
+
+.score {
+  color: green;
+  font-size: 25px;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}

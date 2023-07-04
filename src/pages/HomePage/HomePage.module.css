@@ -1,0 +1,114 @@
+.homePage {
+  background-image: url(../../images/home-page-bg-mobile.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../../images/home-page-bg.jpg);
+  }
+}
+
+.container {
+  position: relative;
+  max-width: 480px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 1200px;
+  }
+}
+
+.moveToCards {
+  position: absolute;
+  font-size: 12px;
+
+  font-weight: 600;
+  text-decoration: none;
+  top: 10%;
+  left: 60%;
+  animation-name: border;
+  animation-duration: 500ms;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  padding: 5px;
+  border-radius: 20px;
+  border: 2px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+@keyframes border {
+  0% {
+    color: yellow;
+  }
+  100% {
+    color: lime;
+  }
+}
+
+.moveToCards:hover,
+.moveToCards:focus {
+  scale: 1.2;
+}
+
+.card {
+  width: 230px;
+  color: red;
+  font-size: var(--max-font-size);
+  font-weight: 600;
+  background-color: greenyellow;
+  border-radius: 10px;
+  position: absolute;
+  animation-name: place;
+  animation-duration: 4000ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  padding-left: var(--default-interval);
+  padding-right: var(--default-interval);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes place {
+  0% {
+    top: -100%;
+    left: -100%;
+  }
+
+  20% {
+    top: 50%;
+    left: 50%;
+    box-shadow: 15px 15px 15px red, -15px 15px 15px red, -15px -15px 15px red,
+      15px -15px 15px red;
+    transform: translate(-50%, -50%);
+  }
+
+  80% {
+    top: 50%;
+    left: 50%;
+    box-shadow: 15px 15px 15px red, -15px 15px 15px red, -15px -15px 15px red,
+      15px -15px 15px red;
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    top: -100%;
+    left: 200%;
+  }
+}
