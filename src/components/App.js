@@ -5,22 +5,23 @@ import { useDispatch } from 'react-redux';
 import { refresh } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
 import CardPage from '../pages/CardPage/CardPage';
+import SharedLayout from '../components/SharedLayout/SharedLayout';
 
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  /* useEffect(() => {
     dispatch(refresh());
-  }, [dispatch]);
+  }, [dispatch]); */
 
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<HomePage />} />
         <Route path="/cards" element={<CardPage />} />
         <Route path="*" element={<RestrictedRoute redirectTo="/" />} />
-      </Routes>
-    </>
+      </Route>
+    </Routes>
   );
 }
 

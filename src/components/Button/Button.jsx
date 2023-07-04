@@ -61,5 +61,5 @@ export default Button;
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   view: PropTypes.string.isRequired,
-  handleButton: PropTypes.func.isRequired,
+  handleButton: PropTypes.func,
 };

@@ -53,5 +53,5 @@ const Header = ({ handleHeaderButton }) => {
 export default Header;
 
 Header.propTypes = {
-  handleHeaderButton: PropTypes.func.isRequired,
+  handleHeaderButton: PropTypes.func,
 };
