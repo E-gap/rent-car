@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import ItemCard from '../../components/ItemCard/ItemCard';
+import ItemCard from '../ItemCar/ItemCar';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addScore } from '../../redux/scores/scoresOperations';

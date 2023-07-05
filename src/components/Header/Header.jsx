@@ -12,7 +12,8 @@ import { useState } from 'react';
 import { logout } from '../../redux/auth/authOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import FormSign from '../../components/FormSign/FormSign';
-import { Scores } from '../../components/Scores/Scores';
+import Scores from '../../pages/OneCarPage/OneCarPage';
+import Container from 'components/Container/Container';
 
 const Header = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
@@ -58,33 +59,37 @@ const Header = () => {
   return (
     <>
       <header className={css.header}>
-        <div>
-          <Button text="Back" handleButton={handleButton} view="back" />
-        </div>
-        {!isLogin ? (
-          <div>
-            <Button
-              text="Sign In"
-              handleButton={handleHeaderButton}
-              view="signIn"
-            />
+        <Container>
+          <div className={css.displayFlex}>
+            <div>
+              <Button text="Back" handleButton={handleButton} view="back" />
+            </div>
+            {!isLogin ? (
+              <div>
+                <Button
+                  text="Sign In"
+                  handleButton={handleHeaderButton}
+                  view="signIn"
+                />
 
-            <Button
-              text="Sign Up"
-              handleButton={handleHeaderButton}
-              view="signUp"
-            />
+                <Button
+                  text="Sign Up"
+                  handleButton={handleHeaderButton}
+                  view="signUp"
+                />
+              </div>
+            ) : (
+              <div>
+                <p className={css.userName}>user: {userName}</p>
+                <Button
+                  text="Log out"
+                  handleButton={handleHeaderButton}
+                  view="logOut"
+                />
+              </div>
+            )}
           </div>
-        ) : (
-          <div>
-            <p className={css.userName}>user: {userName}</p>
-            <Button
-              text="Log out"
-              handleButton={handleHeaderButton}
-              view="logOut"
-            />
-          </div>
-        )}
+        </Container>
       </header>
       {isModalWindowOpen && (
         <ModalWindow

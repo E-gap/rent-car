@@ -1,3 +1,8 @@
+.animationHome {
+  height: 100%;
+  position: relative;
+}
+
 .animation {
   position: absolute;
   height: 100px;

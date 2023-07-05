@@ -1,7 +1,8 @@
 .homePage {
   background-image: url(../../images/home-page-bg-mobile.jpg);
   background-size: cover;
-  height: 100vh;
+  height: 500px;
+  width: 100vw;
 }
 
 .container {
