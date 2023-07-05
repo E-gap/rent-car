@@ -1,5 +1,5 @@
 // import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // import { selectIsScoreLoading, selectScoreError } from 'redux/selectors';
 import css from './OneCarPage.module.css';
 // import Button from '../../components/Button/Button';
