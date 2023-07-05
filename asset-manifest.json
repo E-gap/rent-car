@@ -1,21 +1,16 @@
 {
   "files": {
-    "main.css": "/rent-car/static/css/main.20e4c9f6.css",
-    "main.js": "/rent-car/static/js/main.d7229c08.js",
-    "static/media/Spinner-0.9s-200px.gif": "/rent-car/static/media/Spinner-0.9s-200px.97cc34cfc9ee0f031320.gif",
-    "static/media/cards-page-bg.jpg": "/rent-car/static/media/cards-page-bg.cb294827b46f5be3e2e8.jpg",
-    "static/media/home-page-bg.jpg": "/rent-car/static/media/home-page-bg.ccf40a80dcdc4358ce36.jpg",
-    "static/media/cards-page-bg-tablet.jpg": "/rent-car/static/media/cards-page-bg-tablet.23de02a95c8b9ff28caf.jpg",
+    "main.css": "/rent-car/static/css/main.00a3bde0.css",
+    "main.js": "/rent-car/static/js/main.44763903.js",
     "static/media/home-page-bg-mobile.jpg": "/rent-car/static/media/home-page-bg-mobile.baf5cec6d26131ad59c4.jpg",
-    "static/media/cards-page-bg-mobile.jpg": "/rent-car/static/media/cards-page-bg-mobile.2ee9f493c70070366a2b.jpg",
     "static/media/shirt.jpg": "/rent-car/static/media/shirt.1bb7c1ac894b1ac3f663.jpg",
     "static/media/cards-blank-banner.jpg": "/rent-car/static/media/cards-blank-banner.ca3b7a70a073919f8c0f.jpg",
     "index.html": "/rent-car/index.html",
-    "main.20e4c9f6.css.map": "/rent-car/static/css/main.20e4c9f6.css.map",
-    "main.d7229c08.js.map": "/rent-car/static/js/main.d7229c08.js.map"
+    "main.00a3bde0.css.map": "/rent-car/static/css/main.00a3bde0.css.map",
+    "main.44763903.js.map": "/rent-car/static/js/main.44763903.js.map"
   },
   "entrypoints": [
-    "static/css/main.20e4c9f6.css",
-    "static/js/main.d7229c08.js"
+    "static/css/main.00a3bde0.css",
+    "static/js/main.44763903.js"
   ]
 }
