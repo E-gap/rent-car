@@ -18,7 +18,7 @@ function App() {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="/cards" element={<CardPage />} />
+        <Route path="/cars" element={<CardPage />} />
         <Route path="*" element={<RestrictedRoute redirectTo="/" />} />
       </Route>
     </Routes>

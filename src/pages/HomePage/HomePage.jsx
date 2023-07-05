@@ -7,8 +7,8 @@ const HomePage = () => {
     <div className={css.homePage}>
       <div className={css.container}>
         <AnimationHome />
-        <NavLink to="/cards" className={css.moveToCards}>
-          Go to Cards
+        <NavLink to="/cars" className={css.moveToCards}>
+          Go to Cars
         </NavLink>
       </div>
     </div>
