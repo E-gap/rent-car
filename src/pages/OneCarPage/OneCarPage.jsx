@@ -6,9 +6,14 @@ import css from './OneCarPage.module.css';
 // import { useState, useEffect } from 'react';
 // import { Preloader } from '../../components/Preloader/Preloader';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
+import Container from 'components/Container/Container';
 
 const OneCarPage = () => {
-  return <div className={css.oneCarPage}>ffgfgfgfgfg</div>;
+  return (
+    <div className={css.oneCarPage}>
+      <Container>ffgfgfgfgfg</Container>
+    </div>
+  );
 };
 
 export default OneCarPage;
