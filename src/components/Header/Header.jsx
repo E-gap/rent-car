@@ -68,7 +68,14 @@ const Header = () => {
       <header className={css.header}>
         <Container>
           <div className={css.displayFlex}>
-            <Button text="Back" handleButton={handleButton} view="back" />
+            <div className={css.displayFlex}>
+              <Button text="Back" handleButton={handleButton} view="back" />
+              <NavLink to="/" className={css.marginRight10}>
+                Home
+              </NavLink>
+              <NavLink to="/cars">All cars</NavLink>
+            </div>
+
             {!isLogin ? (
               <div>
                 <Button
