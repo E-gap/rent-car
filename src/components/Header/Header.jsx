@@ -14,6 +14,7 @@ import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import FormSign from '../../components/FormSign/FormSign';
 import Scores from '../../pages/OneCarPage/OneCarPage';
 import Container from 'components/Container/Container';
+import { MdFavoriteBorder } from 'react-icons/md';
 
 const Header = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
@@ -56,14 +57,16 @@ const Header = () => {
     }
   };
 
+  const handleFavorite = () => {
+    console.log('показать все мои фейвориты');
+  };
+
   return (
     <>
       <header className={css.header}>
         <Container>
           <div className={css.displayFlex}>
-            <div>
-              <Button text="Back" handleButton={handleButton} view="back" />
-            </div>
+            <Button text="Back" handleButton={handleButton} view="back" />
             {!isLogin ? (
               <div>
                 <Button
@@ -79,8 +82,12 @@ const Header = () => {
                 />
               </div>
             ) : (
-              <div>
+              <div className={css.displayFlex}>
                 <p className={css.userName}>user: {userName}</p>
+                <MdFavoriteBorder
+                  className={css.userFavorite}
+                  onClick={handleFavorite}
+                />
                 <Button
                   text="Log out"
                   handleButton={handleHeaderButton}

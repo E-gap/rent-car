@@ -1,6 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .displayFlex {
@@ -15,4 +16,9 @@
   color: var(--default-color);
   font-weight: 700;
   margin-right: var(--default-interval);
+}
+
+.userFavorite {
+  cursor: pointer;
+  margin-right: 10px;
 }

@@ -1,4 +1,36 @@
 .oneCarPage {
-  height: 100vh;
   padding-top: 10px;
+}
+
+.carPhoto {
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.carInfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 15px;
+}
+
+.iconFavorite {
+  width: 25px;
+  height: 25px;
+}
+
+.iconFavorite:hover,
+.iconFavorite:focus {
+  cursor: pointer;
+}
+
+.carLink {
+  border: 1px solid blue;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  width: 300px;
+  font-size: 0;
 }
