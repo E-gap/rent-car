@@ -1,4 +1,5 @@
 .itemCar {
+  position: relative;
   margin-bottom: 5px;
   border: 1px solid green;
   display: block;
@@ -18,12 +19,27 @@
 }
 
 .iconFavorite {
+  position: absolute;
+  top: 40px;
+  right: 90px;
   width: 25px;
   height: 25px;
+  color: var(--default-color);
+}
+
+.iconDelete {
+  position: absolute;
+  top: 80px;
+  right: 92px;
+  width: 20px;
+  height: 20px;
+  color: var(--default-color);
 }
 
 .iconFavorite:hover,
-.iconFavorite:focus {
+.iconDelete:hover,
+.iconFavorite:focus,
+.iconDelete:focus {
   cursor: pointer;
 }
 

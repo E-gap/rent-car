@@ -3,11 +3,17 @@ import css from './ItemCar.module.css';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { MdFavoriteBorder } from 'react-icons/md';
+import { BsTrashFill } from 'react-icons/bs';
 
 const ItemCar = ({ oneCar }) => {
   const handleFavorite = () => {
     console.log('add to favorite');
   };
+
+  const handleDelete = () => {
+    console.log('delete');
+  };
+
   return (
     <li className={css.itemCar}>
       <NavLink to={`/cars/${oneCar._id}`} className={css.carLink}>
@@ -23,6 +29,7 @@ const ItemCar = ({ oneCar }) => {
           className={css.iconFavorite}
           onClick={handleFavorite}
         />
+        <BsTrashFill className={css.iconDelete} onClick={handleDelete} />
         <p>price: {oneCar.price} usd</p>
       </div>
     </li>
