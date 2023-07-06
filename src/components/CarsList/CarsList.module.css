@@ -1,0 +1,9 @@
+.carsPage {
+  height: 100vh;
+  min-height: 480px;
+  padding-top: 10px;
+}
+
+.carList {
+  list-style: none;
+}
