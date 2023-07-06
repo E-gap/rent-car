@@ -15,6 +15,8 @@ import FormSign from '../../components/FormSign/FormSign';
 import Scores from '../../pages/OneCarPage/OneCarPage';
 import Container from 'components/Container/Container';
 import { MdFavoriteBorder } from 'react-icons/md';
+import { HiOutlineUserCircle } from 'react-icons/hi';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
@@ -83,11 +85,16 @@ const Header = () => {
               </div>
             ) : (
               <div className={css.displayFlex}>
-                <p className={css.userName}>user: {userName}</p>
-                <MdFavoriteBorder
-                  className={css.userFavorite}
-                  onClick={handleFavorite}
-                />
+                <NavLink to="/user">
+                  <HiOutlineUserCircle className={css.userIcon} />
+                </NavLink>
+                <p className={css.userName}>{userName}</p>
+                <NavLink to="/user/favorite">
+                  <MdFavoriteBorder
+                    className={css.userFavorite}
+                    onClick={handleFavorite}
+                  />
+                </NavLink>
                 <Button
                   text="Log out"
                   handleButton={handleHeaderButton}

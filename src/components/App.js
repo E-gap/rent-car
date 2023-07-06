@@ -7,6 +7,9 @@ import { RestrictedRoute } from '../utils/RestrictedRoute';
 import CarsPage from '../pages/CarsPage/CarsPage';
 import SharedLayout from '../components/SharedLayout/SharedLayout';
 import OneCarPage from '../pages/OneCarPage/OneCarPage';
+import UserPage from '../pages/UserPage/UserPage';
+import FavoritePage from '../pages/FavoritePage/FavoritePage';
+import UserCarsPage from '../pages/UserCarsPage/UserCarsPage';
 
 function App() {
   // const dispatch = useDispatch();
@@ -19,8 +22,11 @@ function App() {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="/cars" element={<CarsPage />} />
-        <Route path="/cars/:id" element={<OneCarPage />} />
+        <Route path="cars" element={<CarsPage />} />
+        <Route path="cars/:id" element={<OneCarPage />} />
+        <Route path="user" element={<UserPage />} />
+        <Route path="user/favorite" element={<FavoritePage />} />
+        <Route path="user/userCars" element={<UserCarsPage />} />
         <Route path="*" element={<RestrictedRoute redirectTo="/" />} />
       </Route>
     </Routes>

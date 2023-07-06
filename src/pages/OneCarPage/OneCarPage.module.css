@@ -1,5 +1,6 @@
 .oneCarPage {
   padding-top: 10px;
+  height: 100vh;
 }
 
 .carPhoto {
@@ -8,7 +9,7 @@
   margin: 0 auto;
 }
 
-.carInfo {
+.mainCarInfo {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -33,4 +34,24 @@
   margin-bottom: 5px;
   width: 300px;
   font-size: 0;
+}
+
+.detailInfo {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.detailInfo p:not(:last-child) {
+  flex-basis: calc((100% - 10px) / 2);
+}
+
+.detailInfo p:last-child {
+  width: 100%;
+  border: 1px solid red;
+  margin-top: 10px;
+}
+
+.description {
+  height: 80px;
+  overflow-y: auto;
 }

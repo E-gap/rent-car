@@ -1,4 +1,4 @@
-import css from './CarsPage.module.css';
+import css from './UserCarsPage.module.css';
 import ItemCar from 'components/ItemCar/ItemCar';
 import Container from 'components/Container/Container';
 
@@ -15,9 +15,9 @@ const allCars = [
   },
 ];
 
-const CarsPage = () => {
+const UserCarsPage = () => {
   return (
-    <div className={css.carsPage}>
+    <div className={css.userCarsPage}>
       <Container>
         <ul className={css.carList}>
           {allCars.map(oneCar => (
@@ -29,4 +29,4 @@ const CarsPage = () => {
   );
 };
 
-export default CarsPage;
+export default UserCarsPage;
