@@ -59,7 +59,6 @@ const Header = () => {
   };
 
   const handleAddCar = () => {
-    console.log('add Car');
     setIsModalWindowOpen(true);
     setSign('addCar');
   };
@@ -102,8 +101,8 @@ const Header = () => {
                     className={css.userFavorite}
                     onClick={handleFavorite}
                   />
-                  <ImPlus className={css.addCar} onClick={handleAddCar} />
                 </NavLink>
+                <ImPlus className={css.addCar} onClick={handleAddCar} />
                 <Button
                   text="Log out"
                   handleButton={handleHeaderButton}

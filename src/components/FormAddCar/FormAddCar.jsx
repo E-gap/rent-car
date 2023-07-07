@@ -32,7 +32,7 @@ function FormAddCar({ closeModal }) {
   });
 
   const submitForm = (values, actions) => {
-    const dataCar = { ...values };
+    const dataCar = { ...values, date: Date.now() };
     console.log(dataCar);
     actions.resetForm();
 
