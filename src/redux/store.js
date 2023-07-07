@@ -11,7 +11,7 @@ import {
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
-import { scoreReducer } from './scores/scoresSlice';
+import { carsReducer } from './cars/carsSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -22,7 +22,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    score: scoreReducer,
+    score: carsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

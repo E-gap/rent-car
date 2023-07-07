@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../auth/authOperations';
 
-export const getAllScores = createAsyncThunk(
-  'scores/getAllScores',
+export const getAllCars = createAsyncThunk(
+  'cars/getAllCars',
   async (_, thunkApi) => {
     try {
-      const { data } = await instance.get('/scores');
+      const { data } = await instance.get('/cars');
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -13,11 +13,11 @@ export const getAllScores = createAsyncThunk(
   }
 );
 
-export const getUserScores = createAsyncThunk(
-  'scores/getUserScores',
+export const getUserCars = createAsyncThunk(
+  'cars/getUserCars',
   async (_, thunkApi) => {
     try {
-      const { data } = await instance.get('/scores/user');
+      const { data } = await instance.get('/cars/user');
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -25,11 +25,11 @@ export const getUserScores = createAsyncThunk(
   }
 );
 
-export const addScore = createAsyncThunk(
-  'scores/addScore',
+export const addCar = createAsyncThunk(
+  'cars/addCar',
   async (resultGame, thunkApi) => {
     try {
-      const { data } = await instance.post('/scores', resultGame);
+      const { data } = await instance.post('/cars', resultGame);
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

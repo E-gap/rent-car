@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllScores, getUserScores, addScore } from './scoresOperations';
+import { getAllScores, getUserScores, addScore } from './carsOperations';
 
 const scoreSlice = createSlice({
   name: 'score',

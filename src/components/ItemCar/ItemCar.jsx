@@ -4,8 +4,11 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { MdFavoriteBorder } from 'react-icons/md';
 import { BsTrashFill } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
+import { selectIsLogin } from '../../redux/selectors';
 
 const ItemCar = ({ oneCar }) => {
+  const isLogin = useSelector(selectIsLogin);
   const handleFavorite = () => {
     console.log('add to favorite');
   };
@@ -25,11 +28,16 @@ const ItemCar = ({ oneCar }) => {
       </NavLink>
       <div className={css.carInfo}>
         <p>model: {oneCar.name}</p>
-        <MdFavoriteBorder
-          className={css.iconFavorite}
-          onClick={handleFavorite}
-        />
-        <BsTrashFill className={css.iconDelete} onClick={handleDelete} />
+        {isLogin && (
+          <div className={css.iconsFavoriteDelete}>
+            <MdFavoriteBorder
+              className={css.iconFavorite}
+              onClick={handleFavorite}
+            />
+            <BsTrashFill className={css.iconDelete} onClick={handleDelete} />
+          </div>
+        )}
+
         <p>price: {oneCar.price} usd</p>
       </div>
     </li>

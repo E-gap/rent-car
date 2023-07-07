@@ -1,21 +1,18 @@
 import css from './Header.module.css';
 import Button from '../Button/Button';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectIsLogin,
-  selectUserName,
-  selectAllScores,
-  selectScoresByUser,
-} from '../../redux/selectors';
+import { selectIsLogin, selectUserName } from '../../redux/selectors';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { logout } from '../../redux/auth/authOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import FormSign from '../../components/FormSign/FormSign';
-import Scores from '../../pages/OneCarPage/OneCarPage';
+import FormAddCar from '../../components/FormAddCar/FormAddCar';
+
 import Container from 'components/Container/Container';
 import { MdFavoriteBorder } from 'react-icons/md';
 import { HiOutlineUserCircle } from 'react-icons/hi';
+import { ImPlus } from 'react-icons/im';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
@@ -23,8 +20,6 @@ const Header = () => {
   const [sign, setSign] = useState('');
   const isLogin = useSelector(selectIsLogin);
   const userName = useSelector(selectUserName);
-  const allScores = useSelector(selectAllScores);
-  const myScores = useSelector(selectScoresByUser);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -61,6 +56,12 @@ const Header = () => {
 
   const handleFavorite = () => {
     console.log('показать все мои фейвориты');
+  };
+
+  const handleAddCar = () => {
+    console.log('add Car');
+    setIsModalWindowOpen(true);
+    setSign('addCar');
   };
 
   return (
@@ -101,6 +102,7 @@ const Header = () => {
                     className={css.userFavorite}
                     onClick={handleFavorite}
                   />
+                  <ImPlus className={css.addCar} onClick={handleAddCar} />
                 </NavLink>
                 <Button
                   text="Log out"
@@ -120,12 +122,7 @@ const Header = () => {
           {sign.includes('sign') && (
             <FormSign sign={sign} closeModal={closeModal} />
           )}
-          {sign === 'allScores' && (
-            <Scores sign={sign} closeModal={closeModal} scores={allScores} />
-          )}
-          {sign === 'myScores' && (
-            <Scores sign={sign} closeModal={closeModal} scores={myScores} />
-          )}
+          {sign === 'addCar' && <FormAddCar closeModal={closeModal} />}
         </ModalWindow>
       )}
     </>
