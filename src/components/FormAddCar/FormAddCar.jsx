@@ -4,7 +4,8 @@ import * as Yup from 'yup';
 import css from './FormAddCar.module.css';
 import PropTypes from 'prop-types';
 
-import { addCar } from '../../redux/auth/authOperations';
+import { addCar } from '../../redux/cars/carsOperations';
+
 import { useDispatch } from 'react-redux';
 // import Button from '../Button/Button';
 

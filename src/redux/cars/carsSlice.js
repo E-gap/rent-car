@@ -1,51 +1,51 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllScores, getUserScores, addScore } from './carsOperations';
+import { getAllCars, getUserCars, addCar } from './carsOperations';
 
-const scoreSlice = createSlice({
-  name: 'score',
+const carsSlice = createSlice({
+  name: 'cars',
   initialState: {
-    allScores: [],
-    scoresByUser: [],
+    allCars: [],
+    carsByUser: [],
     isLoading: false,
     error: null,
   },
   extraReducers: builder =>
     builder
-      .addCase(getAllScores.pending, state => {
+      .addCase(getAllCars.pending, state => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(getAllScores.fulfilled, (state, action) => {
+      .addCase(getAllCars.fulfilled, (state, action) => {
         state.allScores = action.payload;
         state.isLoading = false;
       })
-      .addCase(getAllScores.rejected, (state, action) => {
+      .addCase(getAllCars.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(getUserScores.pending, state => {
+      .addCase(getUserCars.pending, state => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(getUserScores.fulfilled, (state, action) => {
+      .addCase(getUserCars.fulfilled, (state, action) => {
         state.scoresByUser = action.payload;
         state.isLoading = false;
       })
-      .addCase(getUserScores.rejected, (state, action) => {
+      .addCase(getUserCars.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(addScore.pending, state => {
+      .addCase(addCar.pending, state => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(addScore.fulfilled, (state, action) => {
+      .addCase(addCar.fulfilled, (state, action) => {
         state.isLoading = false;
       })
-      .addCase(addScore.rejected, (state, action) => {
+      .addCase(addCar.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       }),
 });
 
-export const scoreReducer = scoreSlice.reducer;
+export const carsReducer = carsSlice.reducer;
