@@ -1,5 +1,6 @@
 import css from './CarsList.module.css';
 import ItemCar from 'components/ItemCar/ItemCar';
+import PropTypes from 'prop-types';
 
 const allCars = [
   {
@@ -14,7 +15,7 @@ const allCars = [
   },
 ];
 
-const CarsList = () => {
+const CarsList = ({ cars }) => {
   return (
     <ul className={css.carList}>
       {allCars.map(oneCar => (
@@ -25,3 +26,7 @@ const CarsList = () => {
 };
 
 export default CarsList;
+
+CarsList.propTypes = {
+  cars: PropTypes.array,
+};
