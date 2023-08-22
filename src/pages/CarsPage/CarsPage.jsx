@@ -10,6 +10,8 @@ const CarsPage = () => {
   const dispatch = useDispatch();
   const cars = useSelector(selectAllCars);
 
+  
+
   useEffect(() => {
     dispatch(getAllCars());
   }, [dispatch]);

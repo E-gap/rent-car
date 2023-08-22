@@ -27,7 +27,7 @@ const ItemCar = ({ oneCar }) => {
         />
       </NavLink>
       <div className={css.carInfo}>
-        <p>model: {oneCar.name}</p>
+        <p>model: {oneCar.model}</p>
         {isLogin && (
           <div className={css.iconsFavoriteDelete}>
             <MdFavoriteBorder

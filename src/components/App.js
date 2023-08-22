@@ -1,35 +1,45 @@
 import { Route, Routes } from 'react-router-dom';
 import HomePage from '../pages/HomePage/HomePage';
 import { RestrictedRoute } from '../utils/RestrictedRoute';
-// import { useDispatch } from 'react-redux';
-// import { refresh } from '../redux/auth/authOperations';
-// import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { refresh } from '../redux/auth/authOperations';
+import { useEffect } from 'react';
 import CarsPage from '../pages/CarsPage/CarsPage';
 import SharedLayout from '../components/SharedLayout/SharedLayout';
 import OneCarPage from '../pages/OneCarPage/OneCarPage';
 import UserPage from '../pages/UserPage/UserPage';
 import FavoritePage from '../pages/FavoritePage/FavoritePage';
 import UserCarsPage from '../pages/UserCarsPage/UserCarsPage';
+import { selectIsUserLoading } from '../redux/selectors';
 
 function App() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const IsLoading = useSelector(selectIsUserLoading);
 
-  /* useEffect(() => {
+  useEffect(() => {
     dispatch(refresh());
-  }, [dispatch]); */
+  }, [dispatch]);
 
   return (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path="cars" element={<CarsPage />} />
-        <Route path="cars/:id" element={<OneCarPage />} />
-        <Route path="user" element={<UserPage />} />
-        <Route path="user/favorite" element={<FavoritePage />} />
-        <Route path="user/userCars" element={<UserCarsPage />} />
-        <Route path="*" element={<RestrictedRoute redirectTo="/" />} />
-      </Route>
-    </Routes>
+    <>
+      {IsLoading ? (
+        <div>Loading</div>
+      ) : (
+        <>
+          <Routes>
+            <Route path="/" element={<SharedLayout />}>
+              <Route index element={<HomePage />} />
+              <Route path="cars" element={<CarsPage />} />
+              <Route path="cars/:id" element={<OneCarPage />} />
+              <Route path="user" element={<UserPage />} />
+              <Route path="user/favorite" element={<FavoritePage />} />
+              <Route path="user/userCars" element={<UserCarsPage />} />
+              <Route path="*" element={<RestrictedRoute redirectTo="/" />} />
+            </Route>
+          </Routes>
+        </>
+      )}
+    </>
   );
 }
 

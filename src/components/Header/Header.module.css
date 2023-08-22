@@ -42,3 +42,7 @@
   margin-right: 10px;
   color: var(--default-color);
 }
+
+.addCar:hover {
+  cursor: pointer;
+}

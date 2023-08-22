@@ -6,6 +6,7 @@ export const getAllCars = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const { data } = await instance.get('/cars');
+      
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

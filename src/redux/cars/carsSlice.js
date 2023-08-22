@@ -16,7 +16,7 @@ const carsSlice = createSlice({
         state.error = null;
       })
       .addCase(getAllCars.fulfilled, (state, action) => {
-        state.allScores = action.payload;
+        state.allCars = action.payload;
         state.isLoading = false;
       })
       .addCase(getAllCars.rejected, (state, action) => {
