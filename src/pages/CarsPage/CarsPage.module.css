@@ -3,7 +3,8 @@
   min-height: 480px;
   /* background-image: url(../../images/cards-page-bg-mobile.jpg);
   background-size: cover; */
-  padding-top: 10px;
+  padding-top: var(--default-interval);
+  padding-bottom: var(--default-interval);
 }
 
 .carList {
