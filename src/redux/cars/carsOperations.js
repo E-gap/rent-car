@@ -6,7 +6,7 @@ export const getAllCars = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const { data } = await instance.get('/cars');
-      
+
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -28,9 +28,9 @@ export const getUserCars = createAsyncThunk(
 
 export const addCar = createAsyncThunk(
   'cars/addCar',
-  async (resultGame, thunkApi) => {
+  async (dataCar, thunkApi) => {
     try {
-      const { data } = await instance.post('/cars', resultGame);
+      const { data } = await instance.post('/cars', dataCar);
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

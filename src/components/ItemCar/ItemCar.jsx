@@ -6,11 +6,15 @@ import { MdFavoriteBorder } from 'react-icons/md';
 import { BsTrashFill } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
 import { selectIsLogin } from '../../redux/selectors';
+import { useDispatch } from 'react-redux';
+import { addFavorite } from '../../redux/auth/authOperations';
 
 const ItemCar = ({ oneCar }) => {
+  const dispatch = useDispatch();
   const isLogin = useSelector(selectIsLogin);
   const handleFavorite = () => {
     console.log('add to favorite');
+    dispatch(addFavorite(oneCar._id));
   };
 
   const handleDelete = () => {

@@ -6,6 +6,7 @@ const authSlice = createSlice({
   initialState: {
     user: { name: null, email: null },
     token: null,
+    favorites: [],
     isLogin: false,
     isLoading: false,
     error: '',
@@ -32,6 +33,7 @@ const authSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
+        state.favorites = action.payload.favorites;
         state.token = action.payload.token;
         state.isLogin = true;
         state.isLoading = false;
