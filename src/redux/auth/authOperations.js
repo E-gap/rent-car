@@ -57,17 +57,18 @@ export const refresh = createAsyncThunk('auth/current', async (_, thunkApi) => {
   }
 });
 
-export const addFavorite = createAsyncThunk(
-  'auth/addFavorite',
+export const changeFavorite = createAsyncThunk(
+  'auth/changeFavorite',
   async (carId, thunkApi) => {
     const { token } = thunkApi.getState().auth;
+
     if (!token)
       return thunkApi.rejectWithValue(
         'Sign In if you want to add car to Favorite'
       );
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     try {
-      const { data } = await instance.put('/users/addFavorite', carId);
+      const { data } = await instance.put('/users/changeFavorite', { carId });
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

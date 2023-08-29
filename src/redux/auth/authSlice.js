@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logout, refresh } from './authOperations';
+import {
+  register,
+  login,
+  logout,
+  refresh,
+  changeFavorite,
+} from './authOperations';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -66,6 +72,13 @@ const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(refresh.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(changeFavorite.fulfilled, (state, action) => {
+        state.favorites = action.payload.favorites;
+      })
+      .addCase(changeFavorite.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       }),
