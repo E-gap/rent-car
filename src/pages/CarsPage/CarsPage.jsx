@@ -8,9 +8,7 @@ import { selectAllCars } from '../../redux/selectors';
 
 const CarsPage = () => {
   const dispatch = useDispatch();
-  const cars = useSelector(selectAllCars);
-
-  
+  const cars = useSelector(selectAllCars);  
 
   useEffect(() => {
     dispatch(getAllCars());
