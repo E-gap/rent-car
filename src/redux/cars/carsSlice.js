@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllCars, getUserCars, addCar } from './carsOperations';
+import {
+  getAllCars,
+  getUserCars,
+  addCar,
+  getFavoriteCars,
+} from './carsOperations';
 
 const carsSlice = createSlice({
   name: 'cars',
@@ -43,6 +48,18 @@ const carsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(addCar.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getFavoriteCars.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getFavoriteCars.fulfilled, (state, action) => {
+        state.allCars = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(getFavoriteCars.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       }),
