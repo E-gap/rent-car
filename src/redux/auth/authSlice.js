@@ -70,6 +70,7 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.isLogin = true;
         state.isLoading = false;
+        state.favorites = action.payload.favorites;
       })
       .addCase(refresh.rejected, (state, action) => {
         state.isLoading = false;
