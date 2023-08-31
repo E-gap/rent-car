@@ -13,9 +13,7 @@ const ItemCar = ({ oneCar }) => {
   const dispatch = useDispatch();
   const isLogin = useSelector(selectIsLogin);
   const favorites = useSelector(selectUserFavorites);
-  console.log(favorites);
 
-  console.log(favorites.includes(oneCar._id));
   const handleFavorite = () => {
     dispatch(changeFavorite(oneCar._id));
   };

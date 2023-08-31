@@ -6,6 +6,7 @@ import { refresh } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
 import CarsPage from '../pages/CarsPage/CarsPage';
 import SharedLayout from '../components/SharedLayout/SharedLayout';
+import { Preloader } from '../components/Preloader/Preloader';
 import OneCarPage from '../pages/OneCarPage/OneCarPage';
 import UserPage from '../pages/UserPage/UserPage';
 import FavoritePage from '../pages/FavoritePage/FavoritePage';
@@ -23,7 +24,7 @@ function App() {
   return (
     <>
       {IsLoading ? (
-        <div>Loading</div>
+        <Preloader />
       ) : (
         <>
           <Routes>

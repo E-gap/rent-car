@@ -1,4 +1,4 @@
-.cardPagePreloader {
+.preloader {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -6,9 +6,7 @@
   align-items: center;
 }
 
-.scoresPreloader {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.imagePreloader {
+  width: 200px;
+  height: 200px;
 }

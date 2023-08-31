@@ -1,21 +1,18 @@
 import loader from '../../images/Spinner-0.9s-200px.gif';
-import PropTypes from 'prop-types';
+/* import loader from '../../images/shirt.jpg'; */
+// import PropTypes from 'prop-types';
 import css from './Preloader.module.css';
 
-export const Preloader = ({ sign }) => {
-  const style = sign?.includes('Scores')
-    ? `${css.scoresPreloader}`
-    : `${css.cardPagePreloader}`;
-
+export const Preloader = () => {
   return (
     <div>
-      <div className={style}>
-        <img src={loader} alt="qwerty" />
+      <div className={css.preloader}>
+        <img src={loader} alt="qwerty" className={css.imagePreloader} />
       </div>
     </div>
   );
 };
 
-Preloader.propTypes = {
+/* Preloader.propTypes = {
   sign: PropTypes.string,
-};
+}; */
