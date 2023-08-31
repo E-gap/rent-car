@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { selectIsLogin, selectUserFavorites } from '../../redux/selectors';
 import { useDispatch } from 'react-redux';
 import { changeFavorite } from '../../redux/auth/authOperations';
+import { deleteCar } from '../../redux/cars/carsOperations';
 
 const ItemCar = ({ oneCar }) => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const ItemCar = ({ oneCar }) => {
   };
 
   const handleDelete = () => {
-    console.log('delete');
+    dispatch(deleteCar(oneCar._id));
   };
 
   return (

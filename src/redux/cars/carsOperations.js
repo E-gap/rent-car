@@ -63,3 +63,16 @@ export const addCar = createAsyncThunk(
     }
   }
 );
+
+export const deleteCar = createAsyncThunk(
+  'cars/deleteCar',
+  async (carId, thunkApi) => {
+    console.log(carId);
+    try {
+      const { data } = await instance.delete(`/cars/${carId}`);
+      return data.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
