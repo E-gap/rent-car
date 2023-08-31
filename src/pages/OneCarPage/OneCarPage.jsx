@@ -7,7 +7,7 @@ import css from './OneCarPage.module.css';
 // import { Preloader } from '../../components/Preloader/Preloader';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 import Container from 'components/Container/Container';
-import { MdFavoriteBorder } from 'react-icons/md';
+import { MdFavorite } from 'react-icons/md';
 
 const OneCarPage = () => {
   const handleFavorite = () => {
@@ -23,10 +23,7 @@ const OneCarPage = () => {
         />
         <div className={css.mainCarInfo}>
           <p>model: template</p>
-          <MdFavoriteBorder
-            className={css.iconFavorite}
-            onClick={handleFavorite}
-          />
+          <MdFavorite className={css.iconFavorite} onClick={handleFavorite} />
           <p>price: template usd</p>
         </div>
         <div className={css.detailInfo}>
@@ -41,13 +38,13 @@ const OneCarPage = () => {
           <p>tel: +0939999999</p>
           <p>email: template@gmail.com</p>
           <p>
-            description:{' '}
-            <div className={css.description}>
+            description:
+            <p className={css.description}>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
               nihil cupiditate aliquid, a, reiciendis pariatur, consequatur
               nesciunt aut ex magnam officia. Nesciunt delectus facere tenetur
               pariatur quam quibusdam dolore repellat.
-            </div>
+            </p>
           </p>
         </div>
       </Container>
