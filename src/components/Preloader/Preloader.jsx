@@ -1,5 +1,4 @@
 import loader from '../../images/loader-car.gif';
-/* import loader from '../../images/shirt.jpg'; */
 // import PropTypes from 'prop-types';
 import css from './Preloader.module.css';
 
