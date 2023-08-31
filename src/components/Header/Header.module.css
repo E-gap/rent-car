@@ -16,6 +16,15 @@
   margin-right: 10px;
 }
 
+.link.active {
+  color: red;
+}
+
+[aria-current] {
+  color: red;
+  font-weight: 700;
+}
+
 .userIcon {
   width: 20px;
   height: 20px;

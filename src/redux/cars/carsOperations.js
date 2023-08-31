@@ -38,6 +38,11 @@ export const getFavoriteCars = createAsyncThunk(
 export const getUserCars = createAsyncThunk(
   'cars/getUserCars',
   async (_, thunkApi) => {
+    const { token } = thunkApi.getState().auth;
+
+    if (!token)
+      return thunkApi.rejectWithValue('Sign In if you want to get Your Cars');
+    instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     try {
       const { data } = await instance.get('/cars/user');
       return data.data;

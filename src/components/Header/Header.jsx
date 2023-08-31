@@ -70,10 +70,12 @@ const Header = () => {
           <div className={css.displayFlex}>
             <div className={css.displayFlex}>
               <Button text="Back" handleButton={handleButton} view="back" />
-              <NavLink to="/" className={css.marginRight10}>
+              <NavLink to="/" className={`${css.marginRight10} ${css.link}`}>
                 Home
               </NavLink>
-              <NavLink to="/cars">All cars</NavLink>
+              <NavLink className={css.link} to="/cars">
+                All cars
+              </NavLink>
             </div>
 
             {!isLogin ? (

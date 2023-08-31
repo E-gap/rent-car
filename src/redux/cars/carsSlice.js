@@ -33,7 +33,7 @@ const carsSlice = createSlice({
         state.error = null;
       })
       .addCase(getUserCars.fulfilled, (state, action) => {
-        state.scoresByUser = action.payload;
+        state.allCars = action.payload;
         state.isLoading = false;
       })
       .addCase(getUserCars.rejected, (state, action) => {
