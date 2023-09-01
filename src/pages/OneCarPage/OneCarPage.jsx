@@ -1,18 +1,35 @@
-// import { useSelector } from 'react-redux';
 // import PropTypes from 'prop-types';
-// import { selectIsScoreLoading, selectScoreError } from 'redux/selectors';
+
 import css from './OneCarPage.module.css';
-// import Button from '../../components/Button/Button';
-// import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getOneCar } from '../../redux/cars/carsOperations';
 // import { Preloader } from '../../components/Preloader/Preloader';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
+import { selectAllCars, selectIsCarsLoading } from '../../redux/selectors';
 import Container from 'components/Container/Container';
 import { MdFavorite } from 'react-icons/md';
 
 const OneCarPage = () => {
+  const dispatch = useDispatch();
+  const cars = useSelector(selectAllCars);
+  const IsLoading = useSelector(selectIsCarsLoading);
+
   const handleFavorite = () => {
     console.log('add to favorite from OneCarPage');
   };
+
+  const { id: carId } = useParams();
+
+  useEffect(() => {
+    dispatch(getOneCar(carId));
+    // eslint-disable-next-line
+  }, []);
+
+  console.log(cars);
+  console.log(IsLoading);
+
   return (
     <div className={css.oneCarPage}>
       <Container>
@@ -37,14 +54,12 @@ const OneCarPage = () => {
           <p>city: Kyiv</p>
           <p>tel: +0939999999</p>
           <p>email: template@gmail.com</p>
-          <p>
-            description:
-            <p className={css.description}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
-              nihil cupiditate aliquid, a, reiciendis pariatur, consequatur
-              nesciunt aut ex magnam officia. Nesciunt delectus facere tenetur
-              pariatur quam quibusdam dolore repellat.
-            </p>
+          <p>description:</p>
+          <p className={css.description}>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis nihil
+            cupiditate aliquid, a, reiciendis pariatur, consequatur nesciunt aut
+            ex magnam officia. Nesciunt delectus facere tenetur pariatur quam
+            quibusdam dolore repellat.
           </p>
         </div>
       </Container>

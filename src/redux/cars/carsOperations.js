@@ -14,6 +14,19 @@ export const getAllCars = createAsyncThunk(
   }
 );
 
+export const getOneCar = createAsyncThunk(
+  'cars/getOneCar',
+  async (carId, thunkApi) => {
+    try {
+      const { data } = await instance.get(`/cars/${carId}`);
+
+      return data.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const getFavoriteCars = createAsyncThunk(
   'cars/getFavoriteCars',
   async (_, thunkApi) => {

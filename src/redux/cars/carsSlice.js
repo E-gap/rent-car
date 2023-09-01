@@ -5,6 +5,7 @@ import {
   addCar,
   getFavoriteCars,
   deleteCar,
+  getOneCar,
 } from './carsOperations';
 
 const carsSlice = createSlice({
@@ -26,6 +27,18 @@ const carsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(getAllCars.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getOneCar.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getOneCar.fulfilled, (state, action) => {
+        state.allCars = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(getOneCar.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
