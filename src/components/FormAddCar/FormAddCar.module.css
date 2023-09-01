@@ -6,6 +6,10 @@
   padding: 20px 20px;
   width: 100%;
 }
+input,
+textarea {
+  padding-left: 5px;
+}
 
 .label {
   display: flex;
@@ -16,6 +20,15 @@
   font-size: 12px;
   font-weight: 500;
   color: var(--default-color);
+}
+
+.label.description {
+  width: 100%;
+}
+
+.label .descriptionText {
+  height: 100px;
+  resize: none;
 }
 
 .field {

@@ -29,6 +29,7 @@ function FormAddCar({ closeModal }) {
     city: Yup.string().required('Please input city'),
     email: Yup.string().required('Please input email'),
     price: Yup.number().required('Please input price'),
+    description: Yup.string(),
   });
 
   const submitForm = (values, actions) => {
@@ -57,6 +58,7 @@ function FormAddCar({ closeModal }) {
           city: '',
           email: '',
           price: '',
+          description: '',
         }}
         validationSchema={AddCarSchema}
         onSubmit={submitForm}
@@ -180,6 +182,14 @@ function FormAddCar({ closeModal }) {
               render={message => (
                 <div className={css.errorValidation}>{message}</div>
               )}
+            />
+          </label>
+          <label className={`${css.label} ${css.description}`}>
+            Description
+            <Field
+              as="textarea"
+              name="description"
+              className={css.descriptionText}
             />
           </label>
           <button type="submit" className={css.submit}>
