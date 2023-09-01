@@ -21,6 +21,10 @@
   height: 25px;
 }
 
+.favoriteSelected {
+  color: red;
+}
+
 .iconFavorite:hover,
 .iconFavorite:focus {
   cursor: pointer;

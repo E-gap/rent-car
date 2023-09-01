@@ -5,9 +5,14 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneCar } from '../../redux/cars/carsOperations';
+import { changeFavorite } from '../../redux/auth/authOperations';
 import { Preloader } from '../../components/Preloader/Preloader';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
-import { selectAllCars, selectIsCarsLoading } from '../../redux/selectors';
+import {
+  selectAllCars,
+  selectIsCarsLoading,
+  selectUserFavorites,
+} from '../../redux/selectors';
 import Container from 'components/Container/Container';
 import { MdFavorite } from 'react-icons/md';
 
@@ -15,6 +20,7 @@ const OneCarPage = () => {
   const dispatch = useDispatch();
   const { id: carId } = useParams();
   const IsLoading = useSelector(selectIsCarsLoading);
+  const favorites = useSelector(selectUserFavorites);
   useEffect(() => {
     dispatch(getOneCar(carId));
     // eslint-disable-next-line
@@ -33,10 +39,12 @@ const OneCarPage = () => {
     city,
     tel,
     email,
+    description,
   } = useSelector(selectAllCars)[0];
 
   const handleFavorite = () => {
     console.log('add to favorite from OneCarPage');
+    dispatch(changeFavorite(carId));
   };
 
   return (
@@ -54,7 +62,11 @@ const OneCarPage = () => {
             <div className={css.mainCarInfo}>
               <p>model: {model}</p>
               <MdFavorite
-                className={css.iconFavorite}
+                className={
+                  favorites.includes(carId)
+                    ? `${css.iconFavorite} ${css.favoriteSelected}`
+                    : css.iconFavorite
+                }
                 onClick={handleFavorite}
               />
               <p>price: {price} usd</p>
@@ -71,12 +83,7 @@ const OneCarPage = () => {
               <p>tel: {tel}</p>
               <p>email: {email}</p>
               <p>description:</p>
-              <p className={css.description}>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
-                nihil cupiditate aliquid, a, reiciendis pariatur, consequatur
-                nesciunt aut ex magnam officia. Nesciunt delectus facere tenetur
-                pariatur quam quibusdam dolore repellat.
-              </p>
+              <p className={css.description}>{description}</p>
             </div>
           </Container>
         </div>
