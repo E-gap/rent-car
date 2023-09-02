@@ -14,18 +14,26 @@ export const getAllCars = createAsyncThunk(
   }
 );
 
-export const getOneCar = createAsyncThunk(
+/* export const getOneCar = createAsyncThunk(
   'cars/getOneCar',
   async (carId, thunkApi) => {
     try {
       const { data } = await instance.get(`/cars/${carId}`);
-
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
   }
-);
+); */
+
+export const getOneCar = async carId => {
+  try {
+    const { data } = await instance.get(`/cars/${carId}`);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
 
 export const getFavoriteCars = createAsyncThunk(
   'cars/getFavoriteCars',
@@ -80,7 +88,6 @@ export const addCar = createAsyncThunk(
 export const deleteCar = createAsyncThunk(
   'cars/deleteCar',
   async (carId, thunkApi) => {
-    console.log(carId);
     try {
       const { data } = await instance.delete(`/cars/${carId}`);
       return data.data;
