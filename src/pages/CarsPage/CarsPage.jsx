@@ -2,29 +2,42 @@ import css from './CarsPage.module.css';
 import Container from 'components/Container/Container';
 import CarsList from 'components/CarsList/CarsList';
 import { Preloader } from '../../components/Preloader/Preloader';
-import { useDispatch, useSelector } from 'react-redux';
 import { getAllCars } from '../../redux/cars/carsOperations';
-import { useEffect } from 'react';
-import { selectAllCars, selectIsCarsLoading } from '../../redux/selectors';
+import { useEffect, useState } from 'react';
 
 const CarsPage = () => {
-  const dispatch = useDispatch();
-  const cars = useSelector(selectAllCars);
-  const IsLoading = useSelector(selectIsCarsLoading);
+  const [cars, setCars] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    dispatch(getAllCars());
+    getAllCars().then(res => {
+      setIsLoading(false);
+      if (res.status === 'OK') {
+        setError('');
+        setCars(res.data);
+      } else {
+        setError('Something went wrong try later');
+      }
+    });
+
     // eslint-disable-next-line
   }, []);
 
   return (
     <>
-      {IsLoading ? (
+      {isLoading ? (
         <Preloader />
       ) : (
         <div className={css.carsPage}>
           <Container>
-            <CarsList cars={cars} />
+            {error ? (
+              <div className={css.errorDiv}>
+                <p className={css.errorMessage}>{error}</p>
+              </div>
+            ) : (
+              <CarsList cars={cars} />
+            )}
           </Container>
         </div>
       )}

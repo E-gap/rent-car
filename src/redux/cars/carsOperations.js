@@ -1,30 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../auth/authOperations';
 
-export const getAllCars = createAsyncThunk(
-  'cars/getAllCars',
-  async (_, thunkApi) => {
-    try {
-      const { data } = await instance.get('/cars');
-
-      return data.data;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
-    }
+export const getAllCars = async () => {
+  try {
+    const { data } = await instance.get('/cars');
+    return data;
+  } catch (error) {
+    return error;
   }
-);
-
-/* export const getOneCar = createAsyncThunk(
-  'cars/getOneCar',
-  async (carId, thunkApi) => {
-    try {
-      const { data } = await instance.get(`/cars/${carId}`);
-      return data.data;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
-    }
-  }
-); */
+};
 
 export const getOneCar = async carId => {
   try {
@@ -48,7 +32,6 @@ export const getFavoriteCars = createAsyncThunk(
 
     try {
       const { data } = await instance.get('/cars/favorite');
-
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

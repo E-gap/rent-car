@@ -1,6 +1,5 @@
 // import PropTypes from 'prop-types';
 import { BsTrashFill } from 'react-icons/bs';
-
 import css from './OneCarPage.module.css';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -9,18 +8,14 @@ import { deleteCar, getOneCar } from '../../redux/cars/carsOperations';
 import { changeFavorite } from '../../redux/auth/authOperations';
 import { Preloader } from '../../components/Preloader/Preloader';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
-import {
-  // selectAllCars,
-  // selectIsCarsLoading,
-  selectUserFavorites,
-} from '../../redux/selectors';
+import { selectUserFavorites } from '../../redux/selectors';
 import Container from 'components/Container/Container';
 import { MdFavorite } from 'react-icons/md';
 
 const OneCarPage = () => {
   const [carOne, setCarOne] = useState({});
-  const [isLoadingNow, setIsLoadingNow] = useState(true);
-  const [errorNow, setErrorNow] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id: carId } = useParams();
@@ -28,12 +23,12 @@ const OneCarPage = () => {
 
   useEffect(() => {
     getOneCar(carId).then(res => {
-      setIsLoadingNow(false);
+      setIsLoading(false);
       if (res.status === 'OK') {
-        setErrorNow('');
+        setError('');
         setCarOne(res.data[0]);
       } else {
-        setErrorNow('Something went wrong try later');
+        setError('Something went wrong try later');
       }
     });
 
@@ -57,7 +52,6 @@ const OneCarPage = () => {
   } = carOne;
 
   const handleFavorite = () => {
-    console.log('add to favorite from OneCarPage');
     dispatch(changeFavorite(carId));
   };
 
@@ -68,14 +62,14 @@ const OneCarPage = () => {
 
   return (
     <>
-      {isLoadingNow ? (
+      {isLoading ? (
         <Preloader />
       ) : (
         <div className={css.oneCarPage}>
           <Container>
-            {errorNow ? (
+            {error ? (
               <div className={css.errorDiv}>
-                <p className={css.errorMessage}>{errorNow}</p>
+                <p className={css.errorMessage}>{error}</p>
               </div>
             ) : (
               <>
