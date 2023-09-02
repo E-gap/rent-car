@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/rent-car/static/css/main.1dc2bc72.css",
-    "main.js": "/rent-car/static/js/main.1ce53f78.js",
+    "main.css": "/rent-car/static/css/main.d1053a21.css",
+    "main.js": "/rent-car/static/js/main.d78a3446.js",
     "static/media/cards-page-bg-tablet.jpg": "/rent-car/static/media/cards-page-bg-tablet.23de02a95c8b9ff28caf.jpg",
     "static/media/loader-car.gif": "/rent-car/static/media/loader-car.2ba9624c43f1bd2b12fd.gif",
     "static/media/cards-blank-banner.jpg": "/rent-car/static/media/cards-blank-banner.ca3b7a70a073919f8c0f.jpg",
     "index.html": "/rent-car/index.html",
-    "main.1dc2bc72.css.map": "/rent-car/static/css/main.1dc2bc72.css.map",
-    "main.1ce53f78.js.map": "/rent-car/static/js/main.1ce53f78.js.map"
+    "main.d1053a21.css.map": "/rent-car/static/css/main.d1053a21.css.map",
+    "main.d78a3446.js.map": "/rent-car/static/js/main.d78a3446.js.map"
   },
   "entrypoints": [
-    "static/css/main.1dc2bc72.css",
-    "static/js/main.1ce53f78.js"
+    "static/css/main.d1053a21.css",
+    "static/js/main.d78a3446.js"
   ]
 }
