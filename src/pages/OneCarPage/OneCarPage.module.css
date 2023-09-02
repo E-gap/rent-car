@@ -19,6 +19,13 @@
 .iconFavorite {
   width: 25px;
   height: 25px;
+  color: var(--default-color);
+}
+
+.iconDelete {
+  width: 20px;
+  height: 20px;
+  color: var(--default-color);
 }
 
 .favoriteSelected {
@@ -26,7 +33,9 @@
 }
 
 .iconFavorite:hover,
-.iconFavorite:focus {
+.iconDelete:hover,
+.iconFavorite:focus,
+.iconDelete:focus {
   cursor: pointer;
 }
 

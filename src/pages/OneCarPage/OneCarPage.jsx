@@ -1,10 +1,11 @@
 // import PropTypes from 'prop-types';
+import { BsTrashFill } from 'react-icons/bs';
 
 import css from './OneCarPage.module.css';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getOneCar } from '../../redux/cars/carsOperations';
+import { getOneCar, deleteCar } from '../../redux/cars/carsOperations';
 import { changeFavorite } from '../../redux/auth/authOperations';
 import { Preloader } from '../../components/Preloader/Preloader';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
@@ -18,6 +19,7 @@ import { MdFavorite } from 'react-icons/md';
 
 const OneCarPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id: carId } = useParams();
   const IsLoading = useSelector(selectIsCarsLoading);
   const favorites = useSelector(selectUserFavorites);
@@ -47,6 +49,11 @@ const OneCarPage = () => {
     dispatch(changeFavorite(carId));
   };
 
+  const handleDelete = () => {
+    dispatch(deleteCar(carId));
+    navigate('/cars');
+  };
+
   return (
     <>
       {IsLoading ? (
@@ -69,6 +76,7 @@ const OneCarPage = () => {
                 }
                 onClick={handleFavorite}
               />
+              <BsTrashFill className={css.iconDelete} onClick={handleDelete} />
               <p>price: {price} usd</p>
             </div>
             <div className={css.detailInfo}>
