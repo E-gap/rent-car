@@ -10,6 +10,7 @@ import { Preloader } from '../../components/Preloader/Preloader';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 import { selectUserFavorites } from '../../redux/selectors';
 import Container from 'components/Container/Container';
+import ErrorComponent from 'components/ErrorComponent/ErrorComponent';
 import { MdFavorite } from 'react-icons/md';
 
 const OneCarPage = () => {
@@ -68,9 +69,7 @@ const OneCarPage = () => {
         <div className={css.oneCarPage}>
           <Container>
             {error ? (
-              <div className={css.errorDiv}>
-                <p className={css.errorMessage}>{error}</p>
-              </div>
+              <ErrorComponent errorText={error} />
             ) : (
               <>
                 <img

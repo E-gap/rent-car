@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 const UserPage = () => {
   const navigate = useNavigate();
   const handleHeaderButton = () => {
-    console.log('show my cars');
+    
     navigate('/user/userCars');
   };
 

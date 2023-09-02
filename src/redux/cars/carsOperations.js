@@ -39,7 +39,7 @@ export const getFavoriteCars = createAsyncThunk(
   }
 );
 
-export const getUserCars = createAsyncThunk(
+/* export const getUserCars = createAsyncThunk(
   'cars/getUserCars',
   async (_, thunkApi) => {
     const { token } = thunkApi.getState().auth;
@@ -54,7 +54,16 @@ export const getUserCars = createAsyncThunk(
       return thunkApi.rejectWithValue(error.message);
     }
   }
-);
+); */
+
+export const getUserCars = async () => {
+  try {
+    const { data } = await instance.get('/cars/user');
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
 
 export const addCar = createAsyncThunk(
   'cars/addCar',

@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  getUserCars,
-  addCar,
-  getFavoriteCars,
-  deleteCar,
-} from './carsOperations';
+import { addCar, getFavoriteCars, deleteCar } from './carsOperations';
 
 const carsSlice = createSlice({
   name: 'cars',
@@ -16,18 +11,6 @@ const carsSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(getUserCars.pending, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(getUserCars.fulfilled, (state, action) => {
-        state.allCars = action.payload;
-        state.isLoading = false;
-      })
-      .addCase(getUserCars.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
       .addCase(addCar.pending, state => {
         state.isLoading = true;
         state.error = null;

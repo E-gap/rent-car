@@ -54,10 +54,6 @@ const Header = () => {
     }
   };
 
-  const handleFavorite = () => {
-    console.log('показать все мои фейвориты');
-  };
-
   const handleAddCar = () => {
     setIsModalWindowOpen(true);
     setSign('addCar');
@@ -99,10 +95,7 @@ const Header = () => {
                 </NavLink>
                 <p className={css.userName}>{userName}</p>
                 <NavLink to="/user/favorite">
-                  <MdFavoriteBorder
-                    className={css.userFavorite}
-                    onClick={handleFavorite}
-                  />
+                  <MdFavoriteBorder className={css.userFavorite} />
                 </NavLink>
                 <ImPlus className={css.addCar} onClick={handleAddCar} />
                 <Button

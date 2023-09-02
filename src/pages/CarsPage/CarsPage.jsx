@@ -1,6 +1,7 @@
 import css from './CarsPage.module.css';
 import Container from 'components/Container/Container';
 import CarsList from 'components/CarsList/CarsList';
+import ErrorComponent from 'components/ErrorComponent/ErrorComponent';
 import { Preloader } from '../../components/Preloader/Preloader';
 import { getAllCars } from '../../redux/cars/carsOperations';
 import { useEffect, useState } from 'react';
@@ -32,9 +33,7 @@ const CarsPage = () => {
         <div className={css.carsPage}>
           <Container>
             {error ? (
-              <div className={css.errorDiv}>
-                <p className={css.errorMessage}>{error}</p>
-              </div>
+              <ErrorComponent errorText={error} />
             ) : (
               <CarsList cars={cars} />
             )}
