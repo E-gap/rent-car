@@ -9,11 +9,14 @@ import {
   selectUserFavorites,
   selectUserId,
 } from '../../redux/selectors';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeFavorite } from '../../redux/auth/authOperations';
-import { deleteCar } from '../../redux/cars/carsOperations';
+// import { deleteCar } from '../../redux/cars/carsOperations';
+import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 
 const ItemCar = ({ oneCar }) => {
+  const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const dispatch = useDispatch();
   // const isLogin = useSelector(selectIsLogin);
   const favorites = useSelector(selectUserFavorites);
@@ -24,37 +27,61 @@ const ItemCar = ({ oneCar }) => {
   };
 
   const handleDelete = () => {
-    dispatch(deleteCar(oneCar._id));
+    setIsModalWindowOpen(true);
+    console.log('are you sure?');
+    // dispatch(deleteCar(oneCar._id));
   };
 
-  return (
-    <li className={css.itemCar}>
-      <NavLink to={`/cars/${oneCar._id}`} className={css.carLink}>
-        <img
-          src={require('../../images/cards-page-bg-tablet.jpg')}
-          className={css.carPhoto}
-          alt="car appearance"
-        />
-      </NavLink>
-      <div className={css.carInfo}>
-        <p>model: {oneCar.model}</p>
+  const onKeyDown = e => {
+    if (e.target.getAttribute('class').includes('backdrop')) {
+      setIsModalWindowOpen(false);
+    }
 
-        <div className={css.iconsFavoriteDelete}>
-          <MdFavorite
-            className={
-              favorites.includes(oneCar._id)
-                ? `${css.iconFavorite} ${css.favoriteSelected}`
-                : css.iconFavorite
-            }
-            onClick={handleFavorite}
+    if (e.code === 'Escape') {
+      setIsModalWindowOpen(false);
+    }
+  };
+
+  console.log(isModalWindowOpen);
+
+  return (
+    <>
+      <li className={css.itemCar}>
+        <NavLink to={`/cars/${oneCar._id}`} className={css.carLink}>
+          <img
+            src={require('../../images/cards-page-bg-tablet.jpg')}
+            className={css.carPhoto}
+            alt="car appearance"
           />
-          {oneCar.owner?._id === userId && (
-            <BsTrashFill className={css.iconDelete} onClick={handleDelete} />
-          )}
+        </NavLink>
+        <div className={css.carInfo}>
+          <p>model: {oneCar.model}</p>
+
+          <div className={css.iconsFavoriteDelete}>
+            <MdFavorite
+              className={
+                favorites.includes(oneCar._id)
+                  ? `${css.iconFavorite} ${css.favoriteSelected}`
+                  : css.iconFavorite
+              }
+              onClick={handleFavorite}
+            />
+            {oneCar.owner?._id === userId && (
+              <BsTrashFill className={css.iconDelete} onClick={handleDelete} />
+            )}
+          </div>
+          <p>price: {oneCar.price} usd</p>
         </div>
-        <p>price: {oneCar.price} usd</p>
-      </div>
-    </li>
+      </li>
+      {isModalWindowOpen && (
+        <ModalWindow
+          setIsModalWindowOpen={setIsModalWindowOpen}
+          onKeyDown={onKeyDown}
+        >
+          <p>Are you sure?</p>
+        </ModalWindow>
+      )}
+    </>
   );
 };
 

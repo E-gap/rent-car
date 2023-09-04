@@ -94,7 +94,7 @@ const Header = () => {
                   <HiOutlineUserCircle className={css.userIcon} />
                 </NavLink>
                 <p className={css.userName}>{userName}</p>
-                <NavLink to="/user/favorite">
+                <NavLink to="/cars/favorite">
                   <MdFavoriteBorder className={css.userFavorite} />
                 </NavLink>
                 <ImPlus className={css.addCar} onClick={handleAddCar} />

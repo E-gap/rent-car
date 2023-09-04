@@ -33,7 +33,7 @@ function App() {
               <Route path="cars" element={<CarsPage />} />
               <Route path="cars/:id" element={<OneCarPage />} />
               <Route path="user" element={<UserPage />} />
-              <Route path="user/favorite" element={<FavoritePage />} />
+              <Route path="cars/favorite" element={<FavoritePage />} />
               <Route path="user/userCars" element={<UserCarsPage />} />
               <Route path="*" element={<RestrictedRoute redirectTo="/" />} />
             </Route>
