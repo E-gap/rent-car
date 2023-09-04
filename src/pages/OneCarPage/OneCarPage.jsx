@@ -8,7 +8,11 @@ import { deleteCar, getOneCar } from '../../redux/cars/carsOperations';
 import { changeFavorite } from '../../redux/auth/authOperations';
 import { Preloader } from '../../components/Preloader/Preloader';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
-import { selectUserFavorites, selectIsLogin } from '../../redux/selectors';
+import {
+  selectUserFavorites,
+  // selectIsLogin,
+  selectUserId,
+} from '../../redux/selectors';
 import Container from 'components/Container/Container';
 import ErrorComponent from 'components/ErrorComponent/ErrorComponent';
 import { MdFavorite } from 'react-icons/md';
@@ -21,7 +25,8 @@ const OneCarPage = () => {
   const navigate = useNavigate();
   const { id: carId } = useParams();
   const favorites = useSelector(selectUserFavorites);
-  const isLogin = useSelector(selectIsLogin);
+  // const isLogin = useSelector(selectIsLogin);
+  const userId = useSelector(selectUserId);
 
   useEffect(() => {
     getOneCar(carId).then(res => {
@@ -51,6 +56,7 @@ const OneCarPage = () => {
     tel,
     email,
     description,
+    owner,
   } = carOne;
 
   const handleFavorite = () => {
@@ -89,7 +95,7 @@ const OneCarPage = () => {
                     onClick={handleFavorite}
                   />
                   {}
-                  {isLogin && (
+                  {owner === userId && (
                     <BsTrashFill
                       className={css.iconDelete}
                       onClick={handleDelete}

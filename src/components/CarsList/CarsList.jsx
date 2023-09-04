@@ -3,6 +3,7 @@ import ItemCar from 'components/ItemCar/ItemCar';
 import PropTypes from 'prop-types';
 
 const CarsList = ({ cars }) => {
+  console.log(cars);
   return (
     <ul className={css.carList}>
       {cars.map(oneCar => (

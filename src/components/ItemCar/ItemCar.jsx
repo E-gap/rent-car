@@ -4,15 +4,20 @@ import { NavLink } from 'react-router-dom';
 import { MdFavorite } from 'react-icons/md';
 import { BsTrashFill } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
-import { selectIsLogin, selectUserFavorites } from '../../redux/selectors';
+import {
+  // selectIsLogin,
+  selectUserFavorites,
+  selectUserId,
+} from '../../redux/selectors';
 import { useDispatch } from 'react-redux';
 import { changeFavorite } from '../../redux/auth/authOperations';
 import { deleteCar } from '../../redux/cars/carsOperations';
 
 const ItemCar = ({ oneCar }) => {
   const dispatch = useDispatch();
-  const isLogin = useSelector(selectIsLogin);
+  // const isLogin = useSelector(selectIsLogin);
   const favorites = useSelector(selectUserFavorites);
+  const userId = useSelector(selectUserId);
 
   const handleFavorite = () => {
     dispatch(changeFavorite(oneCar._id));
@@ -43,7 +48,7 @@ const ItemCar = ({ oneCar }) => {
             }
             onClick={handleFavorite}
           />
-          {isLogin && (
+          {oneCar.owner?._id === userId && (
             <BsTrashFill className={css.iconDelete} onClick={handleDelete} />
           )}
         </div>
