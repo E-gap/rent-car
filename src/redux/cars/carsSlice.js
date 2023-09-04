@@ -3,9 +3,7 @@ import { addCar, getFavoriteCars, deleteCar } from './carsOperations';
 
 const carsSlice = createSlice({
   name: 'cars',
-  initialState: {
-    allCars: [],
-    carsByUser: [],
+  initialState: {    
     isLoading: false,
     error: null,
   },

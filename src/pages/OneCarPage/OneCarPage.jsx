@@ -8,7 +8,7 @@ import { deleteCar, getOneCar } from '../../redux/cars/carsOperations';
 import { changeFavorite } from '../../redux/auth/authOperations';
 import { Preloader } from '../../components/Preloader/Preloader';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
-import { selectUserFavorites } from '../../redux/selectors';
+import { selectUserFavorites, selectIsLogin } from '../../redux/selectors';
 import Container from 'components/Container/Container';
 import ErrorComponent from 'components/ErrorComponent/ErrorComponent';
 import { MdFavorite } from 'react-icons/md';
@@ -21,6 +21,7 @@ const OneCarPage = () => {
   const navigate = useNavigate();
   const { id: carId } = useParams();
   const favorites = useSelector(selectUserFavorites);
+  const isLogin = useSelector(selectIsLogin);
 
   useEffect(() => {
     getOneCar(carId).then(res => {
@@ -87,10 +88,13 @@ const OneCarPage = () => {
                     }
                     onClick={handleFavorite}
                   />
-                  <BsTrashFill
-                    className={css.iconDelete}
-                    onClick={handleDelete}
-                  />
+                  {}
+                  {isLogin && (
+                    <BsTrashFill
+                      className={css.iconDelete}
+                      onClick={handleDelete}
+                    />
+                  )}
                   <p>price: {price} usd</p>
                 </div>
                 <div className={css.detailInfo}>

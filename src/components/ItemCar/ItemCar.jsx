@@ -33,20 +33,20 @@ const ItemCar = ({ oneCar }) => {
       </NavLink>
       <div className={css.carInfo}>
         <p>model: {oneCar.model}</p>
-        {isLogin && (
-          <div className={css.iconsFavoriteDelete}>
-            <MdFavorite
-              className={
-                favorites.includes(oneCar._id)
-                  ? `${css.iconFavorite} ${css.favoriteSelected}`
-                  : css.iconFavorite
-              }
-              onClick={handleFavorite}
-            />
-            <BsTrashFill className={css.iconDelete} onClick={handleDelete} />
-          </div>
-        )}
 
+        <div className={css.iconsFavoriteDelete}>
+          <MdFavorite
+            className={
+              favorites.includes(oneCar._id)
+                ? `${css.iconFavorite} ${css.favoriteSelected}`
+                : css.iconFavorite
+            }
+            onClick={handleFavorite}
+          />
+          {isLogin && (
+            <BsTrashFill className={css.iconDelete} onClick={handleDelete} />
+          )}
+        </div>
         <p>price: {oneCar.price} usd</p>
       </div>
     </li>

@@ -11,6 +11,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: { name: null, email: null },
+    userId: '',
     token: null,
     favorites: [],
     isLogin: false,
@@ -26,6 +27,7 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
+        state.userId = action.payload.userId;
         state.isLogin = true;
         state.isLoading = false;
       })
@@ -41,6 +43,7 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.favorites = action.payload.favorites;
         state.token = action.payload.token;
+        state.userId = action.payload.userId;
         state.isLogin = true;
         state.isLoading = false;
       })
@@ -68,6 +71,7 @@ const authSlice = createSlice({
       })
       .addCase(refresh.fulfilled, (state, action) => {
         state.user = action.payload.user;
+        state.userId = action.payload.userId;
         state.isLogin = true;
         state.isLoading = false;
         state.favorites = action.payload.favorites;
