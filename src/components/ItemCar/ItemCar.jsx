@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { changeFavorite } from '../../redux/auth/authOperations';
 // import { deleteCar } from '../../redux/cars/carsOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
+import QuestionSure from '../../components/QuestionSure/QuestionSure';
 
 const ItemCar = ({ oneCar }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
@@ -28,7 +29,7 @@ const ItemCar = ({ oneCar }) => {
 
   const handleDelete = () => {
     setIsModalWindowOpen(true);
-    console.log('are you sure?');
+
     // dispatch(deleteCar(oneCar._id));
   };
 
@@ -41,8 +42,6 @@ const ItemCar = ({ oneCar }) => {
       setIsModalWindowOpen(false);
     }
   };
-
-  console.log(isModalWindowOpen);
 
   return (
     <>
@@ -78,7 +77,7 @@ const ItemCar = ({ oneCar }) => {
           setIsModalWindowOpen={setIsModalWindowOpen}
           onKeyDown={onKeyDown}
         >
-          <p>Are you sure?</p>
+          <QuestionSure textQuestion="Are you sure you want to delete this item?" />
         </ModalWindow>
       )}
     </>
