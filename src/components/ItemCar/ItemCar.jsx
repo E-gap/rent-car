@@ -16,7 +16,7 @@ import { deleteCar } from '../../redux/cars/carsOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import QuestionSure from '../../components/QuestionSure/QuestionSure';
 
-const ItemCar = ({ oneCar, refreshCarList }) => {
+const ItemCar = ({ oneCar }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const dispatch = useDispatch();
   // const isLogin = useSelector(selectIsLogin);
@@ -27,10 +27,9 @@ const ItemCar = ({ oneCar, refreshCarList }) => {
     dispatch(changeFavorite(oneCar._id));
   };
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     setIsModalWindowOpen(false);
-    await dispatch(deleteCar(oneCar._id));
-    await refreshCarList();
+    dispatch(deleteCar(oneCar._id));
   };
 
   const onKeyDown = e => {
