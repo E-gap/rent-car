@@ -3,14 +3,16 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './FormAddCar.module.css';
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
-import { addCar } from '../../redux/cars/carsOperations';
+import { addCar, getAllCars } from '../../redux/cars/carsOperations';
 
 import { useDispatch } from 'react-redux';
 // import Button from '../Button/Button';
 
 function FormAddCar({ closeModal }) {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const AddCarSchema = Yup.object().shape({
     model: Yup.string().required('Please input model'),
@@ -32,14 +34,17 @@ function FormAddCar({ closeModal }) {
     description: Yup.string(),
   });
 
-  const submitForm = (values, actions) => {
+  const submitForm = async (values, actions) => {
     const dataCar = { ...values, date: Date.now() };
     console.log(dataCar);
     actions.resetForm();
 
     closeModal();
 
-    dispatch(addCar(dataCar));
+    await dispatch(addCar(dataCar));
+    if (!location.pathname.includes('favorite')) {
+      dispatch(getAllCars());
+    }
   };
 
   return (
