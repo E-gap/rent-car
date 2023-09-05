@@ -6,7 +6,7 @@
   padding-top: var(--default-interval);
 }
 
-.moveToCards {
+.moveToCars {
   position: absolute;
   font-size: 12px;
   font-weight: 600;
@@ -37,7 +37,7 @@
   }
 }
 
-.moveToCards:hover,
-.moveToCards:focus {
+.moveToCars:hover,
+.moveToCars:focus {
   scale: 1.2;
 }

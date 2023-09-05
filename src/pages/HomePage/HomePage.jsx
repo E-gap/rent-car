@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <div className={css.homePage}>
       <Container>
-        <NavLink to="/cars" className={css.moveToCards}>
+        <NavLink to="/cars/all" className={css.moveToCars}>
           Go to Cars
         </NavLink>
       </Container>

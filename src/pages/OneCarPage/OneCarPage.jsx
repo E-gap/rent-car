@@ -17,8 +17,11 @@ import {
 import Container from 'components/Container/Container';
 import ErrorComponent from 'components/ErrorComponent/ErrorComponent';
 import { MdFavorite } from 'react-icons/md';
+import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
+import QuestionSure from '../../components/QuestionSure/QuestionSure';
 
 const OneCarPage = () => {
+  const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const [carOne, setCarOne] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -65,8 +68,19 @@ const OneCarPage = () => {
   };
 
   const handleDelete = () => {
+    setIsModalWindowOpen(false);
     dispatch(deleteCar(carId));
-    navigate('/cars');
+    navigate('/cars/all');
+  };
+
+  const onKeyDown = e => {
+    if (e.target.getAttribute('class').includes('backdrop')) {
+      setIsModalWindowOpen(false);
+    }
+
+    if (e.code === 'Escape') {
+      setIsModalWindowOpen(false);
+    }
   };
 
   return (
@@ -98,7 +112,9 @@ const OneCarPage = () => {
                   {owner === userId && (
                     <BsTrashFill
                       className={css.iconDelete}
-                      onClick={handleDelete}
+                      onClick={() => {
+                        setIsModalWindowOpen(true);
+                      }}
                     />
                   )}
                 </div>
@@ -121,6 +137,18 @@ const OneCarPage = () => {
             )}
           </Container>
         </div>
+      )}
+      {isModalWindowOpen && (
+        <ModalWindow
+          setIsModalWindowOpen={setIsModalWindowOpen}
+          onKeyDown={onKeyDown}
+        >
+          <QuestionSure
+            textQuestion="Are you sure you want to delete this item?"
+            setIsModalWindowOpen={setIsModalWindowOpen}
+            handleDelete={handleDelete}
+          />
+        </ModalWindow>
       )}
     </>
   );
