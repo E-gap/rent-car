@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteCar, getOneCar } from '../../redux/cars/carsOperations';
 import { changeFavorite } from '../../redux/auth/authOperations';
 import { Preloader } from '../../components/Preloader/Preloader';
+import CarDataForm from '../../components/CarDataForm/CarDataForm';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 import {
   selectUserFavorites,
@@ -43,7 +44,7 @@ const OneCarPage = () => {
   }, []);
 
   const {
-    model,
+    /* model,
     price,
     type,
     year,
@@ -55,7 +56,7 @@ const OneCarPage = () => {
     city,
     tel,
     email,
-    description,
+    description, */
     owner,
   } = carOne;
 
@@ -85,7 +86,6 @@ const OneCarPage = () => {
                   alt="car appearance"
                 />
                 <div className={css.mainCarInfo}>
-                  <p>model: {model}</p>
                   <MdFavorite
                     className={
                       favorites.includes(carId)
@@ -94,16 +94,16 @@ const OneCarPage = () => {
                     }
                     onClick={handleFavorite}
                   />
-                  {}
+
                   {owner === userId && (
                     <BsTrashFill
                       className={css.iconDelete}
                       onClick={handleDelete}
                     />
                   )}
-                  <p>price: {price} usd</p>
                 </div>
-                <div className={css.detailInfo}>
+                <CarDataForm carOne={carOne} />
+                {/* <div className={css.detailInfo}>
                   <p>type: {type}</p>
                   <p>year: {year}</p>
                   <p>transmission: {transmission}</p>
@@ -116,7 +116,7 @@ const OneCarPage = () => {
                   <p>email: {email}</p>
                   <p>description:</p>
                   <p className={css.description}>{description}</p>
-                </div>
+                </div> */}
               </>
             )}
           </Container>

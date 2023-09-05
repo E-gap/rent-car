@@ -1,18 +1,11 @@
-// import React from 'react';
+import css from './CarDataForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import css from './FormAddCar.module.css';
-import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
-
-import { addCar, getAllCars } from '../../redux/cars/carsOperations';
-
 import { useDispatch } from 'react-redux';
-// import Button from '../Button/Button';
+import { addCar } from '../../redux/cars/carsOperations';
 
-function FormAddCar({ closeModal }) {
+const CarDataForm = ({ carOne }) => {
   const dispatch = useDispatch();
-  const location = useLocation();
 
   const AddCarSchema = Yup.object().shape({
     model: Yup.string().required('Please input model'),
@@ -34,35 +27,48 @@ function FormAddCar({ closeModal }) {
     description: Yup.string(),
   });
 
-  const submitForm = async (values, actions) => {
-    const dataCar = { ...values, date: Date.now() };
-    actions.resetForm();
-
-    closeModal();
-
-    await dispatch(addCar(dataCar));
-    if (!location.pathname.includes('favorite')) {
-      dispatch(getAllCars());
-    }
+  const submitForm = values => {
+    // const dataCar = { ...values, date: Date.now() };
+    console.log('changes saved');
+    // dispatch(addCar(dataCar));
   };
+
+  const {
+    model,
+    price,
+    type,
+    year,
+    transmission,
+    color,
+    mileage,
+    fueltype,
+    power,
+    city,
+    tel,
+    email,
+    description,
+    owner,
+  } = carOne;
+
+  console.log(owner);
 
   return (
     <>
       <Formik
         initialValues={{
-          model: '',
-          type: '',
-          transmission: '',
-          mileage: '',
-          power: '',
-          tel: '',
-          year: '',
-          color: '',
-          fueltype: '',
-          city: '',
-          email: '',
-          price: '',
-          description: '',
+          model,
+          type,
+          transmission,
+          mileage,
+          power,
+          tel,
+          year,
+          color,
+          fueltype,
+          city,
+          email,
+          price,
+          description,
         }}
         validationSchema={AddCarSchema}
         onSubmit={submitForm}
@@ -196,17 +202,18 @@ function FormAddCar({ closeModal }) {
               className={css.descriptionText}
             />
           </label>
-          <button type="submit" className={css.submit}>
-            Submit
-          </button>
+          <div className={css.buttonsChanges}>
+            <button type="button" className={css.buttonChangeCar}>
+              Change data
+            </button>
+            <button type="submit" className={css.submit}>
+              Save changes
+            </button>
+          </div>
         </Form>
       </Formik>
     </>
   );
-}
-
-export default FormAddCar;
-
-FormAddCar.propTypes = {
-  closeModal: PropTypes.func.isRequired,
 };
+
+export default CarDataForm;
