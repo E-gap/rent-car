@@ -30,7 +30,7 @@ function App() {
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<HomePage />} />
-              <Route path="cars" element={<CarsPage />} />
+              <Route path="cars/all" element={<CarsPage />} />
               <Route path="cars/:id" element={<OneCarPage />} />
               <Route path="user" element={<UserPage />} />
               <Route path="cars/favorite" element={<FavoritePage />} />

@@ -10,7 +10,7 @@ import FormSign from '../../components/FormSign/FormSign';
 import FormAddCar from '../../components/FormAddCar/FormAddCar';
 
 import Container from 'components/Container/Container';
-import { MdFavoriteBorder } from 'react-icons/md';
+import { MdFavorite } from 'react-icons/md';
 import { HiOutlineUserCircle } from 'react-icons/hi';
 import { ImPlus } from 'react-icons/im';
 import { NavLink } from 'react-router-dom';
@@ -69,7 +69,7 @@ const Header = () => {
               <NavLink to="/" className={`${css.marginRight10} ${css.link}`}>
                 Home
               </NavLink>
-              <NavLink className={css.link} to="/cars">
+              <NavLink className={css.link} to="/cars/all">
                 All cars
               </NavLink>
             </div>
@@ -90,12 +90,15 @@ const Header = () => {
               </div>
             ) : (
               <div className={css.displayFlex}>
-                <NavLink to="/user">
+                <NavLink to="/user" className={css.displayFlex}>
                   <HiOutlineUserCircle className={css.userIcon} />
                 </NavLink>
                 <p className={css.userName}>{userName}</p>
-                <NavLink to="/cars/favorite">
-                  <MdFavoriteBorder className={css.userFavorite} />
+                <NavLink
+                  to="/cars/favorite"
+                  className={`${css.linkFavorite} ${css.displayFlex}`}
+                >
+                  <MdFavorite className={css.userFavoriteIcon} />
                 </NavLink>
                 <ImPlus className={css.addCar} onClick={handleAddCar} />
                 <Button
