@@ -1,14 +1,27 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../auth/authOperations';
 
-export const getAllCars = async () => {
+/* export const getAllCars = async () => {
   try {
     const { data } = await instance.get('/cars');
     return data;
   } catch (error) {
     return error;
   }
-};
+}; */
+
+export const getAllCars = createAsyncThunk(
+  'cars/getAllCars',
+  async (_, thunkApi) => {
+    try {
+      const { data } = await instance.get('/cars');
+
+      return data.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const getOneCar = async carId => {
   try {
@@ -19,7 +32,20 @@ export const getOneCar = async carId => {
   }
 };
 
-/* export const getFavoriteCars = createAsyncThunk(
+/* export const getOneCar = createAsyncThunk(
+  'cars/getOneCar',
+  async (carId, thunkApi) => {
+    try {
+      const { data } = await instance.get(`/cars/${carId}`);
+
+      return data.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+); */
+
+export const getFavoriteCars = createAsyncThunk(
   'cars/getFavoriteCars',
   async (_, thunkApi) => {
     const { token } = thunkApi.getState().auth;
@@ -37,18 +63,18 @@ export const getOneCar = async carId => {
       return thunkApi.rejectWithValue(error.message);
     }
   }
-); */
+);
 
-export const getFavoriteCars = async () => {
+/* export const getFavoriteCars = async () => {
   try {
     const { data } = await instance.get('/cars/favorite');
     return data;
   } catch (error) {
     return error;
   }
-};
+}; */
 
-/* export const getUserCars = createAsyncThunk(
+export const getUserCars = createAsyncThunk(
   'cars/getUserCars',
   async (_, thunkApi) => {
     const { token } = thunkApi.getState().auth;
@@ -63,16 +89,16 @@ export const getFavoriteCars = async () => {
       return thunkApi.rejectWithValue(error.message);
     }
   }
-); */
+);
 
-export const getUserCars = async () => {
+/* export const getUserCars = async () => {
   try {
     const { data } = await instance.get('/cars/user');
     return data;
   } catch (error) {
     return error;
   }
-};
+}; */
 
 export const addCar = createAsyncThunk(
   'cars/addCar',

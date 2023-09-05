@@ -14,4 +14,4 @@ export const selectIsCarsLoading = state => state.cars.isLoading;
 
 export const selectAuthError = state => state.auth.error;
 
-export const selectScoreError = state => state.score.error;
+export const selectCarsError = state => state.cars.error;

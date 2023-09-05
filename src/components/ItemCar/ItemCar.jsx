@@ -12,11 +12,11 @@ import {
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeFavorite } from '../../redux/auth/authOperations';
-// import { deleteCar } from '../../redux/cars/carsOperations';
+import { deleteCar } from '../../redux/cars/carsOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import QuestionSure from '../../components/QuestionSure/QuestionSure';
 
-const ItemCar = ({ oneCar }) => {
+const ItemCar = ({ oneCar, refreshCarList }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const dispatch = useDispatch();
   // const isLogin = useSelector(selectIsLogin);
@@ -27,10 +27,10 @@ const ItemCar = ({ oneCar }) => {
     dispatch(changeFavorite(oneCar._id));
   };
 
-  const handleDelete = () => {
-    setIsModalWindowOpen(true);
-
-    // dispatch(deleteCar(oneCar._id));
+  const handleDelete = async () => {
+    setIsModalWindowOpen(false);
+    await dispatch(deleteCar(oneCar._id));
+    await refreshCarList();
   };
 
   const onKeyDown = e => {
@@ -66,7 +66,12 @@ const ItemCar = ({ oneCar }) => {
               onClick={handleFavorite}
             />
             {oneCar.owner?._id === userId && (
-              <BsTrashFill className={css.iconDelete} onClick={handleDelete} />
+              <BsTrashFill
+                className={css.iconDelete}
+                onClick={() => {
+                  setIsModalWindowOpen(true);
+                }}
+              />
             )}
           </div>
           <p>price: {oneCar.price} usd</p>
@@ -77,7 +82,11 @@ const ItemCar = ({ oneCar }) => {
           setIsModalWindowOpen={setIsModalWindowOpen}
           onKeyDown={onKeyDown}
         >
-          <QuestionSure textQuestion="Are you sure you want to delete this item?" />
+          <QuestionSure
+            textQuestion="Are you sure you want to delete this item?"
+            setIsModalWindowOpen={setIsModalWindowOpen}
+            handleDelete={handleDelete}
+          />
         </ModalWindow>
       )}
     </>

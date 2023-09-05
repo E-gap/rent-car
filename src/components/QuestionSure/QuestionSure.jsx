@@ -1,12 +1,19 @@
 import css from './QuestionSure.module.css';
 
-const QuestionSure = ({ textQuestion }) => {
+const QuestionSure = ({ textQuestion, setIsModalWindowOpen, handleDelete }) => {
   return (
     <div className={css.questionSure}>
       <p className={css.questionText}>{textQuestion}</p>
       <div className={css.buttonsAnswer}>
-        <button className={css.buttonCancel}>Cancel</button>
-        <button>OK</button>
+        <button
+          onClick={() => {
+            setIsModalWindowOpen(false);
+          }}
+          className={css.buttonCancel}
+        >
+          Cancel
+        </button>
+        <button onClick={handleDelete}>OK</button>
       </div>
     </div>
   );

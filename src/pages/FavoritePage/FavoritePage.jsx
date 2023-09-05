@@ -3,20 +3,25 @@ import Container from 'components/Container/Container';
 import ErrorComponent from 'components/ErrorComponent/ErrorComponent';
 import CarsList from 'components/CarsList/CarsList';
 import { Preloader } from '../../components/Preloader/Preloader';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getFavoriteCars } from '../../redux/cars/carsOperations';
-import { useEffect, useState } from 'react';
-// import { selectAllCars, selectIsCarsLoading } from '../../redux/selectors';
+import { useEffect /* useState */ } from 'react';
+import {
+  selectAllCars,
+  selectIsCarsLoading,
+  selectCarsError,
+} from '../../redux/selectors';
 
 const FavoritePage = () => {
-  const [cars, setCars] = useState([]);
+  /* const [cars, setCars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState('');
-  // const dispatch = useDispatch();
-  // const cars = useSelector(selectAllCars);
-  // const IsLoading = useSelector(selectIsCarsLoading);
+  const [error, setError] = useState(''); */
+  const dispatch = useDispatch();
+  const cars = useSelector(selectAllCars);
+  const isLoading = useSelector(selectIsCarsLoading);
+  const carsError = useSelector(selectCarsError);
 
-  useEffect(() => {
+  /* useEffect(() => {
     getFavoriteCars().then(res => {
       setIsLoading(false);
       if (res.status === 'OK') {
@@ -27,6 +32,11 @@ const FavoritePage = () => {
       }
     });
     // eslint-disable-next-line
+  }, []); */
+
+  useEffect(() => {
+    dispatch(getFavoriteCars());
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -36,8 +46,8 @@ const FavoritePage = () => {
       ) : (
         <div className={css.favoritePage}>
           <Container>
-            {error ? (
-              <ErrorComponent errorText={error} />
+            {carsError ? (
+              <ErrorComponent errorText={carsError} />
             ) : (
               <CarsList cars={cars} />
             )}
