@@ -45,3 +45,7 @@ textarea {
   justify-content: space-around;
   width: 100%;
 }
+
+.buttonsChanges button {
+  min-width: 150px;
+}

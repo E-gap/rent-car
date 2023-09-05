@@ -3,8 +3,10 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { addCar } from '../../redux/cars/carsOperations';
+import { useEffect, useState } from 'react';
 
 const CarDataForm = ({ carOne }) => {
+  const [isDisabledFields, setIsDisabledFields] = useState(true);
   const dispatch = useDispatch();
 
   const AddCarSchema = Yup.object().shape({
@@ -50,7 +52,7 @@ const CarDataForm = ({ carOne }) => {
     owner,
   } = carOne;
 
-  console.log(owner);
+  // console.log(owner);
 
   return (
     <>
@@ -76,7 +78,11 @@ const CarDataForm = ({ carOne }) => {
         <Form className={css.form}>
           <label className={css.label}>
             Model
-            <Field name="model" className={css.field} />
+            <Field
+              name="model"
+              className={css.field}
+              disabled={isDisabledFields}
+            />
             <ErrorMessage
               name="model"
               render={message => (
@@ -86,7 +92,7 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <label className={css.label}>
             Type
-            <Field name="type" />
+            <Field name="type" disabled={isDisabledFields} />
             <ErrorMessage
               name="type"
               render={message => (
@@ -96,7 +102,7 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <label className={css.label}>
             Transmission
-            <Field name="transmission" />
+            <Field name="transmission" disabled={isDisabledFields} />
             <ErrorMessage
               name="transmission"
               render={message => (
@@ -106,7 +112,7 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <label className={css.label}>
             Mileage
-            <Field name="mileage" />
+            <Field name="mileage" disabled={isDisabledFields} />
             <ErrorMessage
               name="mileage"
               render={message => (
@@ -116,7 +122,7 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <label className={css.label}>
             Power
-            <Field name="power" />
+            <Field name="power" disabled={isDisabledFields} />
             <ErrorMessage
               name="power"
               render={message => (
@@ -126,7 +132,7 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <label className={css.label}>
             Tel
-            <Field name="tel" />
+            <Field name="tel" disabled={isDisabledFields} />
             <ErrorMessage
               name="tel"
               render={message => (
@@ -136,7 +142,7 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <label className={css.label}>
             Year
-            <Field name="year" />
+            <Field name="year" disabled={isDisabledFields} />
             <ErrorMessage
               name="year"
               render={message => (
@@ -146,7 +152,7 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <label className={css.label}>
             Color
-            <Field name="color" />
+            <Field name="color" disabled={isDisabledFields} />
             <ErrorMessage
               name="color"
               render={message => (
@@ -156,7 +162,7 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <label className={css.label}>
             Fuel type
-            <Field name="fueltype" />
+            <Field name="fueltype" disabled={isDisabledFields} />
             <ErrorMessage
               name="fueltype"
               render={message => (
@@ -166,7 +172,7 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <label className={css.label}>
             City
-            <Field name="city" />
+            <Field name="city" disabled={isDisabledFields} />
             <ErrorMessage
               name="city"
               render={message => (
@@ -176,7 +182,7 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <label className={css.label}>
             Email
-            <Field name="email" />
+            <Field name="email" disabled={isDisabledFields} />
             <ErrorMessage
               name="email"
               render={message => (
@@ -186,7 +192,7 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <label className={css.label}>
             Price
-            <Field name="price" />
+            <Field name="price" disabled={isDisabledFields} />
             <ErrorMessage
               name="price"
               render={message => (
@@ -200,11 +206,18 @@ const CarDataForm = ({ carOne }) => {
               as="textarea"
               name="description"
               className={css.descriptionText}
+              disabled={isDisabledFields}
             />
           </label>
           <div className={css.buttonsChanges}>
-            <button type="button" className={css.buttonChangeCar}>
-              Change data
+            <button
+              type="button"
+              className={css.buttonChangeCar}
+              onClick={() => {
+                setIsDisabledFields(!isDisabledFields);
+              }}
+            >
+              {isDisabledFields ? 'Change data' : 'Cansel changes'}
             </button>
             <button type="submit" className={css.submit}>
               Save changes
