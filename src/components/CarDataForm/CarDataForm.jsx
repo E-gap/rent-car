@@ -2,11 +2,12 @@ import css from './CarDataForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { addCar } from '../../redux/cars/carsOperations';
-import { useEffect, useState } from 'react';
+import { changeCar } from '../../redux/cars/carsOperations';
+import { useState } from 'react';
 
 const CarDataForm = ({ carOne }) => {
   const [isDisabledFields, setIsDisabledFields] = useState(true);
+  const [textButton, setTextButton] = useState('');
   const dispatch = useDispatch();
 
   const AddCarSchema = Yup.object().shape({
@@ -29,10 +30,19 @@ const CarDataForm = ({ carOne }) => {
     description: Yup.string(),
   });
 
-  const submitForm = values => {
-    // const dataCar = { ...values, date: Date.now() };
-    console.log('changes saved');
-    // dispatch(addCar(dataCar));
+  const submitForm = (values, actions) => {
+    const dataCar = { dataCar: { ...values }, carId: _id };
+
+    console.log(dataCar);
+
+    if (textButton === 'Save changes') {
+      setIsDisabledFields(true);
+      console.log(textButton);
+      console.log(_id);
+      dispatch(changeCar(dataCar));
+    } else {
+      actions.setValues(initialValues);
+    }
   };
 
   const {
@@ -49,29 +59,29 @@ const CarDataForm = ({ carOne }) => {
     tel,
     email,
     description,
-    owner,
+    _id,
   } = carOne;
 
-  // console.log(owner);
+  const initialValues = {
+    model,
+    type,
+    transmission,
+    mileage,
+    power,
+    tel,
+    year,
+    color,
+    fueltype,
+    city,
+    email,
+    price,
+    description,
+  };
 
   return (
     <>
       <Formik
-        initialValues={{
-          model,
-          type,
-          transmission,
-          mileage,
-          power,
-          tel,
-          year,
-          color,
-          fueltype,
-          city,
-          email,
-          price,
-          description,
-        }}
+        initialValues={initialValues}
         validationSchema={AddCarSchema}
         onSubmit={submitForm}
       >
@@ -211,15 +221,23 @@ const CarDataForm = ({ carOne }) => {
           </label>
           <div className={css.buttonsChanges}>
             <button
-              type="button"
+              type="submit"
               className={css.buttonChangeCar}
-              onClick={() => {
+              onClick={e => {
                 setIsDisabledFields(!isDisabledFields);
+                setTextButton(e.target.textContent);
               }}
             >
-              {isDisabledFields ? 'Change data' : 'Cansel changes'}
+              {isDisabledFields ? 'Change data' : 'Cancel changes'}
             </button>
-            <button type="submit" className={css.submit}>
+            <button
+              type="submit"
+              className={css.submit}
+              onClick={e => {
+                setTextButton(e.target.textContent);
+              }}
+              disabled={isDisabledFields}
+            >
               Save changes
             </button>
           </div>
