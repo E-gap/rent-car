@@ -1,7 +1,7 @@
 import css from './UserDataForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { changeCar } from '../../redux/cars/carsOperations';
+import { updateUser } from '../../redux/auth/authOperations';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -27,7 +27,7 @@ const UserDataForm = ({
 
     if (textButton === 'Save changes') {
       setIsDisabledFields(true);
-      dispatch(changeCar(dataUser));
+      dispatch(updateUser(dataUser));
     } else {
       actions.setValues(initialValues);
     }
@@ -36,8 +36,8 @@ const UserDataForm = ({
   const initialValues = {
     name,
     email,
-    city,
-    tel,
+    city: city ?? 'no city yet',
+    tel: tel ?? 'no tel yet',
   };
 
   return (

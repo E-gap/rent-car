@@ -5,6 +5,7 @@ import {
   logout,
   refresh,
   changeFavorite,
+  updateUser,
 } from './authOperations';
 
 const authSlice = createSlice({
@@ -32,6 +33,18 @@ const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(register.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(updateUser.pending, state => {
+        state.isLoading = true;
+        state.error = '';
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(updateUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
