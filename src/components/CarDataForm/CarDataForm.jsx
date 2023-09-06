@@ -33,12 +33,8 @@ const CarDataForm = ({ carOne }) => {
   const submitForm = (values, actions) => {
     const dataCar = { dataCar: { ...values }, carId: _id };
 
-    console.log(dataCar);
-
     if (textButton === 'Save changes') {
       setIsDisabledFields(true);
-      console.log(textButton);
-      console.log(_id);
       dispatch(changeCar(dataCar));
     } else {
       actions.setValues(initialValues);

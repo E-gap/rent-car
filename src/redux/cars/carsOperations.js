@@ -116,10 +116,9 @@ export const changeCar = createAsyncThunk(
   'cars/changeCar',
   async (reqBody, thunkApi) => {
     const { dataCar, carId } = reqBody;
-    console.log(dataCar, carId);
+
     try {
       const { data } = await instance.patch(`/cars/${carId}`, dataCar);
-      console.log(data);
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
