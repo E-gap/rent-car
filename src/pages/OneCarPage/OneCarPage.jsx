@@ -27,7 +27,7 @@ const OneCarPage = () => {
   const favorites = useSelector(selectUserFavorites);
   const userId = useSelector(selectUserId);
 
-  useEffect(() => {
+  const getCar = () => {
     getOneCar(carId).then(res => {
       setIsLoading(false);
       if (res.status === 'OK') {
@@ -37,6 +37,10 @@ const OneCarPage = () => {
         setError('Something went wrong try later');
       }
     });
+  };
+
+  useEffect(() => {
+    getCar();
 
     // eslint-disable-next-line
   }, []);
@@ -98,7 +102,7 @@ const OneCarPage = () => {
                     />
                   )}
                 </div>
-                <CarDataForm carOne={carOne} />
+                <CarDataForm carOne={carOne} getCar={getCar} />
               </>
             )}
           </Container>

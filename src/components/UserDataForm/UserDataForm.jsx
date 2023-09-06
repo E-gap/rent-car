@@ -1,18 +1,19 @@
 import css from './UserDataForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
 import { changeCar } from '../../redux/cars/carsOperations';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUserData, selectUserId } from '../../redux/selectors';
+import { useDispatch } from 'react-redux';
 
-const UserDataForm = () => {
+const UserDataForm = ({
+  userData: {
+    userData: { email, name, city, tel },
+    userId,
+  },
+}) => {
   const [isDisabledFields, setIsDisabledFields] = useState(true);
   const [textButton, setTextButton] = useState('');
   const dispatch = useDispatch();
-  const { email, name, city, tel } = useSelector(selectUserData);
-  const userId = useSelector(selectUserId);
 
   const UpdateUserSchema = Yup.object().shape({
     name: Yup.string().required('Please input your name'),

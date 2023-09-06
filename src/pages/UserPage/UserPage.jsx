@@ -8,12 +8,12 @@ import UserDataForm from '../../components/UserDataForm/UserDataForm';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 import Container from 'components/Container/Container';
 import { useNavigate } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-// import { selectUserData } from '../../redux/selectors';
+import { useSelector } from 'react-redux';
+import { selectUserData, selectUserId } from '../../redux/selectors';
 
 const UserPage = () => {
-  // const { email, name, city, tel } = useSelector(selectUserData);
-  // const userData = useSelector(selectUserData);
+  const userId = useSelector(selectUserId);
+  const userData = useSelector(selectUserData);
   const navigate = useNavigate();
   const handleHeaderButton = () => {
     navigate('/user/userCars');
@@ -22,7 +22,7 @@ const UserPage = () => {
   return (
     <div className={css.userPage}>
       <Container>
-        <UserDataForm />
+        <UserDataForm userData={{ userData, userId }} />
         <Button
           text="My Cars"
           handleButton={handleHeaderButton}

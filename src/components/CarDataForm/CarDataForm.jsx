@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { changeCar } from '../../redux/cars/carsOperations';
 import { useState } from 'react';
 
-const CarDataForm = ({ carOne }) => {
+const CarDataForm = ({ carOne, getCar }) => {
   const [isDisabledFields, setIsDisabledFields] = useState(true);
   const [textButton, setTextButton] = useState('');
   const dispatch = useDispatch();
@@ -36,6 +36,7 @@ const CarDataForm = ({ carOne }) => {
     if (textButton === 'Save changes') {
       setIsDisabledFields(true);
       dispatch(changeCar(dataCar));
+      getCar();
     } else {
       actions.setValues(initialValues);
     }
