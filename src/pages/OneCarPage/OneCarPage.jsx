@@ -9,11 +9,7 @@ import { changeFavorite } from '../../redux/auth/authOperations';
 import { Preloader } from '../../components/Preloader/Preloader';
 import CarDataForm from '../../components/CarDataForm/CarDataForm';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
-import {
-  selectUserFavorites,
-  // selectIsLogin,
-  selectUserId,
-} from '../../redux/selectors';
+import { selectUserFavorites, selectUserId } from '../../redux/selectors';
 import Container from 'components/Container/Container';
 import ErrorComponent from 'components/ErrorComponent/ErrorComponent';
 import { MdFavorite } from 'react-icons/md';
@@ -29,7 +25,6 @@ const OneCarPage = () => {
   const navigate = useNavigate();
   const { id: carId } = useParams();
   const favorites = useSelector(selectUserFavorites);
-  // const isLogin = useSelector(selectIsLogin);
   const userId = useSelector(selectUserId);
 
   useEffect(() => {
@@ -46,22 +41,7 @@ const OneCarPage = () => {
     // eslint-disable-next-line
   }, []);
 
-  const {
-    /* model,
-    price,
-    type,
-    year,
-    transmission,
-    color,
-    mileage,
-    fueltype,
-    power,
-    city,
-    tel,
-    email,
-    description, */
-    owner,
-  } = carOne;
+  const { owner } = carOne;
 
   const handleFavorite = () => {
     dispatch(changeFavorite(carId));
@@ -119,20 +99,6 @@ const OneCarPage = () => {
                   )}
                 </div>
                 <CarDataForm carOne={carOne} />
-                {/* <div className={css.detailInfo}>
-                  <p>type: {type}</p>
-                  <p>year: {year}</p>
-                  <p>transmission: {transmission}</p>
-                  <p>color: {color}</p>
-                  <p>mileage: {mileage} km</p>
-                  <p>fuel type: {fueltype}</p>
-                  <p>power: {power} hp</p>
-                  <p>city: {city}</p>
-                  <p>tel: {tel}</p>
-                  <p>email: {email}</p>
-                  <p>description:</p>
-                  <p className={css.description}>{description}</p>
-                </div> */}
               </>
             )}
           </Container>

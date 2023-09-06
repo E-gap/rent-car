@@ -1,0 +1,42 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+input,
+textarea {
+  padding-left: 5px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: calc((100% - 10px) / 2);
+  margin-bottom: 5px;
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--default-color);
+}
+
+.field {
+  flex-basis: calc((100% - 10px) / 2);
+}
+
+.errorValidation {
+  color: red;
+}
+
+.buttonsChanges {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.buttonsChanges button {
+  min-width: 150px;
+}
