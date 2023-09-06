@@ -23,8 +23,10 @@
   color: inherit;
 }
 
-.linkFavorite {
+.linkFavorite,
+.linkUser {
   fill: var(--default-color);
+  stroke: var(--default-color);
 }
 
 .userFavoriteIcon {
@@ -33,10 +35,17 @@
   fill: inherit;
 }
 
+.userIcon {
+  cursor: pointer;
+  margin-right: 10px;
+  stroke: inherit;
+}
+
 [aria-current] {
   color: red;
   font-weight: 700;
   fill: red;
+  stroke: red;
 }
 
 .userIcon {

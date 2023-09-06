@@ -90,7 +90,10 @@ const Header = () => {
               </div>
             ) : (
               <div className={css.displayFlex}>
-                <NavLink to="/user" className={css.displayFlex}>
+                <NavLink
+                  to="/user"
+                  className={`${css.linkUser} ${css.displayFlex}`}
+                >
                   <HiOutlineUserCircle className={css.userIcon} />
                 </NavLink>
                 <p className={css.userName}>{userName}</p>
