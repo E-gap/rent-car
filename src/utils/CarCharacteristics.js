@@ -8,7 +8,7 @@ export const carColors = [
   'Grey',
 ];
 
-export const carModels = [
+export const carMarks = [
   'BMW',
   'Mercedes',
   'Renault',
@@ -17,6 +17,8 @@ export const carModels = [
   'Skoda',
   'Audi',
 ];
+
+export const carModels = ['Clio', 'Astra', 'Lancer'];
 
 export const carTypes = ['Sedan', 'Coupe', 'Wagon', 'Hatchback'];
 

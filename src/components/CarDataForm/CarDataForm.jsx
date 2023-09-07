@@ -7,10 +7,11 @@ import { useState } from 'react';
 import CarMapCharacteristic from 'components/CarMapCharacteristic/CarMapCharacteristic';
 import {
   carColors,
-  carModels,
+  carMarks,
   carTypes,
   carFuelTypes,
   carTransmissionTypes,
+  carModels,
 } from '../../utils/CarCharacteristics';
 
 const CarDataForm = ({
@@ -37,6 +38,7 @@ const CarDataForm = ({
   const dispatch = useDispatch();
 
   const AddCarSchema = Yup.object().shape({
+    mark: Yup.string().required('Please input mark'),
     model: Yup.string().required('Please input model'),
     type: Yup.string().required('Please input type'),
     transmission: Yup.string().required('Please input transmission'),
@@ -46,6 +48,9 @@ const CarDataForm = ({
     power: Yup.number()
       .typeError('you must specify a number')
       .required('Please input power'),
+    engine: Yup.number()
+      .typeError('you must specify a number')
+      .required('Please input engine capacity'),
     tel: Yup.string().required('Please input tel'),
     year: Yup.number().required('Please input year'),
     color: Yup.string().required('Please input color'),
@@ -92,6 +97,18 @@ const CarDataForm = ({
         onSubmit={submitForm}
       >
         <Form className={css.form}>
+          <label className={css.label}>
+            Mark
+            <Field name="mark" className={css.field} as="select">
+              <CarMapCharacteristic characteristics={carMarks} />
+            </Field>
+            <ErrorMessage
+              name="mark"
+              render={message => (
+                <div className={css.errorValidation}>{message}</div>
+              )}
+            />
+          </label>
           <label className={css.label}>
             Model
             <Field
@@ -160,6 +177,16 @@ const CarDataForm = ({
             <Field name="mileage" disabled={isDisabledFields} />
             <ErrorMessage
               name="mileage"
+              render={message => (
+                <div className={css.errorValidation}>{message}</div>
+              )}
+            />
+          </label>
+          <label className={css.label}>
+            Engine capacity
+            <Field name="engine" />
+            <ErrorMessage
+              name="engine"
               render={message => (
                 <div className={css.errorValidation}>{message}</div>
               )}

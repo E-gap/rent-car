@@ -9,10 +9,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import CarMapCharacteristic from 'components/CarMapCharacteristic/CarMapCharacteristic';
 import {
   carColors,
-  carModels,
+  carMarks,
   carTypes,
   carFuelTypes,
   carTransmissionTypes,
+  carModels,
 } from '../../utils/CarCharacteristics';
 import { selectUserData } from '../../redux/selectors';
 
@@ -26,6 +27,7 @@ function FormAddCar({ closeModal }) {
   } = useSelector(selectUserData);
 
   const AddCarSchema = Yup.object().shape({
+    mark: Yup.string().required('Please input mark'),
     model: Yup.string().required('Please input model'),
     type: Yup.string().required('Please input type'),
     transmission: Yup.string().required('Please input transmission'),
@@ -35,6 +37,9 @@ function FormAddCar({ closeModal }) {
     power: Yup.number()
       .typeError('you must specify a number')
       .required('Please input power'),
+    engine: Yup.number()
+      .typeError('you must specify a number')
+      .required('Please input engine capacity'),
     tel: Yup.string().required('Please input tel'),
     year: Yup.number().required('Please input year'),
     color: Yup.string().required('Please input color'),
@@ -79,6 +84,18 @@ function FormAddCar({ closeModal }) {
         onSubmit={submitForm}
       >
         <Form className={css.form}>
+          <label className={css.label}>
+            Mark
+            <Field name="mark" className={css.field} as="select">
+              <CarMapCharacteristic characteristics={carMarks} />
+            </Field>
+            <ErrorMessage
+              name="mark"
+              render={message => (
+                <div className={css.errorValidation}>{message}</div>
+              )}
+            />
+          </label>
           <label className={css.label}>
             Model
             <Field name="model" className={css.field} as="select">
@@ -148,6 +165,16 @@ function FormAddCar({ closeModal }) {
             />
           </label>
           <label className={css.label}>
+            Engine capacity
+            <Field name="engine" />
+            <ErrorMessage
+              name="engine"
+              render={message => (
+                <div className={css.errorValidation}>{message}</div>
+              )}
+            />
+          </label>
+          <label className={css.label}>
             Power
             <Field name="power" />
             <ErrorMessage
@@ -157,7 +184,6 @@ function FormAddCar({ closeModal }) {
               )}
             />
           </label>
-
           <label className={css.label}>
             Color
             <Field name="color" as="select">
@@ -170,7 +196,6 @@ function FormAddCar({ closeModal }) {
               )}
             />
           </label>
-
           <label className={css.label}>
             Price
             <Field name="price" />
@@ -211,7 +236,6 @@ function FormAddCar({ closeModal }) {
               )}
             />
           </label>
-
           <label className={`${css.label} ${css.description}`}>
             Description
             <Field
