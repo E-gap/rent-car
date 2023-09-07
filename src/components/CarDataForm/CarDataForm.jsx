@@ -99,7 +99,12 @@ const CarDataForm = ({
         <Form className={css.form}>
           <label className={css.label}>
             Mark
-            <Field name="mark" className={css.field} as="select">
+            <Field
+              name="mark"
+              className={css.field}
+              disabled={isDisabledFields}
+              as="select"
+            >
               <CarMapCharacteristic characteristics={carMarks} />
             </Field>
             <ErrorMessage
@@ -184,7 +189,7 @@ const CarDataForm = ({
           </label>
           <label className={css.label}>
             Engine capacity
-            <Field name="engine" />
+            <Field name="engine" disabled={isDisabledFields} />
             <ErrorMessage
               name="engine"
               render={message => (
