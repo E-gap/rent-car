@@ -4,8 +4,34 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { changeCar } from '../../redux/cars/carsOperations';
 import { useState } from 'react';
+import CarMapCharacteristic from 'components/CarMapCharacteristic/CarMapCharacteristic';
+import {
+  carColors,
+  carModels,
+  carTypes,
+  carFuelTypes,
+  carTransmissionTypes,
+} from '../../utils/CarCharacteristics';
 
-const CarDataForm = ({ carOne, getCar }) => {
+const CarDataForm = ({
+  carOne: {
+    model,
+    price,
+    type,
+    year,
+    transmission,
+    color,
+    mileage,
+    fueltype,
+    power,
+    city,
+    tel,
+    email,
+    description,
+    _id,
+  },
+  getCar,
+}) => {
   const [isDisabledFields, setIsDisabledFields] = useState(true);
   const [textButton, setTextButton] = useState('');
   const dispatch = useDispatch();
@@ -42,23 +68,6 @@ const CarDataForm = ({ carOne, getCar }) => {
     }
   };
 
-  const {
-    model,
-    price,
-    type,
-    year,
-    transmission,
-    color,
-    mileage,
-    fueltype,
-    power,
-    city,
-    tel,
-    email,
-    description,
-    _id,
-  } = carOne;
-
   const initialValues = {
     model,
     type,
@@ -89,7 +98,10 @@ const CarDataForm = ({ carOne, getCar }) => {
               name="model"
               className={css.field}
               disabled={isDisabledFields}
-            />
+              as="select"
+            >
+              <CarMapCharacteristic characteristics={carModels} />
+            </Field>
             <ErrorMessage
               name="model"
               render={message => (
@@ -99,7 +111,9 @@ const CarDataForm = ({ carOne, getCar }) => {
           </label>
           <label className={css.label}>
             Type
-            <Field name="type" disabled={isDisabledFields} />
+            <Field name="type" disabled={isDisabledFields} as="select">
+              <CarMapCharacteristic characteristics={carTypes} />
+            </Field>
             <ErrorMessage
               name="type"
               render={message => (
@@ -109,7 +123,9 @@ const CarDataForm = ({ carOne, getCar }) => {
           </label>
           <label className={css.label}>
             Transmission
-            <Field name="transmission" disabled={isDisabledFields} />
+            <Field name="transmission" disabled={isDisabledFields} as="select">
+              <CarMapCharacteristic characteristics={carTransmissionTypes} />
+            </Field>
             <ErrorMessage
               name="transmission"
               render={message => (
@@ -159,7 +175,9 @@ const CarDataForm = ({ carOne, getCar }) => {
           </label>
           <label className={css.label}>
             Color
-            <Field name="color" disabled={isDisabledFields} />
+            <Field name="color" disabled={isDisabledFields} as="select">
+              <CarMapCharacteristic characteristics={carColors} />
+            </Field>
             <ErrorMessage
               name="color"
               render={message => (
@@ -169,7 +187,9 @@ const CarDataForm = ({ carOne, getCar }) => {
           </label>
           <label className={css.label}>
             Fuel type
-            <Field name="fueltype" disabled={isDisabledFields} />
+            <Field name="fueltype" disabled={isDisabledFields} as="select">
+              <CarMapCharacteristic characteristics={carFuelTypes} />
+            </Field>
             <ErrorMessage
               name="fueltype"
               render={message => (
