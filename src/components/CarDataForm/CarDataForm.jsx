@@ -122,12 +122,34 @@ const CarDataForm = ({
             />
           </label>
           <label className={css.label}>
+            Year
+            <Field name="year" disabled={isDisabledFields} />
+            <ErrorMessage
+              name="year"
+              render={message => (
+                <div className={css.errorValidation}>{message}</div>
+              )}
+            />
+          </label>
+          <label className={css.label}>
             Transmission
             <Field name="transmission" disabled={isDisabledFields} as="select">
               <CarMapCharacteristic characteristics={carTransmissionTypes} />
             </Field>
             <ErrorMessage
               name="transmission"
+              render={message => (
+                <div className={css.errorValidation}>{message}</div>
+              )}
+            />
+          </label>
+          <label className={css.label}>
+            Fuel type
+            <Field name="fueltype" disabled={isDisabledFields} as="select">
+              <CarMapCharacteristic characteristics={carFuelTypes} />
+            </Field>
+            <ErrorMessage
+              name="fueltype"
               render={message => (
                 <div className={css.errorValidation}>{message}</div>
               )}
@@ -154,26 +176,6 @@ const CarDataForm = ({
             />
           </label>
           <label className={css.label}>
-            Tel
-            <Field name="tel" disabled={isDisabledFields} />
-            <ErrorMessage
-              name="tel"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Year
-            <Field name="year" disabled={isDisabledFields} />
-            <ErrorMessage
-              name="year"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
             Color
             <Field name="color" disabled={isDisabledFields} as="select">
               <CarMapCharacteristic characteristics={carColors} />
@@ -186,12 +188,10 @@ const CarDataForm = ({
             />
           </label>
           <label className={css.label}>
-            Fuel type
-            <Field name="fueltype" disabled={isDisabledFields} as="select">
-              <CarMapCharacteristic characteristics={carFuelTypes} />
-            </Field>
+            Price
+            <Field name="price" disabled={isDisabledFields} />
             <ErrorMessage
-              name="fueltype"
+              name="price"
               render={message => (
                 <div className={css.errorValidation}>{message}</div>
               )}
@@ -218,10 +218,10 @@ const CarDataForm = ({
             />
           </label>
           <label className={css.label}>
-            Price
-            <Field name="price" disabled={isDisabledFields} />
+            Tel
+            <Field name="tel" disabled={isDisabledFields} />
             <ErrorMessage
-              name="price"
+              name="tel"
               render={message => (
                 <div className={css.errorValidation}>{message}</div>
               )}

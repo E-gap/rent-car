@@ -4,15 +4,26 @@ import * as Yup from 'yup';
 import css from './FormAddCar.module.css';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-
 import { addCar, getAllCars } from '../../redux/cars/carsOperations';
-
-import { useDispatch } from 'react-redux';
-// import Button from '../Button/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import CarMapCharacteristic from 'components/CarMapCharacteristic/CarMapCharacteristic';
+import {
+  carColors,
+  carModels,
+  carTypes,
+  carFuelTypes,
+  carTransmissionTypes,
+} from '../../utils/CarCharacteristics';
+import { selectUserData } from '../../redux/selectors';
 
 function FormAddCar({ closeModal }) {
   const dispatch = useDispatch();
   const location = useLocation();
+  const {
+    tel = 'not tel yet',
+    city = 'not city yet',
+    email,
+  } = useSelector(selectUserData);
 
   const AddCarSchema = Yup.object().shape({
     model: Yup.string().required('Please input model'),
@@ -55,12 +66,12 @@ function FormAddCar({ closeModal }) {
           transmission: '',
           mileage: '',
           power: '',
-          tel: '',
+          tel,
           year: '',
           color: '',
           fueltype: '',
-          city: '',
-          email: '',
+          city,
+          email,
           price: '',
           description: '',
         }}
@@ -70,7 +81,9 @@ function FormAddCar({ closeModal }) {
         <Form className={css.form}>
           <label className={css.label}>
             Model
-            <Field name="model" className={css.field} />
+            <Field name="model" className={css.field} as="select">
+              <CarMapCharacteristic characteristics={carModels} />
+            </Field>
             <ErrorMessage
               name="model"
               render={message => (
@@ -80,7 +93,9 @@ function FormAddCar({ closeModal }) {
           </label>
           <label className={css.label}>
             Type
-            <Field name="type" />
+            <Field name="type" as="select">
+              <CarMapCharacteristic characteristics={carTypes} />
+            </Field>
             <ErrorMessage
               name="type"
               render={message => (
@@ -89,10 +104,34 @@ function FormAddCar({ closeModal }) {
             />
           </label>
           <label className={css.label}>
+            Year
+            <Field name="year" />
+            <ErrorMessage
+              name="year"
+              render={message => (
+                <div className={css.errorValidation}>{message}</div>
+              )}
+            />
+          </label>
+          <label className={css.label}>
             Transmission
-            <Field name="transmission" />
+            <Field name="transmission" as="select">
+              <CarMapCharacteristic characteristics={carTransmissionTypes} />
+            </Field>
             <ErrorMessage
               name="transmission"
+              render={message => (
+                <div className={css.errorValidation}>{message}</div>
+              )}
+            />
+          </label>
+          <label className={css.label}>
+            Fuel type
+            <Field name="fueltype" as="select">
+              <CarMapCharacteristic characteristics={carFuelTypes} />
+            </Field>
+            <ErrorMessage
+              name="fueltype"
               render={message => (
                 <div className={css.errorValidation}>{message}</div>
               )}
@@ -118,29 +157,12 @@ function FormAddCar({ closeModal }) {
               )}
             />
           </label>
-          <label className={css.label}>
-            Tel
-            <Field name="tel" />
-            <ErrorMessage
-              name="tel"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Year
-            <Field name="year" />
-            <ErrorMessage
-              name="year"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
+
           <label className={css.label}>
             Color
-            <Field name="color" />
+            <Field name="color" as="select">
+              <CarMapCharacteristic characteristics={carColors} />
+            </Field>
             <ErrorMessage
               name="color"
               render={message => (
@@ -148,11 +170,12 @@ function FormAddCar({ closeModal }) {
               )}
             />
           </label>
+
           <label className={css.label}>
-            Fuel type
-            <Field name="fueltype" />
+            Price
+            <Field name="price" />
             <ErrorMessage
-              name="fueltype"
+              name="price"
               render={message => (
                 <div className={css.errorValidation}>{message}</div>
               )}
@@ -179,15 +202,16 @@ function FormAddCar({ closeModal }) {
             />
           </label>
           <label className={css.label}>
-            Price
-            <Field name="price" />
+            Tel
+            <Field name="tel" />
             <ErrorMessage
-              name="price"
+              name="tel"
               render={message => (
                 <div className={css.errorValidation}>{message}</div>
               )}
             />
           </label>
+
           <label className={`${css.label} ${css.description}`}>
             Description
             <Field
