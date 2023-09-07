@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 
 const UserDataForm = ({
   userData: {
-    userData: { email, name, city, tel },
+    userData: { email, name, city = 'no city yet', tel = 'no tel yet' },
     userId,
   },
 }) => {
@@ -36,8 +36,8 @@ const UserDataForm = ({
   const initialValues = {
     name,
     email,
-    city: city ?? 'no city yet',
-    tel: tel ?? 'no tel yet',
+    city,
+    tel,
   };
 
   return (

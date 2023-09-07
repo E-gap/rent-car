@@ -27,7 +27,7 @@ export const updateUser = createAsyncThunk(
 
     try {
       const { data } = await instance.patch(`/users/${userId}`, dataUser);
-      console.log(data.user);
+
       return data.user;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
