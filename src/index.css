@@ -39,3 +39,7 @@ ul {
   margin-bottom: 0;
   padding-left: 0;
 }
+
+button {
+  min-width: 50px;
+}

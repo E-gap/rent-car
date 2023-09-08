@@ -22,36 +22,18 @@ button:focus {
   margin-right: 10px;
 }
 
-.buttonNewGame {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.buttonShowAllScores {
-  display: block;
-  margin-right: var(--default-interval);
-}
-
-.buttonShowMyScores {
-  display: block;
-}
-
-.sortByDate,
-.sortByScore {
-  font-size: 7px;
+.sortCars,
+.filterCars {
+  font-size: var(--middle-font-size);
   padding: 2px 2px 2px 2px;
 
   @media screen and (min-width: 768px) {
-    font-size: 10px;
+    font-size: var(--middle-font-size);
   }
 }
 
-.buttonNewGame {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: var(--default-interval);
+.filterCars {
+  margin-right: 10px;
 }
 
 .buttonSignIn {

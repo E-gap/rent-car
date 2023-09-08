@@ -2,7 +2,7 @@ import loader from '../../images/loader-car.gif';
 // import PropTypes from 'prop-types';
 import css from './Preloader.module.css';
 
-export const Preloader = () => {
+const Preloader = () => {
   return (
     <div>
       <div className={css.preloader}>
@@ -11,6 +11,8 @@ export const Preloader = () => {
     </div>
   );
 };
+
+export default Preloader;
 
 /* Preloader.propTypes = {
   sign: PropTypes.string,

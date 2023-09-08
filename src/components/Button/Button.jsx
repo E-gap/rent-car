@@ -5,10 +5,6 @@ const Button = ({ text, handleButton, view }) => {
   let style;
 
   switch (view) {
-    case 'buttonNewGame':
-      style = css.buttonNewGame;
-      break;
-
     case 'signIn':
       style = css.buttonSignIn;
       break;
@@ -21,24 +17,16 @@ const Button = ({ text, handleButton, view }) => {
       style = css.buttonLogOut;
       break;
 
-    case 'buttonShowAllScores':
-      style = css.buttonShowAllScores;
-      break;
-
-    case 'buttonShowMyScores':
-      style = css.buttonShowMyScores;
-      break;
-
     case 'buttonQuestionSign':
       style = css.buttonQuestionSign;
       break;
 
-    case 'sortByDate':
-      style = css.sortByDate;
+    case 'sort':
+      style = css.sortCars;
       break;
 
-    case 'sortByScore':
-      style = css.sortByScore;
+    case 'filter':
+      style = css.filterCars;
       break;
 
     case 'back':

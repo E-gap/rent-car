@@ -6,7 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCar, getOneCar } from '../../redux/cars/carsOperations';
 import { changeFavorite } from '../../redux/auth/authOperations';
-import { Preloader } from '../../components/Preloader/Preloader';
+import Preloader from '../../components/Preloader/Preloader';
 import CarDataForm from '../../components/CarDataForm/CarDataForm';
 // import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 import { selectUserFavorites, selectUserId } from '../../redux/selectors';
