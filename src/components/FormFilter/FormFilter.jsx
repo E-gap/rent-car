@@ -24,6 +24,7 @@ function FormAddCar({ closeModal }) {
   const location = useLocation();
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams);
 
   const FilterSchema = Yup.object().shape({
     mark: Yup.string(),
