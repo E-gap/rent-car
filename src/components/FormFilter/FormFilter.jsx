@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './FormFilter.module.css';
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import {
   getAllCars,
   getFavoriteCars,
@@ -21,8 +21,9 @@ import {
 } from '../../utils/CarCharacteristics';
 
 function FormAddCar({ closeModal }) {
-  const dispatch = useDispatch();
   const location = useLocation();
+  const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const FilterSchema = Yup.object().shape({
     mark: Yup.string(),
@@ -41,12 +42,21 @@ function FormAddCar({ closeModal }) {
 
   const submitForm = async (values, actions) => {
     const dataCar = { ...values };
+
     actions.resetForm();
     closeModal();
-    console.log(dataCar);
+
+    for (var [k, v] of Object.entries(dataCar)) {
+      if (!v) {
+        delete dataCar[k];
+      }
+    }
+
+    setSearchParams(dataCar);
+    const { search } = window.location;
 
     if (location.pathname.includes('all')) {
-      dispatch(getAllCars());
+      dispatch(getAllCars(search));
     }
     if (location.pathname.includes('favorite')) {
       dispatch(getFavoriteCars());
