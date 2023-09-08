@@ -60,10 +60,10 @@ function FormAddCar({ closeModal }) {
       dispatch(getAllCars(search));
     }
     if (location.pathname.includes('favorite')) {
-      dispatch(getFavoriteCars());
+      dispatch(getFavoriteCars(search));
     }
     if (location.pathname.includes('user')) {
-      dispatch(getUserCars());
+      dispatch(getUserCars(search));
     }
   };
 

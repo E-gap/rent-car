@@ -46,7 +46,7 @@ export const getOneCar = async carId => {
 
 export const getFavoriteCars = createAsyncThunk(
   'cars/getFavoriteCars',
-  async (_, thunkApi) => {
+  async (search, thunkApi) => {
     const { token } = thunkApi.getState().auth;
 
     if (!token)
@@ -56,7 +56,9 @@ export const getFavoriteCars = createAsyncThunk(
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 
     try {
-      const { data } = await instance.get('/cars/favorite');
+      const { data } = await instance.get(
+        search ? `/cars/favorite${search}` : `/cars/favorite`
+      );
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -75,14 +77,16 @@ export const getFavoriteCars = createAsyncThunk(
 
 export const getUserCars = createAsyncThunk(
   'cars/getUserCars',
-  async (_, thunkApi) => {
+  async (search, thunkApi) => {
     const { token } = thunkApi.getState().auth;
 
     if (!token)
       return thunkApi.rejectWithValue('Sign In if you want to get Your Cars');
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     try {
-      const { data } = await instance.get('/cars/user');
+      const { data } = await instance.get(
+        search ? `/cars/user${search}` : `/cars/user`
+      );
       return data.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
