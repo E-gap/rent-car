@@ -1,10 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import css from './FormAddCar.module.css';
+import css from './FormFilter.module.css';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { addCar, getAllCars } from '../../redux/cars/carsOperations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import CarMapCharacteristic from 'components/CarMapCharacteristic/CarMapCharacteristic';
 import {
   carColors,
@@ -15,39 +15,24 @@ import {
   carModels,
   carYears,
 } from '../../utils/CarCharacteristics';
-import { selectUserData } from '../../redux/selectors';
 
 function FormAddCar({ closeModal }) {
   const dispatch = useDispatch();
   const location = useLocation();
-  const {
-    tel = 'not tel yet',
-    city = 'not city yet',
-    email,
-  } = useSelector(selectUserData);
 
-  const AddCarSchema = Yup.object().shape({
-    mark: Yup.string().required('Please input mark'),
-    model: Yup.string().required('Please input model'),
-    type: Yup.string().required('Please input type'),
-    transmission: Yup.string().required('Please input transmission'),
-    mileage: Yup.number()
-      .typeError('you must specify a number')
-      .required('Please input mileage'),
-    power: Yup.number()
-      .typeError('you must specify a number')
-      .required('Please input power'),
-    engine: Yup.number()
-      .typeError('you must specify a number')
-      .required('Please input engine capacity'),
-    tel: Yup.string().required('Please input tel'),
-    year: Yup.number().required('Please input year'),
-    color: Yup.string().required('Please input color'),
-    fueltype: Yup.string().required('Please input fuel type'),
-    city: Yup.string().required('Please input city'),
-    email: Yup.string().required('Please input email'),
-    price: Yup.number().required('Please input price'),
-    description: Yup.string(),
+  const FilterSchema = Yup.object().shape({
+    mark: Yup.string(),
+    model: Yup.string(),
+    type: Yup.string(),
+    transmission: Yup.string(),
+    mileage: Yup.number().typeError('you must specify a number'),
+    power: Yup.number().typeError('you must specify a number'),
+    engine: Yup.number().typeError('you must specify a number'),
+    year: Yup.number().typeError('you must specify a number'),
+    color: Yup.string(),
+    fueltype: Yup.string(),
+    city: Yup.string(),
+    price: Yup.number().typeError('you must specify a number'),
   });
 
   const submitForm = async (values, actions) => {
@@ -73,16 +58,13 @@ function FormAddCar({ closeModal }) {
           mileage: '',
           power: '',
           engine: '',
-          tel,
           year: '',
           color: '',
           fueltype: '',
-          city,
-          email,
+          city: '',
           price: '',
-          description: '',
         }}
-        validationSchema={AddCarSchema}
+        validationSchema={FilterSchema}
         onSubmit={submitForm}
       >
         <Form className={css.form}>
@@ -220,36 +202,9 @@ function FormAddCar({ closeModal }) {
               )}
             />
           </label>
-          <label className={css.label}>
-            Email
-            <Field name="email" />
-            <ErrorMessage
-              name="email"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Tel
-            <Field name="tel" />
-            <ErrorMessage
-              name="tel"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={`${css.label} ${css.description}`}>
-            Description
-            <Field
-              as="textarea"
-              name="description"
-              className={css.descriptionText}
-            />
-          </label>
+
           <button type="submit" className={css.submit}>
-            Submit
+            Filter
           </button>
         </Form>
       </Formik>

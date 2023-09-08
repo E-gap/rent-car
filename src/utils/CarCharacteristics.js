@@ -25,3 +25,14 @@ export const carTypes = ['Sedan', 'Coupe', 'Wagon', 'Hatchback'];
 export const carFuelTypes = ['Benzin', 'Gas', 'Diesel', 'Electro'];
 
 export const carTransmissionTypes = ['Manual', 'Automatic', 'Robot'];
+
+function range(start, stop, step) {
+  var a = [start],
+    b = start;
+  while (b < stop) {
+    a.push((b += step || 1));
+  }
+  return a;
+}
+
+export const carYears = range(1960, 2023, 1);

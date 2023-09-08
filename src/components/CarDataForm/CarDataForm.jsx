@@ -12,6 +12,7 @@ import {
   carFuelTypes,
   carTransmissionTypes,
   carModels,
+  carYears,
 } from '../../utils/CarCharacteristics';
 
 const CarDataForm = ({
@@ -145,7 +146,9 @@ const CarDataForm = ({
           </label>
           <label className={css.label}>
             Year
-            <Field name="year" disabled={isDisabledFields} />
+            <Field name="year" disabled={isDisabledFields} as="select">
+              <CarMapCharacteristic characteristics={carYears} />
+            </Field>
             <ErrorMessage
               name="year"
               render={message => (
