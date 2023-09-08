@@ -3,7 +3,11 @@ import * as Yup from 'yup';
 import css from './FormFilter.module.css';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import { addCar, getAllCars } from '../../redux/cars/carsOperations';
+import {
+  getAllCars,
+  getFavoriteCars,
+  getUserCars,
+} from '../../redux/cars/carsOperations';
 import { useDispatch } from 'react-redux';
 import CarMapCharacteristic from 'components/CarMapCharacteristic/CarMapCharacteristic';
 import {
@@ -36,14 +40,19 @@ function FormAddCar({ closeModal }) {
   });
 
   const submitForm = async (values, actions) => {
-    const dataCar = { ...values, date: Date.now() };
+    const dataCar = { ...values };
     actions.resetForm();
-
     closeModal();
+    console.log(dataCar);
 
-    await dispatch(addCar(dataCar));
-    if (!location.pathname.includes('favorite')) {
+    if (location.pathname.includes('all')) {
       dispatch(getAllCars());
+    }
+    if (location.pathname.includes('favorite')) {
+      dispatch(getFavoriteCars());
+    }
+    if (location.pathname.includes('user')) {
+      dispatch(getUserCars());
     }
   };
 

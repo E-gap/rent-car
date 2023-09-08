@@ -6,15 +6,15 @@ import { useState } from 'react';
 import FormFilter from '../FormFilter/FormFilter';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 const HandlePanel = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   // const dispatch = useDispatch();
-  const location = useLocation();
-  const pathArray = location.pathname.split('/');
+  // const location = useLocation();
+  // const pathArray = location.pathname.split('/');
 
-  const lastWordLocation = pathArray[pathArray.length - 1];
+  // const lastWordLocation = pathArray[pathArray.length - 1];
 
   // console.log(lastWordLocation);
 
