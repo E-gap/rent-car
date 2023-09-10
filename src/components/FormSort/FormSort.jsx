@@ -3,16 +3,17 @@ import * as Yup from 'yup';
 import css from './FormSort.module.css';
 import PropTypes from 'prop-types';
 import { changeSortBy } from '../../redux/cars/carsSlice';
+import { useDispatch } from 'react-redux';
 
 const FormSort = ({ closeModal }) => {
+  const dispatch = useDispatch();
   const SortSchema = Yup.object().shape({
     sort: Yup.string().require,
   });
 
   const submitForm = e => {
     closeModal();
-    console.log(e.target.value);
-    changeSortBy(e.target.value);
+    dispatch(changeSortBy(e.target.value));
   };
 
   return (
@@ -82,6 +83,26 @@ const FormSort = ({ closeModal }) => {
               className={css.field}
               type="radio"
               value="engine"
+              onClick={submitForm}
+            />
+          </label>
+          <label className={css.label}>
+            Sort by mileage
+            <Field
+              name="sort"
+              className={css.field}
+              type="radio"
+              value="mileage"
+              onClick={submitForm}
+            />
+          </label>
+          <label className={css.label}>
+            Sort by date
+            <Field
+              name="sort"
+              className={css.field}
+              type="radio"
+              value="date"
               onClick={submitForm}
             />
           </label>

@@ -15,11 +15,10 @@ const carsSlice = createSlice({
     carsByUser: [],
     isLoading: false,
     error: null,
-    sortBy: '',
+    sortBy: null,
   },
   reducers: {
     changeSortBy(state, action) {
-      console.log(action);
       state.sortBy = action.payload;
     },
   },
@@ -32,6 +31,7 @@ const carsSlice = createSlice({
       .addCase(getAllCars.fulfilled, (state, action) => {
         state.allCars = action.payload;
         state.isLoading = false;
+        state.sortBy = null;
       })
       .addCase(getAllCars.rejected, (state, action) => {
         state.isLoading = false;
@@ -44,6 +44,7 @@ const carsSlice = createSlice({
       .addCase(getFavoriteCars.fulfilled, (state, action) => {
         state.allCars = action.payload;
         state.isLoading = false;
+        state.sortBy = null;
       })
       .addCase(getFavoriteCars.rejected, (state, action) => {
         state.isLoading = false;
@@ -56,6 +57,7 @@ const carsSlice = createSlice({
       .addCase(getUserCars.fulfilled, (state, action) => {
         state.allCars = action.payload;
         state.isLoading = false;
+        state.sortBy = null;
       })
       .addCase(getUserCars.rejected, (state, action) => {
         state.isLoading = false;

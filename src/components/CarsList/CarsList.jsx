@@ -24,6 +24,17 @@ const CarsList = ({ page }) => {
   const carsError = useSelector(selectCarsError);
   const sortBy = useSelector(selectCarsSortBy);
 
+  const sortedCars = [...cars];
+
+  if (sortedCars.length > 0 && typeof sortedCars[0][sortBy] === 'string') {
+    sortedCars.sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
+  } else if (
+    sortedCars.length > 0 &&
+    typeof sortedCars[0][sortBy] === 'number'
+  ) {
+    sortedCars.sort((a, b) => a[sortBy] - b[sortBy]);
+  }
+
   useEffect(() => {
     if (page === 'carsPage') {
       dispatch(getAllCars());
@@ -46,7 +57,7 @@ const CarsList = ({ page }) => {
             <ErrorComponent errorText={carsError} />
           ) : (
             <ul className={css.carList}>
-              {cars.map(oneCar => (
+              {sortedCars.map(oneCar => (
                 <ItemCar key={oneCar._id} oneCar={oneCar} />
               ))}
             </ul>
