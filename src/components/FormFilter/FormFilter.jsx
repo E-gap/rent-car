@@ -20,11 +20,14 @@ import {
   carYears,
 } from '../../utils/CarCharacteristics';
 
-function FormAddCar({ closeModal }) {
+const FormFilter = ({ closeModal }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams);
+
+  if (searchParams.get('guery')) {
+    console.log(searchParams);
+  }
 
   const FilterSchema = Yup.object().shape({
     mark: Yup.string(),
@@ -230,10 +233,10 @@ function FormAddCar({ closeModal }) {
       </Formik>
     </>
   );
-}
+};
 
-export default FormAddCar;
+export default FormFilter;
 
-FormAddCar.propTypes = {
+FormFilter.propTypes = {
   closeModal: PropTypes.func.isRequired,
 };

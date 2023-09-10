@@ -15,6 +15,13 @@ const carsSlice = createSlice({
     carsByUser: [],
     isLoading: false,
     error: null,
+    sortBy: '',
+  },
+  reducers: {
+    changeSortBy(state, action) {
+      console.log(action);
+      state.sortBy = action.payload;
+    },
   },
   extraReducers: builder =>
     builder
@@ -86,5 +93,7 @@ const carsSlice = createSlice({
         state.error = action.payload;
       }),
 });
+
+export const { changeSortBy } = carsSlice.actions;
 
 export const carsReducer = carsSlice.reducer;

@@ -12,6 +12,7 @@ import {
   selectAllCars,
   selectIsCarsLoading,
   selectCarsError,
+  selectCarsSortBy,
 } from '../../redux/selectors';
 import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 import Preloader from '../../components/Preloader/Preloader';
@@ -21,6 +22,7 @@ const CarsList = ({ page }) => {
   const cars = useSelector(selectAllCars);
   const isLoading = useSelector(selectIsCarsLoading);
   const carsError = useSelector(selectCarsError);
+  const sortBy = useSelector(selectCarsSortBy);
 
   useEffect(() => {
     if (page === 'carsPage') {
@@ -32,8 +34,7 @@ const CarsList = ({ page }) => {
     if (page === 'userCarsPage') {
       dispatch(getUserCars());
     }
-    // eslint-disable-next-line
-  }, []);
+  }, [dispatch, page]);
 
   return (
     <>

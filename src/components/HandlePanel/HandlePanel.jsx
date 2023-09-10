@@ -4,12 +4,14 @@ import Button from '../Button/Button';
 import { useState } from 'react';
 // import { getAllCars } from '../../redux/cars/carsOperations';
 import FormFilter from '../FormFilter/FormFilter';
+import FormSort from '../FormSort/FormSort';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 
 // import { useLocation } from 'react-router-dom';
 
 const HandlePanel = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
+  const [buttonClickOn, setButtonClickOn] = useState(false);
   // const dispatch = useDispatch();
   // const location = useLocation();
   // const pathArray = location.pathname.split('/');
@@ -30,10 +32,11 @@ const HandlePanel = () => {
 
   const handlePanelButton = e => {
     if (e.target.getAttribute('class').includes('filter')) {
-      // console.log(location);
+      setButtonClickOn('filter');
       setIsModalWindowOpen(true);
     } else if (e.target.getAttribute('class').includes('sort')) {
       setIsModalWindowOpen(true);
+      setButtonClickOn('sort');
     }
   };
 
@@ -50,7 +53,11 @@ const HandlePanel = () => {
           setIsModalWindowOpen={setIsModalWindowOpen}
           onKeyDown={onKeyDown}
         >
-          <FormFilter closeModal={closeModal} />
+          {buttonClickOn === 'filter' ? (
+            <FormFilter closeModal={closeModal} />
+          ) : (
+            <FormSort closeModal={closeModal} />
+          )}
         </ModalWindow>
       )}
     </div>

@@ -17,3 +17,5 @@ export const selectIsCarsLoading = state => state.cars.isLoading;
 export const selectAuthError = state => state.auth.error;
 
 export const selectCarsError = state => state.cars.error;
+
+export const selectCarsSortBy = state => state.cars.sortBy;
