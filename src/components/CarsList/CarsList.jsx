@@ -24,15 +24,37 @@ const CarsList = ({ page }) => {
   const carsError = useSelector(selectCarsError);
   const sortBy = useSelector(selectCarsSortBy);
 
+  const firstWordSortBy = sortBy?.split(' ')[0];
+  const directionSortBy = sortBy?.split(' ')[1];
+
   const sortedCars = [...cars];
 
-  if (sortedCars.length > 0 && typeof sortedCars[0][sortBy] === 'string') {
-    sortedCars.sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
-  } else if (
-    sortedCars.length > 0 &&
-    typeof sortedCars[0][sortBy] === 'number'
-  ) {
-    sortedCars.sort((a, b) => a[sortBy] - b[sortBy]);
+  if (sortedCars.length > 0 && sortBy) {
+    if (
+      typeof sortedCars[0][firstWordSortBy] === 'string' &&
+      directionSortBy === 'up'
+    ) {
+      sortedCars.sort((a, b) =>
+        a[firstWordSortBy].localeCompare(b[firstWordSortBy])
+      );
+    } else if (
+      typeof sortedCars[0][firstWordSortBy] === 'string' &&
+      directionSortBy === 'down'
+    ) {
+      sortedCars.sort((a, b) =>
+        b[firstWordSortBy].localeCompare(a[firstWordSortBy])
+      );
+    } else if (
+      typeof sortedCars[0][firstWordSortBy] === 'number' &&
+      directionSortBy === 'up'
+    ) {
+      sortedCars.sort((a, b) => a[firstWordSortBy] - b[firstWordSortBy]);
+    } else if (
+      typeof sortedCars[0][firstWordSortBy] === 'number' &&
+      directionSortBy === 'down'
+    ) {
+      sortedCars.sort((a, b) => b[firstWordSortBy] - a[firstWordSortBy]);
+    }
   }
 
   useEffect(() => {

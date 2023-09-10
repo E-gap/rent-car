@@ -27,82 +27,103 @@ const FormSort = ({ closeModal }) => {
       >
         <Form className={css.form}>
           <label className={css.label}>
-            Sort by mark
+            Sort by mark up
             <Field
               name="sort"
               className={css.field}
               type="radio"
-              value="mark"
+              value="mark up"
               onClick={submitForm}
             />
           </label>
           <label className={css.label}>
-            Sort by model
+            Sort by mark down
             <Field
               name="sort"
               className={css.field}
               type="radio"
-              value="model"
+              value="mark down"
               onClick={submitForm}
             />
           </label>
           <label className={css.label}>
-            Sort by price
+            Sort by model up
             <Field
               name="sort"
               className={css.field}
               type="radio"
-              value="price"
+              value="model up"
               onClick={submitForm}
             />
           </label>
           <label className={css.label}>
-            Sort by year
+            Sort by model down
             <Field
               name="sort"
               className={css.field}
               type="radio"
-              value="year"
+              value="model down"
               onClick={submitForm}
             />
           </label>
           <label className={css.label}>
-            Sort by power
+            Sort by price up
             <Field
               name="sort"
               className={css.field}
               type="radio"
-              value="power"
+              value="price up"
               onClick={submitForm}
             />
           </label>
           <label className={css.label}>
-            Sort by engine capacity
+            Sort by price down
             <Field
               name="sort"
               className={css.field}
               type="radio"
-              value="engine"
+              value="price down"
               onClick={submitForm}
             />
           </label>
           <label className={css.label}>
-            Sort by mileage
+            Sort by year up
             <Field
               name="sort"
               className={css.field}
               type="radio"
-              value="mileage"
+              value="year up"
               onClick={submitForm}
             />
           </label>
           <label className={css.label}>
-            Sort by date
+            Sort by year down
             <Field
               name="sort"
               className={css.field}
               type="radio"
-              value="date"
+              value="year down"
+              onClick={submitForm}
+            />
+          </label>
+
+          <label className={css.label}>
+            Sort by date up
+            <Field
+              name="sort"
+              className={css.field}
+              type="radio"
+              value="date up"
+              onClick={submitForm}
+            />
+          </label>
+          <label className={css.label}>
+            Sort by date down
+            <Field
+              name="sort"
+              className={css.field}
+              type="radio"
+              value="date down"
               onClick={submitForm}
             />
           </label>
