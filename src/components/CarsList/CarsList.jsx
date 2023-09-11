@@ -17,7 +17,7 @@ import {
 import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 import Preloader from '../../components/Preloader/Preloader';
 
-const CarsList = ({ page }) => {
+const CarsList = ({ page, pageNumber }) => {
   const dispatch = useDispatch();
   const cars = useSelector(selectAllCars);
   const isLoading = useSelector(selectIsCarsLoading);
@@ -57,17 +57,29 @@ const CarsList = ({ page }) => {
     }
   }
 
+  const { search } = window.location;
+  console.log(search);
+
   useEffect(() => {
-    if (page === 'carsPage') {
+    if (page === 'carsPage' && pageNumber === 1) {
       dispatch(getAllCars());
     }
-    if (page === 'favoritePage') {
+    if (page === 'carsPage' && pageNumber > 1) {
+      dispatch(getAllCars(search));
+    }
+    if (page === 'favoritePage' && pageNumber === 1) {
       dispatch(getFavoriteCars());
     }
-    if (page === 'userCarsPage') {
+    if (page === 'favoritePage' && pageNumber > 1) {
+      dispatch(getFavoriteCars(search));
+    }
+    if (page === 'userCarsPage' && pageNumber === 1) {
       dispatch(getUserCars());
     }
-  }, [dispatch, page]);
+    if (page === 'userCarsPage' && pageNumber > 1) {
+      dispatch(getUserCars(search));
+    }
+  }, [dispatch, page, pageNumber, search]);
 
   return (
     <>

@@ -10,6 +10,8 @@ export const selectUserFavorites = state => state.auth.favorites;
 
 export const selectAllCars = state => state.cars.allCars;
 
+export const selectTotalCars = state => state.cars.total;
+
 export const selectIsUserLoading = state => state.auth.isLoading;
 
 export const selectIsCarsLoading = state => state.cars.isLoading;

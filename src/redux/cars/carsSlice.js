@@ -14,6 +14,7 @@ const carsSlice = createSlice({
     allCars: [],
     carsByUser: [],
     isLoading: false,
+    total: 0,
     error: null,
     sortBy: null,
   },
@@ -29,9 +30,10 @@ const carsSlice = createSlice({
         state.error = null;
       })
       .addCase(getAllCars.fulfilled, (state, action) => {
-        state.allCars = action.payload;
+        state.allCars = action.payload.data;
         state.isLoading = false;
         state.sortBy = null;
+        state.total = action.payload.total;
       })
       .addCase(getAllCars.rejected, (state, action) => {
         state.isLoading = false;
