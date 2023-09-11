@@ -38,6 +38,7 @@ const carsSlice = createSlice({
       .addCase(getAllCars.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+        state.allCars = [];
       })
       .addCase(getFavoriteCars.pending, state => {
         state.isLoading = true;

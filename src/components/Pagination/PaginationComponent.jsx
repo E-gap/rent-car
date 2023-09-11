@@ -26,6 +26,9 @@ const PaginationComponent = ({ searchPage, total, options }) => {
     searchPage(pageNumber);
   }, [searchPage, pageNumber]);
 
+  /* console.log('render');
+  console.log(pageNumber, total); */
+
   return <div id="tui-pagination-container" className="tui-pagination"></div>;
 };
 export default PaginationComponent;

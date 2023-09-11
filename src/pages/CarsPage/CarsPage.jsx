@@ -5,7 +5,7 @@ import HandlePanel from 'components/HandlePanel/HandlePanel';
 import PaginationComponent from '../../components/Pagination/PaginationComponent';
 import { useSelector } from 'react-redux';
 import { selectTotalCars } from '../../redux/selectors';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import options from '../../components/Pagination/options';
 
@@ -17,18 +17,18 @@ const CarsPage = () => {
     return params ? params : 1;
   });
 
-  const { search } = window.location;
-  console.log(search);
+  /* useEffect(() => {
+    setSearchParams({ page: pageNumber });
 
-  const searchPage = useCallback(
-    pageNumber => {
-      if (pageNumber > 1) {
-        setSearchParams({ page: pageNumber });
-      }
-      setPage(pageNumber);
-    },
-    [setSearchParams]
-  );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageNumber]); */
+
+  const searchPage = useCallback(pageNumber => {
+    setSearchParams({ page: pageNumber });
+    setPage(pageNumber);
+  }, []);
+
+  console.log('total: ', totalCars);
   return (
     <div className={css.carsPage}>
       <Container>

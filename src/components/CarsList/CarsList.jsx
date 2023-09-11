@@ -58,13 +58,13 @@ const CarsList = ({ page, pageNumber }) => {
   }
 
   const { search } = window.location;
-  console.log(search);
 
   useEffect(() => {
     if (page === 'carsPage' && pageNumber === 1) {
       dispatch(getAllCars());
     }
     if (page === 'carsPage' && pageNumber > 1) {
+      console.log(search);
       dispatch(getAllCars(search));
     }
     if (page === 'favoritePage' && pageNumber === 1) {
