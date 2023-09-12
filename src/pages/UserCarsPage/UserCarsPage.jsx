@@ -9,17 +9,8 @@ import { useCallback, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import options from '../../components/Pagination/options';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getAllCars,
-  getFavoriteCars,
-  getUserCars,
-} from '../../redux/cars/carsOperations';
-import {
-  selectAllCars,
-  selectIsCarsLoading,
-  selectCarsError,
-  selectCarsSortBy,
-} from '../../redux/selectors';
+import { getUserCars } from '../../redux/cars/carsOperations';
+import { selectAllCars } from '../../redux/selectors';
 
 const UserCarsPage = () => {
   const dispatch = useDispatch();
@@ -41,24 +32,17 @@ const UserCarsPage = () => {
   const changeSort = sortParam => {
     setSort({ sort: sortParam });
     setPageNumber(1);
-    // setSearchParams({ page: 1, sort: sortParam });
-    /* searchParams.append('sort', sortParam);
-    setSearchParams(searchParams); */
   };
 
   const searchPage = useCallback(pageNumber => {
-    // setSearchParams({ page: pageNumber });
     setPageNumber(pageNumber);
   }, []);
 
   useEffect(() => {
     setSearchParams({ ...filter, page: pageNumber, ...sort });
     const { search } = window.location;
-    // console.log(search);
     dispatch(getUserCars(search));
   }, [pageNumber, filter, sort, dispatch, setSearchParams]);
-
-  // console.log(filter, pageNumber, sort);
 
   return (
     <div className={css.userCarsPage}>

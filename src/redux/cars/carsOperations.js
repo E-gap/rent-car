@@ -59,7 +59,7 @@ export const getFavoriteCars = createAsyncThunk(
       const { data } = await instance.get(
         search ? `/cars/favorite${search}` : `/cars/favorite`
       );
-      return data.data;
+      return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
@@ -87,7 +87,8 @@ export const getUserCars = createAsyncThunk(
       const { data } = await instance.get(
         search ? `/cars/user${search}` : `/cars/user`
       );
-      return data.data;
+
+      return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

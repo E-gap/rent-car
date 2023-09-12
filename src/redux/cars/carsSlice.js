@@ -31,7 +31,6 @@ const carsSlice = createSlice({
       .addCase(getAllCars.fulfilled, (state, action) => {
         state.allCars = action.payload.data;
         state.isLoading = false;
-
         state.total = action.payload.total;
       })
       .addCase(getAllCars.rejected, (state, action) => {
@@ -44,26 +43,28 @@ const carsSlice = createSlice({
         state.error = null;
       })
       .addCase(getFavoriteCars.fulfilled, (state, action) => {
-        state.allCars = action.payload;
+        state.allCars = action.payload.data;
         state.isLoading = false;
         state.total = action.payload.total;
       })
       .addCase(getFavoriteCars.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+        state.allCars = [];
       })
       .addCase(getUserCars.pending, state => {
         state.isLoading = true;
         state.error = null;
       })
       .addCase(getUserCars.fulfilled, (state, action) => {
-        state.allCars = action.payload;
+        state.allCars = action.payload.data;
         state.isLoading = false;
         state.total = action.payload.total;
       })
       .addCase(getUserCars.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+        state.allCars = [];
       })
       .addCase(addCar.pending, state => {
         state.isLoading = true;
