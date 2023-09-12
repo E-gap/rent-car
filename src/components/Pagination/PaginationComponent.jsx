@@ -3,16 +3,9 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 // import propTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
 const PaginationComponent = ({ searchPage, total, options, sort }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [numberPage, setNumberPage] = useState(() => {
-    const params = searchParams.get('page');
-    return params ? params : 1;
-  });
-
-  // console.log(sort);
+  const [numberPage, setNumberPage] = useState(1);
 
   useEffect(() => {
     const container = document.getElementById('tui-pagination-container');
@@ -27,13 +20,11 @@ const PaginationComponent = ({ searchPage, total, options, sort }) => {
       currentPage = event.page;
       setNumberPage(currentPage);
     });
-  }, [total, options]);
+  }, [total, options, sort]);
 
   useEffect(() => {
     searchPage(numberPage);
   }, [searchPage, numberPage]);
-
-  // console.log('render pagination');
 
   return <div id="tui-pagination-container" className="tui-pagination"></div>;
 };

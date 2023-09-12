@@ -3,7 +3,6 @@ import Container from 'components/Container/Container';
 import CarsList from 'components/CarsList/CarsList';
 import HandlePanel from 'components/HandlePanel/HandlePanel';
 import PaginationComponent from '../../components/Pagination/PaginationComponent';
-
 import { selectTotalCars } from '../../redux/selectors';
 import { useCallback, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -24,15 +23,15 @@ const CarsPage = () => {
   const [sort, setSort] = useState({});
   const [filter, setFilter] = useState({});
 
-  const changeFilter = filterParam => {
+  const changeFilter = useCallback(filterParam => {
     setFilter(filterParam);
     setPageNumber(1);
-  };
+  }, []);
 
-  const changeSort = sortParam => {
+  const changeSort = useCallback(sortParam => {
     setSort({ sort: sortParam });
     setPageNumber(1);
-  };
+  }, []);
 
   const searchPage = useCallback(pageNumber => {
     setPageNumber(pageNumber);
@@ -43,6 +42,8 @@ const CarsPage = () => {
     const { search } = window.location;
     dispatch(getAllCars(search));
   }, [pageNumber, filter, sort, dispatch, setSearchParams]);
+
+  console.log('render page');
 
   return (
     <div className={css.carsPage}>

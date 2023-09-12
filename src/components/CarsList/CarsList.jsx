@@ -10,6 +10,8 @@ const CarsList = ({ cars }) => {
   const isLoading = useSelector(selectIsCarsLoading);
   const carsError = useSelector(selectCarsError);
 
+  console.log('render list');
+
   return (
     <>
       {isLoading ? (
