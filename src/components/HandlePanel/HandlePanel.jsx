@@ -1,15 +1,11 @@
 import css from './HandlePanel.module.css';
 import Button from '../Button/Button';
-// import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-// import { getAllCars } from '../../redux/cars/carsOperations';
 import FormFilter from '../FormFilter/FormFilter';
 import FormSort from '../FormSort/FormSort';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 
-// import { useLocation } from 'react-router-dom';
-
-const HandlePanel = ({ changeSort, changeFilter }) => {
+const HandlePanel = ({ changeSort, changeFilter, resetFilters }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const [buttonClickOn, setButtonClickOn] = useState(false);
 
@@ -39,6 +35,11 @@ const HandlePanel = ({ changeSort, changeFilter }) => {
 
   return (
     <div className={css.handlePanel}>
+      <Button
+        text="Reset filters and sort"
+        view="reset filters"
+        handleButton={resetFilters}
+      />
       <Button text="Filter" view="filter" handleButton={handlePanelButton} />
       <Button text="Sort" view="sort" handleButton={handlePanelButton} />
       {isModalWindowOpen && (

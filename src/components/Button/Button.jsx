@@ -29,6 +29,10 @@ const Button = ({ text, handleButton, view }) => {
       style = css.filterCars;
       break;
 
+    case 'reset filters':
+      style = css.resetFilter;
+      break;
+
     case 'back':
       style = css.back;
       break;

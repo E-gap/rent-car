@@ -48,12 +48,19 @@ const CarsPage = () => {
     dispatch(getAllCars(search));
   }, [pageNumber, filter, sort, dispatch, setSearchParams]);
 
-  console.log('render page');
+  const resetFilters = () => {
+    setFilter({});
+    setSort({});
+  };
 
   return (
     <div className={css.carsPage}>
       <Container>
-        <HandlePanel changeSort={changeSort} changeFilter={changeFilter} />
+        <HandlePanel
+          changeSort={changeSort}
+          changeFilter={changeFilter}
+          resetFilters={resetFilters}
+        />
         {isLoading && <Preloader />}
         {carsError && <ErrorComponent errorText={carsError} />}
         {!isLoading && !carsError && cars.length > 0 && (

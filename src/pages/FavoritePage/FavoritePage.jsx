@@ -49,10 +49,19 @@ const FavoritePage = () => {
     dispatch(getFavoriteCars(search));
   }, [pageNumber, filter, sort, dispatch, setSearchParams]);
 
+  const resetFilters = () => {
+    setFilter({});
+    setSort({});
+  };
+
   return (
     <div className={css.favoritePage}>
       <Container>
-        <HandlePanel changeSort={changeSort} changeFilter={changeFilter} />
+        <HandlePanel
+          changeSort={changeSort}
+          changeFilter={changeFilter}
+          resetFilters={resetFilters}
+        />
         {isLoading && <Preloader />}
         {carsError && <ErrorComponent errorText={carsError} />}
         {!isLoading && !carsError && cars.length > 0 && (

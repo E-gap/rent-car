@@ -32,7 +32,8 @@ button:focus {
   }
 }
 
-.filterCars {
+.filterCars,
+.resetFilter {
   margin-right: 10px;
 }
 
