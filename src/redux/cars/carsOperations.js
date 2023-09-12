@@ -13,10 +13,8 @@ import { instance } from '../auth/authOperations';
 export const getAllCars = createAsyncThunk(
   'cars/getAllCars',
   async (search, thunkApi) => {
-    console.log(search);
     try {
       const { data } = await instance.get(search ? `/cars${search}` : `/cars`);
-      // console.log(data);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

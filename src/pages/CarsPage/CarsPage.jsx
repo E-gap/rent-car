@@ -54,12 +54,11 @@ const CarsPage = () => {
   useEffect(() => {
     setSearchParams({ ...filter, page: pageNumber, ...sort });
     const { search } = window.location;
-    console.log(search);
+    // console.log(search);
     dispatch(getAllCars(search));
-    console.log('надо делать запрос');
-  }, [pageNumber, filter, sort, dispatch]);
+  }, [pageNumber, filter, sort, dispatch, setSearchParams]);
 
-  console.log(filter, pageNumber, sort);
+  // console.log(filter, pageNumber, sort);
 
   return (
     <div className={css.carsPage}>
