@@ -20,14 +20,14 @@ import {
   carYears,
 } from '../../utils/CarCharacteristics';
 
-const FormFilter = ({ closeModal }) => {
+const FormFilter = ({ closeModal, changeFilter }) => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
 
-  if (searchParams.get('guery')) {
+  /* if (searchParams.get('guery')) {
     console.log(searchParams);
-  }
+  } */
 
   const FilterSchema = Yup.object().shape({
     mark: Yup.string(),
@@ -45,21 +45,23 @@ const FormFilter = ({ closeModal }) => {
   });
 
   const submitForm = async (values, actions) => {
-    const dataCar = { ...values };
+    const filterCar = { ...values };
 
     actions.resetForm();
     closeModal();
 
-    for (var [k, v] of Object.entries(dataCar)) {
+    for (var [k, v] of Object.entries(filterCar)) {
       if (!v) {
-        delete dataCar[k];
+        delete filterCar[k];
       }
     }
 
-    setSearchParams(dataCar);
-    const { search } = window.location;
+    changeFilter(filterCar);
 
-    if (location.pathname.includes('all')) {
+    // setSearchParams(filterCar);
+    // const { search } = window.location;
+
+    /* if (location.pathname.includes('all')) {
       dispatch(getAllCars(search));
     }
     if (location.pathname.includes('favorite')) {
@@ -67,7 +69,7 @@ const FormFilter = ({ closeModal }) => {
     }
     if (location.pathname.includes('user')) {
       dispatch(getUserCars(search));
-    }
+    } */
   };
 
   return (

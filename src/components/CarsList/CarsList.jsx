@@ -17,19 +17,19 @@ import {
 import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 import Preloader from '../../components/Preloader/Preloader';
 
-const CarsList = ({ page, pageNumber }) => {
-  const dispatch = useDispatch();
-  const cars = useSelector(selectAllCars);
+const CarsList = ({ cars }) => {
+  // const dispatch = useDispatch();
+  // const cars = useSelector(selectAllCars);
   const isLoading = useSelector(selectIsCarsLoading);
   const carsError = useSelector(selectCarsError);
-  const sortBy = useSelector(selectCarsSortBy);
+  // const sortBy = useSelector(selectCarsSortBy);
 
-  const firstWordSortBy = sortBy?.split(' ')[0];
-  const directionSortBy = sortBy?.split(' ')[1];
+  /* const firstWordSortBy = sortBy?.split(' ')[0];
+  const directionSortBy = sortBy?.split(' ')[1]; */
 
-  const sortedCars = [...cars];
+  // const sortedCars = [...cars];
 
-  if (sortedCars.length > 0 && sortBy) {
+  /* if (sortedCars.length > 0 && sortBy) {
     if (
       typeof sortedCars[0][firstWordSortBy] === 'string' &&
       directionSortBy === 'up'
@@ -55,16 +55,16 @@ const CarsList = ({ page, pageNumber }) => {
     ) {
       sortedCars.sort((a, b) => b[firstWordSortBy] - a[firstWordSortBy]);
     }
-  }
+  } */
 
-  const { search } = window.location;
+  // const { search } = window.location;
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (page === 'carsPage' && pageNumber === 1) {
       dispatch(getAllCars());
     }
     if (page === 'carsPage' && pageNumber > 1) {
-      console.log(search);
+      // console.log(search);
       dispatch(getAllCars(search));
     }
     if (page === 'favoritePage' && pageNumber === 1) {
@@ -79,7 +79,7 @@ const CarsList = ({ page, pageNumber }) => {
     if (page === 'userCarsPage' && pageNumber > 1) {
       dispatch(getUserCars(search));
     }
-  }, [dispatch, page, pageNumber, search]);
+  }, [dispatch, page, pageNumber, search]); */
 
   return (
     <>
@@ -91,7 +91,7 @@ const CarsList = ({ page, pageNumber }) => {
             <ErrorComponent errorText={carsError} />
           ) : (
             <ul className={css.carList}>
-              {sortedCars.map(oneCar => (
+              {cars.map(oneCar => (
                 <ItemCar key={oneCar._id} oneCar={oneCar} />
               ))}
             </ul>

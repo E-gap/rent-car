@@ -9,16 +9,9 @@ import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 
 // import { useLocation } from 'react-router-dom';
 
-const HandlePanel = () => {
+const HandlePanel = ({ changeSort, changeFilter }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const [buttonClickOn, setButtonClickOn] = useState(false);
-  // const dispatch = useDispatch();
-  // const location = useLocation();
-  // const pathArray = location.pathname.split('/');
-
-  // const lastWordLocation = pathArray[pathArray.length - 1];
-
-  // console.log(lastWordLocation);
 
   const onKeyDown = e => {
     if (e.target.getAttribute('class').includes('backdrop')) {
@@ -54,9 +47,9 @@ const HandlePanel = () => {
           onKeyDown={onKeyDown}
         >
           {buttonClickOn === 'filter' ? (
-            <FormFilter closeModal={closeModal} />
+            <FormFilter closeModal={closeModal} changeFilter={changeFilter} />
           ) : (
-            <FormSort closeModal={closeModal} />
+            <FormSort closeModal={closeModal} changeSort={changeSort} />
           )}
         </ModalWindow>
       )}

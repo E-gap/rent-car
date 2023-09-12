@@ -3,41 +3,74 @@ import Container from 'components/Container/Container';
 import CarsList from 'components/CarsList/CarsList';
 import HandlePanel from 'components/HandlePanel/HandlePanel';
 import PaginationComponent from '../../components/Pagination/PaginationComponent';
-import { useSelector } from 'react-redux';
+
 import { selectTotalCars } from '../../redux/selectors';
 import { useCallback, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import options from '../../components/Pagination/options';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getAllCars,
+  getFavoriteCars,
+  getUserCars,
+} from '../../redux/cars/carsOperations';
+import {
+  selectAllCars,
+  selectIsCarsLoading,
+  selectCarsError,
+  selectCarsSortBy,
+} from '../../redux/selectors';
 
 const CarsPage = () => {
+  const dispatch = useDispatch();
   const totalCars = useSelector(selectTotalCars);
+  const cars = useSelector(selectAllCars);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [pageNumber, setPage] = useState(() => {
+  const [pageNumber, setPageNumber] = useState(() => {
     const params = searchParams.get('page');
     return params ? params : 1;
   });
+  const [sort, setSort] = useState({});
+  const [filter, setFilter] = useState({});
 
-  /* useEffect(() => {
-    setSearchParams({ page: pageNumber });
+  const changeFilter = filterParam => {
+    setFilter(filterParam);
+    setPageNumber(1);
+  };
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageNumber]); */
+  const changeSort = sortParam => {
+    setSort({ sort: sortParam });
+    setPageNumber(1);
+    // setSearchParams({ page: 1, sort: sortParam });
+    /* searchParams.append('sort', sortParam);
+    setSearchParams(searchParams); */
+  };
 
   const searchPage = useCallback(pageNumber => {
-    setSearchParams({ page: pageNumber });
-    setPage(pageNumber);
+    // setSearchParams({ page: pageNumber });
+    setPageNumber(pageNumber);
   }, []);
 
-  console.log('total: ', totalCars);
+  useEffect(() => {
+    setSearchParams({ ...filter, page: pageNumber, ...sort });
+    const { search } = window.location;
+    console.log(search);
+    dispatch(getAllCars(search));
+    console.log('надо делать запрос');
+  }, [pageNumber, filter, sort, dispatch]);
+
+  console.log(filter, pageNumber, sort);
+
   return (
     <div className={css.carsPage}>
       <Container>
-        <HandlePanel />
-        <CarsList page="carsPage" pageNumber={pageNumber} />
+        <HandlePanel changeSort={changeSort} changeFilter={changeFilter} />
+        <CarsList cars={cars} />
         <PaginationComponent
           total={totalCars}
           searchPage={searchPage}
           options={options.carsOptions}
+          sort={sort}
         />
       </Container>
     </div>
