@@ -4,17 +4,12 @@ import css from './FormSort.module.css';
 import PropTypes from 'prop-types';
 import { changeSortBy } from '../../redux/cars/carsSlice';
 import { useDispatch } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
 
 const FormSort = ({ closeModal, changeSort }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const SortSchema = Yup.object().shape({
     sort: Yup.string().require,
   });
-
-  const { search } = window.location;
-  console.log(search);
 
   const submitForm = e => {
     closeModal();

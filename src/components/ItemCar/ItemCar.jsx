@@ -4,11 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { MdFavorite } from 'react-icons/md';
 import { BsTrashFill } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
-import {
-  // selectIsLogin,
-  selectUserFavorites,
-  selectUserId,
-} from '../../redux/selectors';
+import { selectUserFavorites, selectUserId } from '../../redux/selectors';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeFavorite } from '../../redux/auth/authOperations';
@@ -19,7 +15,7 @@ import QuestionSure from '../../components/QuestionSure/QuestionSure';
 const ItemCar = ({ oneCar }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const dispatch = useDispatch();
-  // const isLogin = useSelector(selectIsLogin);
+
   const favorites = useSelector(selectUserFavorites);
   const userId = useSelector(selectUserId);
 

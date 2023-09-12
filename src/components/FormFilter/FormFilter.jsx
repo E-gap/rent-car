@@ -2,13 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './FormFilter.module.css';
 import PropTypes from 'prop-types';
-import { useLocation, useSearchParams } from 'react-router-dom';
-import {
-  getAllCars,
-  getFavoriteCars,
-  getUserCars,
-} from '../../redux/cars/carsOperations';
-import { useDispatch } from 'react-redux';
+
 import CarMapCharacteristic from 'components/CarMapCharacteristic/CarMapCharacteristic';
 import {
   carColors,
@@ -21,14 +15,6 @@ import {
 } from '../../utils/CarCharacteristics';
 
 const FormFilter = ({ closeModal, changeFilter }) => {
-  const location = useLocation();
-  const dispatch = useDispatch();
-  // const [searchParams, setSearchParams] = useSearchParams();
-
-  /* if (searchParams.get('guery')) {
-    console.log(searchParams);
-  } */
-
   const FilterSchema = Yup.object().shape({
     mark: Yup.string(),
     model: Yup.string(),
@@ -46,7 +32,6 @@ const FormFilter = ({ closeModal, changeFilter }) => {
 
   const submitForm = async (values, actions) => {
     const filterCar = { ...values };
-
     actions.resetForm();
     closeModal();
 
@@ -55,21 +40,7 @@ const FormFilter = ({ closeModal, changeFilter }) => {
         delete filterCar[k];
       }
     }
-
     changeFilter(filterCar);
-
-    // setSearchParams(filterCar);
-    // const { search } = window.location;
-
-    /* if (location.pathname.includes('all')) {
-      dispatch(getAllCars(search));
-    }
-    if (location.pathname.includes('favorite')) {
-      dispatch(getFavoriteCars(search));
-    }
-    if (location.pathname.includes('user')) {
-      dispatch(getUserCars(search));
-    } */
   };
 
   return (
