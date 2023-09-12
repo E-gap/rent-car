@@ -10,8 +10,13 @@ import options from '../../components/Pagination/options';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCars } from '../../redux/cars/carsOperations';
 import { selectAllCars } from '../../redux/selectors';
+import { selectIsCarsLoading, selectCarsError } from '../../redux/selectors';
+import Preloader from '../../components/Preloader/Preloader';
+import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 
 const CarsPage = () => {
+  const isLoading = useSelector(selectIsCarsLoading);
+  const carsError = useSelector(selectCarsError);
   const dispatch = useDispatch();
   const totalCars = useSelector(selectTotalCars);
   const cars = useSelector(selectAllCars);
@@ -49,13 +54,23 @@ const CarsPage = () => {
     <div className={css.carsPage}>
       <Container>
         <HandlePanel changeSort={changeSort} changeFilter={changeFilter} />
-        <CarsList cars={cars} />
-        <PaginationComponent
-          total={totalCars}
-          searchPage={searchPage}
-          options={options.carsOptions}
-          sort={sort}
-        />
+        {isLoading && <Preloader />}
+        {carsError && <ErrorComponent errorText={carsError} />}
+        {!isLoading && !carsError && cars.length > 0 && (
+          <CarsList cars={cars} />
+        )}
+        {!isLoading && !carsError && cars.length === 0 && (
+          <p className={css.messageNotItems}>There is not any items</p>
+        )}
+
+        {cars.length > 0 && (
+          <PaginationComponent
+            total={totalCars}
+            searchPage={searchPage}
+            options={options.carsOptions}
+            sort={sort}
+          />
+        )}
       </Container>
     </div>
   );

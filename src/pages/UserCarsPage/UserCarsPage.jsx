@@ -3,7 +3,6 @@ import Container from 'components/Container/Container';
 import CarsList from 'components/CarsList/CarsList';
 import HandlePanel from 'components/HandlePanel/HandlePanel';
 import PaginationComponent from '../../components/Pagination/PaginationComponent';
-
 import { selectTotalCars } from '../../redux/selectors';
 import { useCallback, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -11,8 +10,13 @@ import options from '../../components/Pagination/options';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserCars } from '../../redux/cars/carsOperations';
 import { selectAllCars } from '../../redux/selectors';
+import { selectIsCarsLoading, selectCarsError } from '../../redux/selectors';
+import Preloader from '../../components/Preloader/Preloader';
+import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 
 const UserCarsPage = () => {
+  const isLoading = useSelector(selectIsCarsLoading);
+  const carsError = useSelector(selectCarsError);
   const dispatch = useDispatch();
   const totalCars = useSelector(selectTotalCars);
   const cars = useSelector(selectAllCars);
@@ -48,13 +52,23 @@ const UserCarsPage = () => {
     <div className={css.userCarsPage}>
       <Container>
         <HandlePanel changeSort={changeSort} changeFilter={changeFilter} />
-        <CarsList cars={cars} />
-        <PaginationComponent
-          total={totalCars}
-          searchPage={searchPage}
-          options={options.carsOptions}
-          sort={sort}
-        />
+        {isLoading && <Preloader />}
+        {carsError && <ErrorComponent errorText={carsError} />}
+        {!isLoading && !carsError && cars.length > 0 && (
+          <CarsList cars={cars} />
+        )}
+        {!isLoading && !carsError && cars.length === 0 && (
+          <p className={css.messageNotItems}>There is not any items</p>
+        )}
+
+        {cars.length > 0 && (
+          <PaginationComponent
+            total={totalCars}
+            searchPage={searchPage}
+            options={options.carsOptions}
+            sort={sort}
+          />
+        )}
       </Container>
     </div>
   );
