@@ -38,7 +38,7 @@ function range(start, stop, step) {
 export const carYears = range(1960, 2023, 1);
 
 export const marksAndModels = {
-  marks: ['Mercedes', 'BMW', 'Renault', 'Opel', 'Skoda', 'Else'],
+  marks: ['Mercedes', 'BMW', 'Renault', 'Opel', 'Skoda'],
   BMW: ['316', '520'],
   Renault: ['Clio'],
   Opel: ['Astra', 'Omega'],

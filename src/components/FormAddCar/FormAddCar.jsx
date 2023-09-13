@@ -51,6 +51,11 @@ function FormAddCar({ closeModal }) {
 
   const submitForm = async (values, actions) => {
     const dataCar = { ...values, date: Date.now() };
+    if (!marksAndModels[values.mark].includes(values.model)) {
+      console.log('bad');
+      return;
+    }
+
     actions.resetForm();
 
     closeModal();

@@ -81,8 +81,9 @@ const carsSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(changeCar.fulfilled, state => {
+      .addCase(changeCar.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.allCars = action.payload.data;
       })
       .addCase(changeCar.rejected, (state, action) => {
         state.isLoading = false;

@@ -42,6 +42,7 @@ const CarDataForm = ({
   const AddCarSchema = Yup.object().shape({
     mark: Yup.string().required('Please input mark'),
     model: Yup.string().required('Please input model'),
+    /* .oneOf(marksAndModels[mark], 'Please, rechoice model'), */
     type: Yup.string().required('Please input type'),
     transmission: Yup.string().required('Please input transmission'),
     mileage: Yup.number()
@@ -67,6 +68,11 @@ const CarDataForm = ({
     const dataCar = { dataCar: { ...values }, carId: _id };
 
     if (textButton === 'Save changes') {
+      if (!marksAndModels[values.mark].includes(values.model)) {
+        console.log('bad');
+        return;
+      }
+
       setIsDisabledFields(true);
       dispatch(changeCar(dataCar));
       getCar();
@@ -140,6 +146,7 @@ const CarDataForm = ({
                 )}
               />
             </label>
+
             <label className={css.label}>
               Type
               <Field name="type" disabled={isDisabledFields} as="select">

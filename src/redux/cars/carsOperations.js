@@ -123,7 +123,7 @@ export const changeCar = createAsyncThunk(
 
     try {
       const { data } = await instance.patch(`/cars/${carId}`, dataCar);
-      return data.data;
+      return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
