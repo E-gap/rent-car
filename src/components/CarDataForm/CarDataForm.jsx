@@ -7,16 +7,16 @@ import { useState } from 'react';
 import CarMapCharacteristic from 'components/CarMapCharacteristic/CarMapCharacteristic';
 import {
   carColors,
-  carMarks,
   carTypes,
   carFuelTypes,
   carTransmissionTypes,
-  carModels,
   carYears,
+  marksAndModels,
 } from '../../utils/CarCharacteristics';
 
 const CarDataForm = ({
   carOne: {
+    mark,
     model,
     price,
     type,
@@ -24,6 +24,7 @@ const CarDataForm = ({
     transmission,
     color,
     mileage,
+    engine,
     fueltype,
     power,
     city,
@@ -75,6 +76,7 @@ const CarDataForm = ({
   };
 
   const initialValues = {
+    mark,
     model,
     type,
     transmission,
@@ -84,6 +86,7 @@ const CarDataForm = ({
     year,
     color,
     fueltype,
+    engine,
     city,
     email,
     price,
@@ -97,203 +100,213 @@ const CarDataForm = ({
         validationSchema={AddCarSchema}
         onSubmit={submitForm}
       >
-        <Form className={css.form}>
-          <label className={css.label}>
-            Mark
-            <Field
-              name="mark"
-              className={css.field}
-              disabled={isDisabledFields}
-              as="select"
-            >
-              <CarMapCharacteristic characteristics={carMarks} />
-            </Field>
-            <ErrorMessage
-              name="mark"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Model
-            <Field
-              name="model"
-              className={css.field}
-              disabled={isDisabledFields}
-              as="select"
-            >
-              <CarMapCharacteristic characteristics={carModels} />
-            </Field>
-            <ErrorMessage
-              name="model"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Type
-            <Field name="type" disabled={isDisabledFields} as="select">
-              <CarMapCharacteristic characteristics={carTypes} />
-            </Field>
-            <ErrorMessage
-              name="type"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Year
-            <Field name="year" disabled={isDisabledFields} as="select">
-              <CarMapCharacteristic characteristics={carYears} />
-            </Field>
-            <ErrorMessage
-              name="year"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Transmission
-            <Field name="transmission" disabled={isDisabledFields} as="select">
-              <CarMapCharacteristic characteristics={carTransmissionTypes} />
-            </Field>
-            <ErrorMessage
-              name="transmission"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Fuel type
-            <Field name="fueltype" disabled={isDisabledFields} as="select">
-              <CarMapCharacteristic characteristics={carFuelTypes} />
-            </Field>
-            <ErrorMessage
-              name="fueltype"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Mileage
-            <Field name="mileage" disabled={isDisabledFields} />
-            <ErrorMessage
-              name="mileage"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Engine capacity
-            <Field name="engine" disabled={isDisabledFields} />
-            <ErrorMessage
-              name="engine"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Power
-            <Field name="power" disabled={isDisabledFields} />
-            <ErrorMessage
-              name="power"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Color
-            <Field name="color" disabled={isDisabledFields} as="select">
-              <CarMapCharacteristic characteristics={carColors} />
-            </Field>
-            <ErrorMessage
-              name="color"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Price
-            <Field name="price" disabled={isDisabledFields} />
-            <ErrorMessage
-              name="price"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            City
-            <Field name="city" disabled={isDisabledFields} />
-            <ErrorMessage
-              name="city"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Email
-            <Field name="email" disabled={isDisabledFields} />
-            <ErrorMessage
-              name="email"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={css.label}>
-            Tel
-            <Field name="tel" disabled={isDisabledFields} />
-            <ErrorMessage
-              name="tel"
-              render={message => (
-                <div className={css.errorValidation}>{message}</div>
-              )}
-            />
-          </label>
-          <label className={`${css.label} ${css.description}`}>
-            Description
-            <Field
-              as="textarea"
-              name="description"
-              className={css.descriptionText}
-              disabled={isDisabledFields}
-            />
-          </label>
-          <div className={css.buttonsChanges}>
-            <button
-              type="submit"
-              className={css.buttonChangeCar}
-              onClick={e => {
-                setIsDisabledFields(!isDisabledFields);
-                setTextButton(e.target.textContent);
-              }}
-            >
-              {isDisabledFields ? 'Change data' : 'Cancel changes'}
-            </button>
-            <button
-              type="submit"
-              className={css.submit}
-              onClick={e => {
-                setTextButton(e.target.textContent);
-              }}
-              disabled={isDisabledFields}
-            >
-              Save changes
-            </button>
-          </div>
-        </Form>
+        {({ values }) => (
+          <Form className={css.form}>
+            <label className={css.label}>
+              Mark
+              <Field
+                name="mark"
+                className={css.field}
+                disabled={isDisabledFields}
+                as="select"
+              >
+                <CarMapCharacteristic characteristics={marksAndModels.marks} />
+              </Field>
+              <ErrorMessage
+                name="mark"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Model
+              <Field
+                name="model"
+                className={css.field}
+                disabled={!values.mark || isDisabledFields}
+                as="select"
+              >
+                <CarMapCharacteristic
+                  characteristics={
+                    !values.mark ? [] : marksAndModels[values.mark]
+                  }
+                />
+              </Field>
+              <ErrorMessage
+                name="model"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Type
+              <Field name="type" disabled={isDisabledFields} as="select">
+                <CarMapCharacteristic characteristics={carTypes} />
+              </Field>
+              <ErrorMessage
+                name="type"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Year
+              <Field name="year" disabled={isDisabledFields} as="select">
+                <CarMapCharacteristic characteristics={carYears} />
+              </Field>
+              <ErrorMessage
+                name="year"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Transmission
+              <Field
+                name="transmission"
+                disabled={isDisabledFields}
+                as="select"
+              >
+                <CarMapCharacteristic characteristics={carTransmissionTypes} />
+              </Field>
+              <ErrorMessage
+                name="transmission"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Fuel type
+              <Field name="fueltype" disabled={isDisabledFields} as="select">
+                <CarMapCharacteristic characteristics={carFuelTypes} />
+              </Field>
+              <ErrorMessage
+                name="fueltype"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Mileage
+              <Field name="mileage" disabled={isDisabledFields} />
+              <ErrorMessage
+                name="mileage"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Engine capacity
+              <Field name="engine" disabled={isDisabledFields} />
+              <ErrorMessage
+                name="engine"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Power
+              <Field name="power" disabled={isDisabledFields} />
+              <ErrorMessage
+                name="power"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Color
+              <Field name="color" disabled={isDisabledFields} as="select">
+                <CarMapCharacteristic characteristics={carColors} />
+              </Field>
+              <ErrorMessage
+                name="color"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Price
+              <Field name="price" disabled={isDisabledFields} />
+              <ErrorMessage
+                name="price"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              City
+              <Field name="city" disabled={isDisabledFields} />
+              <ErrorMessage
+                name="city"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Email
+              <Field name="email" disabled={isDisabledFields} />
+              <ErrorMessage
+                name="email"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={css.label}>
+              Tel
+              <Field name="tel" disabled={isDisabledFields} />
+              <ErrorMessage
+                name="tel"
+                render={message => (
+                  <div className={css.errorValidation}>{message}</div>
+                )}
+              />
+            </label>
+            <label className={`${css.label} ${css.description}`}>
+              Description
+              <Field
+                as="textarea"
+                name="description"
+                className={css.descriptionText}
+                disabled={isDisabledFields}
+              />
+            </label>
+            <div className={css.buttonsChanges}>
+              <button
+                type="submit"
+                className={css.buttonChangeCar}
+                onClick={e => {
+                  setIsDisabledFields(!isDisabledFields);
+                  setTextButton(e.target.textContent);
+                }}
+              >
+                {isDisabledFields ? 'Change data' : 'Cancel changes'}
+              </button>
+              <button
+                type="submit"
+                className={css.submit}
+                onClick={e => {
+                  setTextButton(e.target.textContent);
+                }}
+                disabled={isDisabledFields}
+              >
+                Save changes
+              </button>
+            </div>
+          </Form>
+        )}
       </Formik>
     </>
   );
