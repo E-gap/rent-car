@@ -102,7 +102,11 @@ const OneCarPage = () => {
                     />
                   )}
                 </div>
-                <CarDataForm carOne={carOne} getCar={getCar} />
+                <CarDataForm
+                  carOne={carOne}
+                  getCar={getCar}
+                  canChange={owner === userId}
+                />
               </>
             )}
           </Container>

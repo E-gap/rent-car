@@ -34,6 +34,7 @@ const CarDataForm = ({
     _id,
   },
   getCar,
+  canChange,
 }) => {
   const [isDisabledFields, setIsDisabledFields] = useState(true);
   const [textButton, setTextButton] = useState('');
@@ -298,6 +299,7 @@ const CarDataForm = ({
                   setIsDisabledFields(!isDisabledFields);
                   setTextButton(e.target.textContent);
                 }}
+                disabled={!canChange}
               >
                 {isDisabledFields ? 'Change data' : 'Cancel changes'}
               </button>
