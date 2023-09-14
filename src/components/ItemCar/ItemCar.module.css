@@ -22,7 +22,7 @@
 .iconFavorite {
   width: 25px;
   height: 25px;
-  color: var(--default-color);
+  color: black;
   margin-bottom: 5px;
 }
 
@@ -33,7 +33,7 @@
 .iconDelete {
   width: 20px;
   height: 20px;
-  color: var(--default-color);
+  color: black;
 }
 
 .iconsFavoriteDelete {
