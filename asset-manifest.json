@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rent-car/static/css/main.381ea816.css",
-    "main.js": "/rent-car/static/js/main.7e5aabca.js",
+    "main.css": "/rent-car/static/css/main.4e5d7db6.css",
+    "main.js": "/rent-car/static/js/main.215776bb.js",
     "static/media/cards-page-bg-tablet.jpg": "/rent-car/static/media/cards-page-bg-tablet.23de02a95c8b9ff28caf.jpg",
     "static/media/mitsubishi-static.png": "/rent-car/static/media/mitsubishi-static.c50261598f3912027c70.png",
     "static/media/bmw-static.png": "/rent-car/static/media/bmw-static.34d16173ad9163e5bc29.png",
@@ -11,11 +11,11 @@
     "static/media/mercedes-static.png": "/rent-car/static/media/mercedes-static.502fdae6acf601451aaa.png",
     "static/media/loader-car.gif": "/rent-car/static/media/loader-car.2ba9624c43f1bd2b12fd.gif",
     "index.html": "/rent-car/index.html",
-    "main.381ea816.css.map": "/rent-car/static/css/main.381ea816.css.map",
-    "main.7e5aabca.js.map": "/rent-car/static/js/main.7e5aabca.js.map"
+    "main.4e5d7db6.css.map": "/rent-car/static/css/main.4e5d7db6.css.map",
+    "main.215776bb.js.map": "/rent-car/static/js/main.215776bb.js.map"
   },
   "entrypoints": [
-    "static/css/main.381ea816.css",
-    "static/js/main.7e5aabca.js"
+    "static/css/main.4e5d7db6.css",
+    "static/js/main.215776bb.js"
   ]
 }
