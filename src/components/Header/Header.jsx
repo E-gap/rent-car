@@ -2,7 +2,7 @@ import css from './Header.module.css';
 import Button from '../Button/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIsLogin, selectUserName } from '../../redux/selectors';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { logout } from '../../redux/auth/authOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
@@ -22,12 +22,11 @@ const Header = () => {
   const userName = useSelector(selectUserName);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleButton = () => {
-    console.log('sdsdds');
+  /* const handleButton = () => {
     navigate(-1);
-  };
+  }; */
 
   const closeModal = e => {
     setIsModalWindowOpen(false);
@@ -66,7 +65,7 @@ const Header = () => {
         <Container>
           <div className={css.displayFlex}>
             <div className={css.displayFlex}>
-              <Button text="Back" handleButton={handleButton} view="back" />
+              {/* <Button text="Back" handleButton={handleButton} view="back" /> */}
               <NavLink to="/" className={`${css.marginRight10} ${css.link}`}>
                 Home
               </NavLink>

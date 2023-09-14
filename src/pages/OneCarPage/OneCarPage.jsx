@@ -2,7 +2,7 @@
 import { BsTrashFill } from 'react-icons/bs';
 import css from './OneCarPage.module.css';
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCar, getOneCar } from '../../redux/cars/carsOperations';
 import { changeFavorite } from '../../redux/auth/authOperations';
@@ -31,6 +31,7 @@ const OneCarPage = () => {
   const favorites = useSelector(selectUserFavorites);
   const userId = useSelector(selectUserId);
   const isUserLogin = useSelector(selectIsLogin);
+  const location = useLocation();
 
   const getCar = () => {
     getOneCar(carId).then(res => {
@@ -91,7 +92,10 @@ const OneCarPage = () => {
             {error ? (
               <ErrorComponent errorText={error} />
             ) : (
-              <>
+              <div className={css.pageRelative}>
+                <Link to={location.state.from} className={css.linkGoBack}>
+                  Go back
+                </Link>
                 <img
                   src={require('../../images/cards-page-bg-tablet.jpg')}
                   className={css.carPhoto}
@@ -121,7 +125,7 @@ const OneCarPage = () => {
                   getCar={getCar}
                   canChange={owner === userId}
                 />
-              </>
+              </div>
             )}
           </Container>
         </div>

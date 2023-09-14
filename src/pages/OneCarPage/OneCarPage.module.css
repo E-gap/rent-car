@@ -1,3 +1,7 @@
+.pageRelative {
+  position: relative;
+}
+
 .oneCarPage {
   padding-top: 10px;
   height: 100vh;
@@ -86,4 +90,18 @@
   font-size: 20px;
   font-weight: 500;
   color: red;
+}
+
+.linkGoBack {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  text-decoration: none;
+  color: var(--default-color);
+  font-weight: 600;
+}
+
+.linkGoBack:hover {
+  color: green;
+  cursor: pointer;
 }

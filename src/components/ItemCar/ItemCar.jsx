@@ -17,12 +17,13 @@ import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import QuestionSure from '../../components/QuestionSure/QuestionSure';
 import Notiflix from 'notiflix';
 
-const ItemCar = ({ oneCar }) => {
+const ItemCar = ({ oneCar, state }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const dispatch = useDispatch();
   const favorites = useSelector(selectUserFavorites);
   const userId = useSelector(selectUserId);
   const isUserLogin = useSelector(selectIsLogin);
+  // const location = useLocation();
 
   const handleFavorite = () => {
     if (!isUserLogin) {
@@ -55,7 +56,11 @@ const ItemCar = ({ oneCar }) => {
   return (
     <>
       <li className={css.itemCar}>
-        <NavLink to={`/cars/${oneCar._id}`} className={css.carLink}>
+        <NavLink
+          to={`/cars/${oneCar._id}`}
+          className={css.carLink}
+          state={state}
+        >
           <img
             src={require('../../images/cards-page-bg-tablet.jpg')}
             className={css.carPhoto}

@@ -4,10 +4,12 @@ import { useState } from 'react';
 import FormFilter from '../FormFilter/FormFilter';
 import FormSort from '../FormSort/FormSort';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
+// import { useLocation, Link } from 'react-router-dom';
 
 const HandlePanel = ({ changeSort, changeFilter, resetFilters }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const [buttonClickOn, setButtonClickOn] = useState(false);
+  // const location = useLocation();
 
   const onKeyDown = e => {
     if (e.target.getAttribute('class').includes('backdrop')) {
@@ -33,8 +35,15 @@ const HandlePanel = ({ changeSort, changeFilter, resetFilters }) => {
     setIsModalWindowOpen(false);
   };
 
+  // const backLinkHref = location.state?.from ?? '/';
+
+  // console.log(location);
+
   return (
     <div className={css.handlePanel}>
+      {/*  <Link to={backLinkHref} className={css.linkGoBack}>
+        Go back
+      </Link> */}
       <Button
         text="Reset filters and sort"
         view="reset filters"
