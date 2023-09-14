@@ -25,6 +25,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleButton = () => {
+    console.log('sdsdds');
     navigate(-1);
   };
 
