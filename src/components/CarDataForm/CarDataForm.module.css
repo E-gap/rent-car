@@ -19,8 +19,8 @@ textarea {
   margin-bottom: 5px;
   position: relative;
   font-size: 12px;
-  font-weight: 500;
-  color: var(--default-color);
+  font-weight: 700;
+  color: yellow;
 }
 
 .label.description {
@@ -49,5 +49,3 @@ textarea {
 .buttonsChanges button {
   min-width: 150px;
 }
-
-

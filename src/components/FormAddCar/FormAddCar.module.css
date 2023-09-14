@@ -18,8 +18,8 @@ textarea {
   margin-bottom: var(--default-interval);
   position: relative;
   font-size: 12px;
-  font-weight: 500;
-  color: var(--default-color);
+  font-weight: 700;
+  color: yellow;
 }
 
 .label.description {
