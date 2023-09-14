@@ -25,13 +25,13 @@
 .iconFavorite {
   width: 25px;
   height: 25px;
-  color: black;
+  color: grey;
 }
 
 .iconDelete {
   width: 20px;
   height: 20px;
-  color: black;
+  color: grey;
 }
 
 .favoriteSelected {
