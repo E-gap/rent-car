@@ -1,8 +1,6 @@
 .carsPage {
   height: 100vh;
-  min-height: 480px;
-  /* background-image: url(../../images/cards-page-bg-mobile.jpg);
-  background-size: cover; */
+  min-height: 480px;  
   padding-top: var(--default-interval);
   padding-bottom: var(--default-interval);
   background: radial-gradient(

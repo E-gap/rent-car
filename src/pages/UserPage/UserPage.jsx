@@ -3,9 +3,6 @@
 import css from './UserPage.module.css';
 import Button from '../../components/Button/Button';
 import UserDataForm from '../../components/UserDataForm/UserDataForm';
-// import { useState, useEffect } from 'react';
-// import { Preloader } from '../../components/Preloader/Preloader';
-// import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 import Container from 'components/Container/Container';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';

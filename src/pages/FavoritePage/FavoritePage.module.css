@@ -1,8 +1,6 @@
 .favoritePage {
   height: 100vh;
   min-height: 480px;
-  /* background-image: url(../../images/cards-page-bg-mobile.jpg);
-  background-size: cover; */
   padding-top: 10px;
   background: radial-gradient(
     circle,

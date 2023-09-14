@@ -1,6 +1,5 @@
 import css from './HomePage.module.css';
 import { NavLink } from 'react-router-dom';
-
 import Container from 'components/Container/Container';
 import AnimationHome from '../../components/AnimationHome/AnimationHome';
 

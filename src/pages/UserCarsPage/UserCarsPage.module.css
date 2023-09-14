@@ -1,8 +1,6 @@
 .userCarsPage {
   height: 100vh;
-  min-height: 480px;
-  /* background-image: url(../../images/cards-page-bg-mobile.jpg);
-  background-size: cover; */
+  min-height: 480px;  
   padding-top: 10px;
   background: radial-gradient(
     circle,
