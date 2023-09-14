@@ -11,8 +11,9 @@
   font-size: 12px;
   font-weight: 600;
   text-decoration: none;
-  top: 30%;
-  left: 55%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
   animation-name: border;
   animation-duration: 500ms;
   animation-direction: alternate;

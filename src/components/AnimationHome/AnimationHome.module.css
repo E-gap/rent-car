@@ -1,0 +1,64 @@
+.animation {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.png_static {
+  position: absolute;
+  animation-duration: 1000ms;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.mitsubishi {
+  top: 10%;
+  left: 15%;
+  animation-delay: 500ms;
+  animation-name: allCars;
+}
+
+@keyframes allCars {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+.bmw {
+  top: 10%;
+  left: 55%;
+  animation-delay: 700ms;
+  animation-name: allCars;
+}
+
+.audi {
+  top: 45%;
+  left: 67%;
+  animation-delay: 900ms;
+  animation-name: allCars;
+}
+
+.ferrari {
+  top: 75%;
+  left: 55%;
+  animation-delay: 1100ms;
+  animation-name: allCars;
+}
+
+.mercedes {
+  top: 75%;
+  left: 15%;
+  animation-delay: 1300ms;
+  animation-name: allCars;
+}
+
+.citroen {
+  top: 42%;
+  left: 5%;
+  animation-delay: 1500ms;
+  animation-name: allCars;
+}
