@@ -16,9 +16,6 @@
   max-width: 400px;
   width: 90%;
   padding-bottom: 5px;
-  background-image: url(../../images/cards-blank-banner.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
     max-width: 500px;
@@ -27,8 +24,8 @@
 
 .closeModalIcon {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
   color: var(--default-color);
 }
 
