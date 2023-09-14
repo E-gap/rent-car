@@ -82,6 +82,8 @@ const OneCarPage = () => {
     }
   };
 
+  const backLinkHref = location.state?.from ?? '/';
+
   return (
     <>
       {isLoading ? (
@@ -93,7 +95,7 @@ const OneCarPage = () => {
               <ErrorComponent errorText={error} />
             ) : (
               <div className={css.pageRelative}>
-                <Link to={location.state.from} className={css.linkGoBack}>
+                <Link to={backLinkHref} className={css.linkGoBack}>
                   Go back
                 </Link>
                 <img
