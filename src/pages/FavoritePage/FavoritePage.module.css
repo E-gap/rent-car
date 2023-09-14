@@ -4,6 +4,12 @@
   /* background-image: url(../../images/cards-page-bg-mobile.jpg);
   background-size: cover; */
   padding-top: 10px;
+  background: radial-gradient(
+    circle,
+    rgba(34, 145, 195, 0.8883928571428571) 17%,
+    rgba(113, 190, 174, 0.5634628851540616) 58%,
+    rgba(115, 253, 45, 0.6839110644257703) 70%
+  );
 }
 
 .carList {

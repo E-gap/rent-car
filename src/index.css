@@ -43,3 +43,5 @@ ul {
 button {
   min-width: 50px;
 }
+
+@import '../src/components/Pagination/pagination.css';

@@ -1,13 +1,12 @@
 #tui-pagination-container {
   border-radius: 45px;
-  background-color: #fef9f9;
   padding-left: 10px;
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
   height: 52px;
   width: 280px;
   margin-left: auto;
   margin-right: auto;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding-left: 0;
@@ -15,6 +14,10 @@
   @media (min-width: 768px) {
     width: 310px;
   }
+}
+
+#tui-pagination-container .tui-page-btn:hover {
+  color: black;
 }
 
 #tui-pagination-container .tui-page-btn,
@@ -53,4 +56,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#tui-pagination-container .tui-is-selected,
+#tui-pagination-container strong {
+  background: red;
+  border-color: red;
+  cursor: default;
+  color: black;
+}
+
+#tui-pagination-container .tui-is-selected {
+  background-color: red;
+}
+
+#tui-pagination-container .tui-is-disabled:hover {
+  background-color: transparent;
+}
+
+#tui-pagination-container .tui-is-selected:hover {
+  background-color: red;
+  cursor: pointer;
 }

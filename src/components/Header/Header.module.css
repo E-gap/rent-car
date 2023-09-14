@@ -5,6 +5,11 @@
   padding-top: 10px;
   padding-bottom: 10px;
   color: var(--default-color);
+  background: radial-gradient(
+    circle,
+    rgba(23, 33, 168, 1) 64%,
+    rgba(138, 148, 198, 1) 100%
+  );
 }
 
 .displayFlex {
