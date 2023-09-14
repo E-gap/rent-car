@@ -8,12 +8,17 @@ import { deleteCar, getOneCar } from '../../redux/cars/carsOperations';
 import { changeFavorite } from '../../redux/auth/authOperations';
 import Preloader from '../../components/Preloader/Preloader';
 import CarDataForm from '../../components/CarDataForm/CarDataForm';
-import { selectUserFavorites, selectUserId } from '../../redux/selectors';
+import {
+  selectUserFavorites,
+  selectUserId,
+  selectIsLogin,
+} from '../../redux/selectors';
 import Container from 'components/Container/Container';
 import ErrorComponent from 'components/ErrorComponent/ErrorComponent';
 import { MdFavorite } from 'react-icons/md';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import QuestionSure from '../../components/QuestionSure/QuestionSure';
+import Notiflix from 'notiflix';
 
 const OneCarPage = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
@@ -25,6 +30,7 @@ const OneCarPage = () => {
   const { id: carId } = useParams();
   const favorites = useSelector(selectUserFavorites);
   const userId = useSelector(selectUserId);
+  const isUserLogin = useSelector(selectIsLogin);
 
   const getCar = () => {
     getOneCar(carId).then(res => {
@@ -47,6 +53,15 @@ const OneCarPage = () => {
   const { owner } = carOne;
 
   const handleFavorite = () => {
+    if (!isUserLogin) {
+      Notiflix.Notify.failure('Please, log in to add item to favorites ', {
+        fontSize: '15px',
+        position: 'center-center',
+        timeout: 2000,
+        width: '400px',
+      });
+      return;
+    }
     dispatch(changeFavorite(carId));
   };
 

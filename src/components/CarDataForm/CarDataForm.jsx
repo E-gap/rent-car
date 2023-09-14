@@ -13,6 +13,7 @@ import {
   carYears,
   marksAndModels,
 } from '../../utils/CarCharacteristics';
+import Notiflix from 'notiflix';
 
 const CarDataForm = ({
   carOne: {
@@ -43,7 +44,6 @@ const CarDataForm = ({
   const AddCarSchema = Yup.object().shape({
     mark: Yup.string().required('Please input mark'),
     model: Yup.string().required('Please input model'),
-    /* .oneOf(marksAndModels[mark], 'Please, rechoice model'), */
     type: Yup.string().required('Please input type'),
     transmission: Yup.string().required('Please input transmission'),
     mileage: Yup.number()
@@ -66,6 +66,15 @@ const CarDataForm = ({
   });
 
   const submitForm = (values, actions) => {
+    if (!marksAndModels[values.mark].includes(values.model)) {
+      Notiflix.Notify.failure('Please, reselect a model', {
+        fontSize: '15px',
+        position: 'center-center',
+        timeout: 2000,
+        width: '400px',
+      });
+      return;
+    }
     const dataCar = { dataCar: { ...values }, carId: _id };
 
     if (textButton === 'Save changes') {

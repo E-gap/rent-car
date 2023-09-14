@@ -4,22 +4,36 @@ import { NavLink } from 'react-router-dom';
 import { MdFavorite } from 'react-icons/md';
 import { BsTrashFill } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
-import { selectUserFavorites, selectUserId } from '../../redux/selectors';
+import {
+  selectUserFavorites,
+  selectUserId,
+  selectIsLogin,
+} from '../../redux/selectors';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeFavorite } from '../../redux/auth/authOperations';
 import { deleteCar } from '../../redux/cars/carsOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import QuestionSure from '../../components/QuestionSure/QuestionSure';
+import Notiflix from 'notiflix';
 
 const ItemCar = ({ oneCar }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const dispatch = useDispatch();
-
   const favorites = useSelector(selectUserFavorites);
   const userId = useSelector(selectUserId);
+  const isUserLogin = useSelector(selectIsLogin);
 
   const handleFavorite = () => {
+    if (!isUserLogin) {
+      Notiflix.Notify.failure('Please, log in to add item to favorites ', {
+        fontSize: '15px',
+        position: 'center-center',
+        timeout: 2000,
+        width: '400px',
+      });
+      return;
+    }
     dispatch(changeFavorite(oneCar._id));
   };
 

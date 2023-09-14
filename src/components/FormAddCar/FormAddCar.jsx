@@ -15,6 +15,7 @@ import {
   marksAndModels,
 } from '../../utils/CarCharacteristics';
 import { selectUserData } from '../../redux/selectors';
+import Notiflix from 'notiflix';
 
 function FormAddCar({ closeModal }) {
   const dispatch = useDispatch();
@@ -50,6 +51,15 @@ function FormAddCar({ closeModal }) {
   });
 
   const submitForm = async (values, actions) => {
+    if (!marksAndModels[values.mark].includes(values.model)) {
+      Notiflix.Notify.failure('Please, reselect a model', {
+        fontSize: '15px',
+        position: 'center-center',
+        timeout: 2000,
+        width: '400px',
+      });
+      return;
+    }
     const dataCar = { ...values, date: Date.now() };
     if (!marksAndModels[values.mark].includes(values.model)) {
       console.log('bad');
