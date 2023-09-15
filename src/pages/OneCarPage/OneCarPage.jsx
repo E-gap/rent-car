@@ -98,7 +98,7 @@ const OneCarPage = () => {
               <div className={css.pageRelative}>
                 <Link to={backLinkHref} className={css.linkGoBack}>
                   <HiChevronDoubleLeft className={css.backIcon} />
-                  Go back
+                  Back
                 </Link>
                 <img
                   src={require('../../images/cards-page-bg-tablet.jpg')}
