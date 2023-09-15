@@ -38,15 +38,11 @@ const PaginationComponent = ({ searchPage, total, options, sort }) => {
       setNumberPage(currentPage);
       searchPage(numberPage);
     });
-  }, [total, options, sort]);
+  }, [total, options, sort, numberPage, searchPage]);
 
   useEffect(() => {
     searchPage(numberPage);
   }, [searchPage, numberPage]);
-
-  console.log('render');
-  const { search } = window.location;
-  console.log(search);
 
   return <div id="tui-pagination-container" className="tui-pagination"></div>;
 };
