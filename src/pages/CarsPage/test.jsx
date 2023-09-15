@@ -5,7 +5,7 @@ import HandlePanel from 'components/HandlePanel/HandlePanel';
 import PaginationComponent from '../../components/Pagination/PaginationComponent';
 import { selectTotalCars } from '../../redux/selectors';
 import { useCallback, useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams /* useNavigate */ } from 'react-router-dom';
 import options from '../../components/Pagination/options';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCars } from '../../redux/cars/carsOperations';
@@ -24,7 +24,15 @@ const CarsPage = () => {
   const [pageNumber, setPageNumber] = useState(() => {
     const params = searchParams.get('page');
     return params ? params : 1;
+    /* let result = {};
+    for (const [key, value] of searchParams.entries()) {
+      if (key === 'page') {
+        result[key] = value;
+      } else result.page = 1;
+    }
+    return result.page; */
   });
+
   const [sort, setSort] = useState(() => {
     let result = {};
     for (const [key, value] of searchParams.entries()) {
@@ -43,15 +51,16 @@ const CarsPage = () => {
     }
     return result;
   });
+  // const navigate = useNavigate();
 
   const changeFilter = useCallback(filterParam => {
     setFilter(filterParam);
-    setPageNumber(1);
+    // setPageNumber(1);
   }, []);
 
   const changeSort = useCallback(sortParam => {
     setSort({ sort: sortParam });
-    setPageNumber(1);
+    // setPageNumber(1);
   }, []);
 
   const searchPage = useCallback(pageNumber => {
@@ -62,14 +71,13 @@ const CarsPage = () => {
     setSearchParams({ ...filter, page: pageNumber, ...sort });
     const { search } = window.location;
     dispatch(getAllCars(search));
-  }, [pageNumber, filter, sort, dispatch, setSearchParams]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageNumber, filter, sort]);
 
   const resetFilters = () => {
     setFilter({});
     setSort({});
   };
-  /* const { search } = window.location;
-  console.log(search); */
 
   return (
     <div className={css.carsPage}>
