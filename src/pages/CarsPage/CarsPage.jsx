@@ -68,8 +68,10 @@ const CarsPage = () => {
     setFilter({});
     setSort({});
   };
-  /* const { search } = window.location;
-  console.log(search); */
+  const { search } = window.location;
+  console.log(search);
+
+  console.log(pageNumber);
 
   return (
     <div className={css.carsPage}>
