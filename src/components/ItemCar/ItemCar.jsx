@@ -23,7 +23,6 @@ const ItemCar = ({ oneCar, state }) => {
   const favorites = useSelector(selectUserFavorites);
   const userId = useSelector(selectUserId);
   const isUserLogin = useSelector(selectIsLogin);
-  // const location = useLocation();
 
   const handleFavorite = () => {
     if (!isUserLogin) {

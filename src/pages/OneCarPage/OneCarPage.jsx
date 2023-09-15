@@ -19,6 +19,7 @@ import { MdFavorite } from 'react-icons/md';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import QuestionSure from '../../components/QuestionSure/QuestionSure';
 import Notiflix from 'notiflix';
+import { HiChevronDoubleLeft } from 'react-icons/hi';
 
 const OneCarPage = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
@@ -96,6 +97,7 @@ const OneCarPage = () => {
             ) : (
               <div className={css.pageRelative}>
                 <Link to={backLinkHref} className={css.linkGoBack}>
+                  <HiChevronDoubleLeft className={css.backIcon} />
                   Go back
                 </Link>
                 <img

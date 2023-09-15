@@ -99,9 +99,18 @@
   text-decoration: none;
   color: var(--default-color);
   font-weight: 600;
+  display: flex;
+  align-items: center;
 }
 
 .linkGoBack:hover {
   color: green;
   cursor: pointer;
+}
+
+.backIcon {
+  margin-right: 3px;
+  padding-top: 3px;
+  width: 20px;
+  height: 20px;
 }
