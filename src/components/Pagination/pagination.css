@@ -4,12 +4,11 @@
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
   height: 52px;
   width: 280px;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-left: 0;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
     width: 310px;
