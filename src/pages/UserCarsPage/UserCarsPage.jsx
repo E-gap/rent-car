@@ -25,8 +25,24 @@ const UserCarsPage = () => {
     const params = searchParams.get('page');
     return params ? params : 1;
   });
-  const [sort, setSort] = useState({});
-  const [filter, setFilter] = useState({});
+  const [sort, setSort] = useState(() => {
+    let result = {};
+    for (const [key, value] of searchParams.entries()) {
+      if (key === 'sort') {
+        result[key] = value;
+      }
+    }
+    return result;
+  });
+  const [filter, setFilter] = useState(() => {
+    let result = {};
+    for (const [key, value] of searchParams.entries()) {
+      if (key !== 'sort' && key !== 'page') {
+        result[key] = value;
+      }
+    }
+    return result;
+  });
 
   const changeFilter = filterParam => {
     setFilter(filterParam);
