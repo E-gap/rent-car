@@ -69,6 +69,8 @@ const CarsPage = () => {
     setSort({});
   };
 
+  console.log('ggggg');
+
   return (
     <div className={css.carsPage}>
       <Container>
