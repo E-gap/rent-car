@@ -24,6 +24,8 @@ const ItemCar = ({ oneCar, state }) => {
   const userId = useSelector(selectUserId);
   const isUserLogin = useSelector(selectIsLogin);
 
+  console.log(oneCar.photo);
+
   const handleFavorite = () => {
     if (!isUserLogin) {
       Notiflix.Notify.failure('Please, log in to add item to favorites ', {
@@ -61,7 +63,7 @@ const ItemCar = ({ oneCar, state }) => {
           state={state}
         >
           <img
-            src={require('../../images/cards-page-bg-tablet.jpg')}
+            src={oneCar.photo}
             className={css.carPhoto}
             alt="car appearance"
           />
