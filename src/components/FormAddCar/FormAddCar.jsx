@@ -28,7 +28,7 @@ function FormAddCar({ closeModal }) {
     email,
   } = useSelector(selectUserData);
 
-  /* const AddCarSchema = Yup.object().shape({
+  const AddCarSchema = Yup.object().shape({
     mark: Yup.string().required('Please input mark'),
     model: Yup.string().required('Please input model'),
     type: Yup.string().required('Please input type'),
@@ -50,29 +50,10 @@ function FormAddCar({ closeModal }) {
     email: Yup.string().required('Please input email'),
     price: Yup.number().required('Please input price'),
     description: Yup.string(),
-  }); */
-
-  const AddCarSchema = Yup.object().shape({
-    mark: Yup.string(),
-    model: Yup.string(),
-    type: Yup.string(),
-    transmission: Yup.string(),
-    mileage: Yup.number().typeError('you must specify a number'),
-    power: Yup.number().typeError('you must specify a number'),
-    engine: Yup.number().typeError('you must specify a number'),
-    tel: Yup.string(),
-    year: Yup.number(),
-    color: Yup.string(),
-    fueltype: Yup.string(),
-    city: Yup.string(),
-    email: Yup.string(),
-    price: Yup.number(),
-    description: Yup.string(),
     photo: Yup.mixed(),
   });
 
   const submitForm = async (values, actions) => {
-    console.log(values);
     if (!marksAndModels[values.mark].includes(values.model)) {
       Notiflix.Notify.failure('Please, reselect a model', {
         fontSize: '15px',
@@ -82,9 +63,8 @@ function FormAddCar({ closeModal }) {
       });
       return;
     }
-    const dataCar = { ...values, date: Date.now() };
+
     if (!marksAndModels[values.mark].includes(values.model)) {
-      console.log('bad');
       return;
     }
 
@@ -92,6 +72,20 @@ function FormAddCar({ closeModal }) {
 
     formData.append('mark', values.mark);
     formData.append('model', values.model);
+    formData.append('type', values.type);
+    formData.append('transmission', values.transmission);
+    formData.append('mileage', values.mileage);
+    formData.append('power', values.power);
+    formData.append('engine', values.engine);
+    formData.append('tel', values.tel);
+    formData.append('year', values.year);
+    formData.append('color', values.color);
+    formData.append('fueltype', values.fueltype);
+    formData.append('city', values.city);
+    formData.append('email', values.email);
+    formData.append('price', values.price);
+    formData.append('description', values.description);
+    formData.append('date', Date.now());
     formData.append('photo', selectedFile);
 
     actions.resetForm();
@@ -106,8 +100,6 @@ function FormAddCar({ closeModal }) {
 
   const handleChange = e => {
     setSelectedFile(e.target.files[0]);
-    console.log('change');
-    console.log(e.target.files);
   };
 
   return (
@@ -129,7 +121,6 @@ function FormAddCar({ closeModal }) {
           email,
           price: '',
           description: '',
-          /* photo: undefined, */
         }}
         validationSchema={AddCarSchema}
         onSubmit={submitForm}

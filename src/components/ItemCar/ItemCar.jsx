@@ -62,7 +62,7 @@ const ItemCar = ({ oneCar, state }) => {
           className={css.carLink}
           state={state}
         >
-          {oneCar.photo ? (
+          {oneCar.photo !== 'null' ? (
             <img
               src={oneCar.photo}
               className={css.carPhoto}
