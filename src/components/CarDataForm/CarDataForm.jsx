@@ -16,7 +16,7 @@ import {
 import Notiflix from 'notiflix';
 
 const CarDataForm = ({
-  carOne: {
+  oneCar: {
     mark,
     model,
     price,

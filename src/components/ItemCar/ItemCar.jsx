@@ -17,14 +17,14 @@ import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import QuestionSure from '../../components/QuestionSure/QuestionSure';
 import Notiflix from 'notiflix';
 
+import { BsCardImage } from 'react-icons/bs';
+
 const ItemCar = ({ oneCar, state }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const dispatch = useDispatch();
   const favorites = useSelector(selectUserFavorites);
   const userId = useSelector(selectUserId);
   const isUserLogin = useSelector(selectIsLogin);
-
-  console.log(oneCar.photo);
 
   const handleFavorite = () => {
     if (!isUserLogin) {
@@ -62,15 +62,18 @@ const ItemCar = ({ oneCar, state }) => {
           className={css.carLink}
           state={state}
         >
-          <img
-            src={oneCar.photo}
-            className={css.carPhoto}
-            alt="car appearance"
-          />
+          {oneCar.photo ? (
+            <img
+              src={oneCar.photo}
+              className={css.carPhoto}
+              alt="car appearance"
+            />
+          ) : (
+            <BsCardImage className={css.notImageIcon} />
+          )}
         </NavLink>
         <div className={css.carInfo}>
           <p>model: {oneCar.model}</p>
-
           <div className={css.iconsFavoriteDelete}>
             <MdFavorite
               className={

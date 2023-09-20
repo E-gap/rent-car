@@ -20,10 +20,11 @@ import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import QuestionSure from '../../components/QuestionSure/QuestionSure';
 import Notiflix from 'notiflix';
 import { HiChevronDoubleLeft } from 'react-icons/hi';
+import { BsCardImage } from 'react-icons/bs';
 
 const OneCarPage = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
-  const [carOne, setCarOne] = useState({});
+  const [oneCar, setOneCar] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const OneCarPage = () => {
       setIsLoading(false);
       if (res.status === 'OK') {
         setError('');
-        setCarOne(res.data[0]);
+        setOneCar(res.data[0]);
       } else {
         setError('Something went wrong try later');
       }
@@ -52,7 +53,7 @@ const OneCarPage = () => {
     // eslint-disable-next-line
   }, []);
 
-  const { owner } = carOne;
+  const { owner } = oneCar;
 
   const handleFavorite = () => {
     if (!isUserLogin) {
@@ -100,11 +101,16 @@ const OneCarPage = () => {
                   <HiChevronDoubleLeft className={css.backIcon} />
                   Back
                 </Link>
-                <img
-                  src={require('../../images/cards-page-bg-tablet.jpg')}
-                  className={css.carPhoto}
-                  alt="car appearance"
-                />
+                {oneCar.photo ? (
+                  <img
+                    src={oneCar.photo}
+                    className={css.carPhoto}
+                    alt="car appearance"
+                  />
+                ) : (
+                  <BsCardImage className={css.notImageIcon} />
+                )}
+
                 <div className={css.mainCarInfo}>
                   <MdFavorite
                     className={
@@ -125,7 +131,7 @@ const OneCarPage = () => {
                   )}
                 </div>
                 <CarDataForm
-                  carOne={carOne}
+                  oneCar={oneCar}
                   getCar={getCar}
                   canChange={owner === userId}
                 />
