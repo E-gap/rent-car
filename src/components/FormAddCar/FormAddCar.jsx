@@ -16,8 +16,10 @@ import {
 } from '../../utils/CarCharacteristics';
 import { selectUserData } from '../../redux/selectors';
 import Notiflix from 'notiflix';
+import { useState } from 'react';
 
 function FormAddCar({ closeModal }) {
+  const [selectedFile, setSelectedFile] = useState(null);
   const dispatch = useDispatch();
   const location = useLocation();
   const {
@@ -26,7 +28,7 @@ function FormAddCar({ closeModal }) {
     email,
   } = useSelector(selectUserData);
 
-  const AddCarSchema = Yup.object().shape({
+  /* const AddCarSchema = Yup.object().shape({
     mark: Yup.string().required('Please input mark'),
     model: Yup.string().required('Please input model'),
     type: Yup.string().required('Please input type'),
@@ -48,9 +50,29 @@ function FormAddCar({ closeModal }) {
     email: Yup.string().required('Please input email'),
     price: Yup.number().required('Please input price'),
     description: Yup.string(),
+  }); */
+
+  const AddCarSchema = Yup.object().shape({
+    mark: Yup.string(),
+    model: Yup.string(),
+    type: Yup.string(),
+    transmission: Yup.string(),
+    mileage: Yup.number().typeError('you must specify a number'),
+    power: Yup.number().typeError('you must specify a number'),
+    engine: Yup.number().typeError('you must specify a number'),
+    tel: Yup.string(),
+    year: Yup.number(),
+    color: Yup.string(),
+    fueltype: Yup.string(),
+    city: Yup.string(),
+    email: Yup.string(),
+    price: Yup.number(),
+    description: Yup.string(),
+    photo: Yup.mixed(),
   });
 
   const submitForm = async (values, actions) => {
+    console.log(values);
     if (!marksAndModels[values.mark].includes(values.model)) {
       Notiflix.Notify.failure('Please, reselect a model', {
         fontSize: '15px',
@@ -66,14 +88,26 @@ function FormAddCar({ closeModal }) {
       return;
     }
 
-    actions.resetForm();
+    const formData = new FormData();
 
+    formData.append('mark', values.mark);
+    formData.append('model', values.model);
+    formData.append('photo', selectedFile);
+
+    actions.resetForm();
     closeModal();
 
-    await dispatch(addCar(dataCar));
+    await dispatch(addCar(formData));
     if (!location.pathname.includes('favorite')) {
-      dispatch(getAllCars());
+      const { search } = window.location;
+      dispatch(getAllCars(search));
     }
+  };
+
+  const handleChange = e => {
+    setSelectedFile(e.target.files[0]);
+    console.log('change');
+    console.log(e.target.files);
   };
 
   return (
@@ -95,6 +129,7 @@ function FormAddCar({ closeModal }) {
           email,
           price: '',
           description: '',
+          /* photo: undefined, */
         }}
         validationSchema={AddCarSchema}
         onSubmit={submitForm}
@@ -262,6 +297,17 @@ function FormAddCar({ closeModal }) {
                 render={message => (
                   <div className={css.errorValidation}>{message}</div>
                 )}
+              />
+            </label>
+            <label className={`${css.label} ${css.uploadFile}`}>
+              Upload file
+              <Field
+                name="photo"
+                accept=".jpg"
+                type="file"
+                className={css.file}
+                /* multiple */
+                onChange={handleChange}
               />
             </label>
             <label className={`${css.label} ${css.description}`}>

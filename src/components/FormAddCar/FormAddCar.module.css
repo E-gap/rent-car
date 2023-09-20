@@ -1,7 +1,7 @@
 .form {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
   padding: 20px 20px;
   width: 100%;
@@ -44,4 +44,13 @@ textarea {
 
 .errorValidation {
   color: red;
+}
+
+.label.uploadFile {
+  display: inline-block;
+  margin-right: auto;
+}
+
+.file {
+  padding-left: 0;
 }
