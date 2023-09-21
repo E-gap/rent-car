@@ -87,7 +87,6 @@ export const getUserCars = createAsyncThunk(
       const { data } = await instance.get(
         search ? `/cars/user${search}` : `/cars/user`
       );
-
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -120,7 +119,6 @@ export const changeCar = createAsyncThunk(
   'cars/changeCar',
   async (reqBody, thunkApi) => {
     const { dataCar, carId } = reqBody;
-
     try {
       const { data } = await instance.patch(`/cars/${carId}`, dataCar);
       return data;
