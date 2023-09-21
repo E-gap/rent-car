@@ -101,7 +101,7 @@ const OneCarPage = () => {
                   <HiChevronDoubleLeft className={css.backIcon} />
                   Back
                 </Link>
-                {oneCar.photo ? (
+                {oneCar.photo !== 'null' ? (
                   <img
                     src={oneCar.photo}
                     className={css.carPhoto}

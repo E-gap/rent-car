@@ -71,3 +71,9 @@
   height: 300px;
   color: grey;
 }
+
+.info {
+  font-weight: 500;
+  color: blue;
+  text-decoration: underline;
+}

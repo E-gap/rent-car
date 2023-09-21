@@ -2,7 +2,7 @@ import css from './ItemCar.module.css';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { MdFavorite } from 'react-icons/md';
-import { BsTrashFill } from 'react-icons/bs';
+import { BsTrashFill, BsCardImage } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
 import {
   selectUserFavorites,
@@ -16,8 +16,6 @@ import { deleteCar } from '../../redux/cars/carsOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import QuestionSure from '../../components/QuestionSure/QuestionSure';
 import Notiflix from 'notiflix';
-
-import { BsCardImage } from 'react-icons/bs';
 
 const ItemCar = ({ oneCar, state }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
@@ -73,7 +71,9 @@ const ItemCar = ({ oneCar, state }) => {
           )}
         </NavLink>
         <div className={css.carInfo}>
-          <p>model: {oneCar.model}</p>
+          <p className={css.info}>
+            {oneCar.mark} {oneCar.model}
+          </p>
           <div className={css.iconsFavoriteDelete}>
             <MdFavorite
               className={
@@ -92,7 +92,7 @@ const ItemCar = ({ oneCar, state }) => {
               />
             )}
           </div>
-          <p>price: {oneCar.price} usd</p>
+          <p className={css.info}>price: {oneCar.price}$</p>
         </div>
       </li>
       {isModalWindowOpen && (
