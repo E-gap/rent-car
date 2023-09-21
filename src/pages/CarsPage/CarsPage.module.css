@@ -1,5 +1,5 @@
 .carsPage {
-  min-width: 480px;
+  /* min-width: 480px; */
   padding-top: var(--default-interval);
   padding-bottom: var(--default-interval);
 }

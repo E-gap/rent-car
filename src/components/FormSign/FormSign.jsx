@@ -6,12 +6,12 @@ import css from './FormSign.module.css';
 import PropTypes from 'prop-types';
 import { BiShow } from 'react-icons/bi';
 import { register, login } from '../../redux/auth/authOperations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch /* useSelector */ } from 'react-redux';
 import Button from '../Button/Button';
-import { selectIsLogin } from '../../redux/selectors';
+// import { selectIsLogin } from '../../redux/selectors';
 
 function FormSign({ sign, closeModal }) {
-  const isLogin = useSelector(selectIsLogin);
+  // const isLogin = useSelector(selectIsLogin);
   const [typePassword, setTypePassword] = useState('password');
   const [typeConfirmPassword, setTypeConfirmPassword] = useState('password');
   const dispatch = useDispatch();
