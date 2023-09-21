@@ -2,15 +2,15 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-import css from './FormSign.module.css';
+import css from './Register.module.css';
 import PropTypes from 'prop-types';
 import { BiShow } from 'react-icons/bi';
 import { register, login } from '../../redux/auth/authOperations';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '../Button/Button';
+import Button from '../../components/Button/Button';
 import { selectIsLogin } from '../../redux/selectors';
 
-function FormSign({ sign, closeModal }) {
+function Register({ sign, closeModal }) {
   const isLogin = useSelector(selectIsLogin);
   const [typePassword, setTypePassword] = useState('password');
   const [typeConfirmPassword, setTypeConfirmPassword] = useState('password');
@@ -51,12 +51,6 @@ function FormSign({ sign, closeModal }) {
       dispatch(login(userDataForLogin));
     }
   };
-
-  /* console.log(isLogin);
-
-  if (isLogin) {
-    closeModal();
-  } */
 
   const toggleShowPassword = () => {
     if (typePassword === 'password') {
@@ -174,9 +168,9 @@ function FormSign({ sign, closeModal }) {
   );
 }
 
-export default FormSign;
+export default Register;
 
-FormSign.propTypes = {
+/* FormSign.propTypes = {
   sign: PropTypes.string,
   closeModal: PropTypes.func.isRequired,
-};
+}; */

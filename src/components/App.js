@@ -10,6 +10,8 @@ import Preloader from '../components/Preloader/Preloader';
 import OneCarPage from '../pages/OneCarPage/OneCarPage';
 import UserPage from '../pages/UserPage/UserPage';
 import FavoritePage from '../pages/FavoritePage/FavoritePage';
+import Login from '../pages/Login/Login';
+import Register from '../pages/Register/Register';
 import UserCarsPage from '../pages/UserCarsPage/UserCarsPage';
 import { selectIsUserLoading } from '../redux/selectors';
 
@@ -30,6 +32,8 @@ function App() {
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<HomePage />} />
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
               <Route path="cars/all" element={<CarsPage />} />
               <Route path="cars/:id" element={<OneCarPage />} />
               <Route path="user" element={<UserPage />} />

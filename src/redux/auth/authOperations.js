@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 export const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -10,9 +11,7 @@ export const register = createAsyncThunk(
   async (userData, thunkApi) => {
     try {
       const { data } = await instance.post('users/register', userData);
-      console.log(data);
       instance.defaults.headers.common.Authorization = `Bearer ${data.token}`;
-      console.log(data);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -43,6 +42,9 @@ export const login = createAsyncThunk(
       instance.defaults.headers.common.Authorization = `Bearer ${data.token}`;
       return data;
     } catch (error) {
+      Notiflix.Notify.warning('Login failed, please check the credentials', {
+        clickToClose: true,
+      });
       return thunkApi.rejectWithValue(error.message);
     }
   }

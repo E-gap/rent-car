@@ -11,9 +11,10 @@ import Container from 'components/Container/Container';
 import { MdFavorite } from 'react-icons/md';
 import { HiOutlineUserCircle } from 'react-icons/hi';
 import { ImPlus } from 'react-icons/im';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const [sign, setSign] = useState('');
   const isLogin = useSelector(selectIsLogin);
@@ -21,17 +22,19 @@ const Header = () => {
 
   const dispatch = useDispatch();
 
-  const closeModal = e => {
+  const closeModal = () => {
     setIsModalWindowOpen(false);
   };
 
   const handleHeaderButton = e => {
     if (e.target.getAttribute('class').includes('Up')) {
+      navigate('/register');
       setSign('signUp');
-      setIsModalWindowOpen(true);
+      /* setIsModalWindowOpen(true); */
     } else if (e.target.getAttribute('class').includes('In')) {
+      navigate('/login');
       setSign('signIn');
-      setIsModalWindowOpen(true);
+      /* setIsModalWindowOpen(true); */
     } else if (e.target.getAttribute('class').includes('Out')) {
       dispatch(logout());
     }
