@@ -1,6 +1,5 @@
 import css from './CarDataForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { changeCar } from '../../redux/cars/carsOperations';
 import { useState } from 'react';
@@ -14,6 +13,7 @@ import {
   marksAndModels,
 } from '../../utils/CarCharacteristics';
 import Notiflix from 'notiflix';
+import { CarSchema } from '../../utils/CarSchema';
 
 const CarDataForm = ({
   oneCar: {
@@ -37,33 +37,10 @@ const CarDataForm = ({
   getCar,
   canChange,
 }) => {
+  const [selectedFile, setSelectedFile] = useState(null);
   const [isDisabledFields, setIsDisabledFields] = useState(true);
   const [textButton, setTextButton] = useState('');
   const dispatch = useDispatch();
-
-  const AddCarSchema = Yup.object().shape({
-    mark: Yup.string().required('Please input mark'),
-    model: Yup.string().required('Please input model'),
-    type: Yup.string().required('Please input type'),
-    transmission: Yup.string().required('Please input transmission'),
-    mileage: Yup.number()
-      .typeError('you must specify a number')
-      .required('Please input mileage'),
-    power: Yup.number()
-      .typeError('you must specify a number')
-      .required('Please input power'),
-    engine: Yup.number()
-      .typeError('you must specify a number')
-      .required('Please input engine capacity'),
-    tel: Yup.string().required('Please input tel'),
-    year: Yup.number().required('Please input year'),
-    color: Yup.string().required('Please input color'),
-    fueltype: Yup.string().required('Please input fuel type'),
-    city: Yup.string().required('Please input city'),
-    email: Yup.string().required('Please input email'),
-    price: Yup.number().required('Please input price'),
-    description: Yup.string(),
-  });
 
   const submitForm = (values, actions) => {
     if (!marksAndModels[values.mark].includes(values.model)) {
@@ -75,13 +52,32 @@ const CarDataForm = ({
       });
       return;
     }
-    const dataCar = { dataCar: { ...values }, carId: _id };
 
     if (textButton === 'Save changes') {
       if (!marksAndModels[values.mark].includes(values.model)) {
-        console.log('bad');
         return;
       }
+
+      const formData = new FormData();
+
+      formData.append('mark', values.mark);
+      formData.append('model', values.model);
+      formData.append('type', values.type);
+      formData.append('transmission', values.transmission);
+      formData.append('mileage', values.mileage);
+      formData.append('power', values.power);
+      formData.append('engine', values.engine);
+      formData.append('tel', values.tel);
+      formData.append('year', values.year);
+      formData.append('color', values.color);
+      formData.append('fueltype', values.fueltype);
+      formData.append('city', values.city);
+      formData.append('email', values.email);
+      formData.append('price', values.price);
+      formData.append('description', values.description);
+      formData.append('photo', selectedFile);
+
+      const dataCar = { dataCar: formData, carId: _id };
 
       setIsDisabledFields(true);
       dispatch(changeCar(dataCar));
@@ -89,6 +85,10 @@ const CarDataForm = ({
     } else {
       actions.setValues(initialValues);
     }
+  };
+
+  const handleChange = e => {
+    setSelectedFile(e.target.files[0]);
   };
 
   const initialValues = {
@@ -113,7 +113,7 @@ const CarDataForm = ({
     <>
       <Formik
         initialValues={initialValues}
-        validationSchema={AddCarSchema}
+        validationSchema={CarSchema}
         onSubmit={submitForm}
       >
         {({ values }) => (
@@ -289,6 +289,18 @@ const CarDataForm = ({
                 render={message => (
                   <div className={css.errorValidation}>{message}</div>
                 )}
+              />
+            </label>
+            <label className={`${css.label} ${css.uploadFile}`}>
+              Upload file
+              <Field
+                name="photo"
+                accept=".jpg"
+                type="file"
+                className={css.file}
+                /* multiple */
+                onChange={handleChange}
+                disabled={isDisabledFields}
               />
             </label>
             <label className={`${css.label} ${css.description}`}>

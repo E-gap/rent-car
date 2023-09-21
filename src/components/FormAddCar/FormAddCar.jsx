@@ -1,5 +1,4 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import css from './FormAddCar.module.css';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
@@ -17,6 +16,7 @@ import {
 import { selectUserData } from '../../redux/selectors';
 import Notiflix from 'notiflix';
 import { useState } from 'react';
+import { CarSchema } from '../../utils/CarSchema';
 
 function FormAddCar({ closeModal }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -27,31 +27,6 @@ function FormAddCar({ closeModal }) {
     city = 'not city yet',
     email,
   } = useSelector(selectUserData);
-
-  const AddCarSchema = Yup.object().shape({
-    mark: Yup.string().required('Please input mark'),
-    model: Yup.string().required('Please input model'),
-    type: Yup.string().required('Please input type'),
-    transmission: Yup.string().required('Please input transmission'),
-    mileage: Yup.number()
-      .typeError('you must specify a number')
-      .required('Please input mileage'),
-    power: Yup.number()
-      .typeError('you must specify a number')
-      .required('Please input power'),
-    engine: Yup.number()
-      .typeError('you must specify a number')
-      .required('Please input engine capacity'),
-    tel: Yup.string().required('Please input tel'),
-    year: Yup.number().required('Please input year'),
-    color: Yup.string().required('Please input color'),
-    fueltype: Yup.string().required('Please input fuel type'),
-    city: Yup.string().required('Please input city'),
-    email: Yup.string().required('Please input email'),
-    price: Yup.number().required('Please input price'),
-    description: Yup.string(),
-    photo: Yup.mixed(),
-  });
 
   const submitForm = async (values, actions) => {
     if (!marksAndModels[values.mark].includes(values.model)) {
@@ -122,7 +97,7 @@ function FormAddCar({ closeModal }) {
           price: '',
           description: '',
         }}
-        validationSchema={AddCarSchema}
+        validationSchema={CarSchema}
         onSubmit={submitForm}
       >
         {({ values }) => (

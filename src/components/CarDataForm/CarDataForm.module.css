@@ -49,3 +49,12 @@ textarea {
 .buttonsChanges button {
   min-width: 150px;
 }
+
+.label.uploadFile {
+  display: inline-block;
+  margin-right: auto;
+}
+
+.file {
+  padding-left: 0;
+}
