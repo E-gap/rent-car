@@ -5,7 +5,7 @@ import { selectIsLogin, selectUserName } from '../../redux/selectors';
 import { useState } from 'react';
 import { logout } from '../../redux/auth/authOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
-import FormSign from '../../components/FormSign/FormSign';
+// import FormSign from '../../components/FormSign/FormSign';
 import FormAddCar from '../../components/FormAddCar/FormAddCar';
 import Container from 'components/Container/Container';
 import { MdFavorite } from 'react-icons/md';
@@ -30,11 +30,9 @@ const Header = () => {
     if (e.target.getAttribute('class').includes('Up')) {
       navigate('/register');
       setSign('signUp');
-      /* setIsModalWindowOpen(true); */
     } else if (e.target.getAttribute('class').includes('In')) {
       navigate('/login');
       setSign('signIn');
-      /* setIsModalWindowOpen(true); */
     } else if (e.target.getAttribute('class').includes('Out')) {
       dispatch(logout());
     }
@@ -114,9 +112,6 @@ const Header = () => {
           setIsModalWindowOpen={setIsModalWindowOpen}
           onKeyDown={onKeyDown}
         >
-          {sign.includes('sign') && (
-            <FormSign sign={sign} closeModal={closeModal} />
-          )}
           {sign === 'addCar' && <FormAddCar closeModal={closeModal} />}
         </ModalWindow>
       )}
