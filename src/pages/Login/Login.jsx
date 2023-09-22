@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from 'components/Container/Container';
 import css from './Login.module.css';
-// import PropTypes from 'prop-types';
 import FormSign from 'components/FormSign/FormSign';
 
 function Login() {
@@ -16,8 +15,3 @@ function Login() {
 }
 
 export default Login;
-
-/* FormSign.propTypes = {
-  sign: PropTypes.string,
-  closeModal: PropTypes.func.isRequired,
-}; */

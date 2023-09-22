@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../auth/authOperations';
+import Notiflix from 'notiflix';
 
 /* export const getAllCars = async () => {
   try {
@@ -108,8 +109,10 @@ export const addCar = createAsyncThunk(
   async (dataCar, thunkApi) => {
     try {
       const { data } = await instance.post('/cars', dataCar);
+      Notiflix.Notify.success('New car is added');
       return data.data;
     } catch (error) {
+      Notiflix.Notify.failure('Car is not added');
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -121,8 +124,10 @@ export const changeCar = createAsyncThunk(
     const { dataCar, carId } = reqBody;
     try {
       const { data } = await instance.patch(`/cars/${carId}`, dataCar);
+      Notiflix.Notify.success('Car item is changed');
       return data;
     } catch (error) {
+      Notiflix.Notify.failure('Car is not changed');
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -133,8 +138,10 @@ export const deleteCar = createAsyncThunk(
   async (carId, thunkApi) => {
     try {
       const { data } = await instance.delete(`/cars/${carId}`);
+      Notiflix.Notify.success('Car item is removed');
       return data.data;
     } catch (error) {
+      Notiflix.Notify.failure('Car is not removed');
       return thunkApi.rejectWithValue(error.message);
     }
   }

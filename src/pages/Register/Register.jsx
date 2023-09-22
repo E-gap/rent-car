@@ -2,7 +2,6 @@ import React from 'react';
 import css from './Register.module.css';
 import Container from 'components/Container/Container';
 import FormSign from 'components/FormSign/FormSign';
-// import PropTypes from 'prop-types';
 
 function Register() {
   return (
@@ -16,8 +15,3 @@ function Register() {
 }
 
 export default Register;
-
-/* FormSign.propTypes = {
-  sign: PropTypes.string,
-  closeModal: PropTypes.func.isRequired,
-}; */

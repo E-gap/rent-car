@@ -174,5 +174,4 @@ export default FormSign;
 
 FormSign.propTypes = {
   sign: PropTypes.string,
-  closeModal: PropTypes.func.isRequired,
 };

@@ -1,5 +1,3 @@
-// import PropTypes from 'prop-types';
-
 import css from './UserPage.module.css';
 import Button from '../../components/Button/Button';
 import UserDataForm from '../../components/UserDataForm/UserDataForm';
@@ -31,8 +29,3 @@ const UserPage = () => {
 };
 
 export default UserPage;
-
-/* OneCarPage.propTypes = {
-  scores: PropTypes.array,
-  sign: PropTypes.string,
-}; */

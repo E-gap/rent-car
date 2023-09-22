@@ -5,7 +5,6 @@ import { selectIsLogin, selectUserName } from '../../redux/selectors';
 import { useState } from 'react';
 import { logout } from '../../redux/auth/authOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
-
 import Container from 'components/Container/Container';
 import { MdFavorite } from 'react-icons/md';
 import { HiOutlineUserCircle } from 'react-icons/hi';

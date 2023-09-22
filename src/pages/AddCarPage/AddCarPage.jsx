@@ -1,5 +1,4 @@
 import css from './AddCarPage.module.css';
-// import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import Container from 'components/Container/Container';
@@ -29,7 +28,3 @@ const AddCarPage = () => {
 };
 
 export default AddCarPage;
-
-/* AddCarPage.propTypes = {
-  closeModal: PropTypes.func.isRequired,
-}; */

@@ -12,8 +12,12 @@ export const register = createAsyncThunk(
     try {
       const { data } = await instance.post('users/register', userData);
       instance.defaults.headers.common.Authorization = `Bearer ${data.token}`;
+      Notiflix.Notify.success('You are registered');
       return data;
     } catch (error) {
+      Notiflix.Notify.failure(
+        'Registration failed, please check the credentials'
+      );
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -26,7 +30,6 @@ export const updateUser = createAsyncThunk(
 
     try {
       const { data } = await instance.patch(`/users/${userId}`, dataUser);
-
       return data.user;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -40,11 +43,10 @@ export const login = createAsyncThunk(
     try {
       const { data } = await instance.post('users/login', userData);
       instance.defaults.headers.common.Authorization = `Bearer ${data.token}`;
+      Notiflix.Notify.success('You are loged in');
       return data;
     } catch (error) {
-      Notiflix.Notify.warning('Login failed, please check the credentials', {
-        clickToClose: true,
-      });
+      Notiflix.Notify.failure('Login failed, please check the credentials');
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -54,6 +56,7 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
   try {
     await instance.post('/users/logout');
     instance.defaults.headers.common.Authorization = ``;
+    Notiflix.Notify.success('You are loged out');
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
@@ -87,8 +90,10 @@ export const changeFavorite = createAsyncThunk(
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     try {
       const { data } = await instance.put('/users/changeFavorite', { carId });
+      Notiflix.Notify.success('You changed status');
       return data;
     } catch (error) {
+      Notiflix.Notify.failure('Change status failed');
       return thunkApi.rejectWithValue(error.message);
     }
   }

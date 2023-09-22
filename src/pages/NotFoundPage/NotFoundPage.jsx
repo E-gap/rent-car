@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const NotFoundPage = () => {
   const navigate = useNavigate();
   const handleHeaderButton = () => {
-    console.log('go home');
     navigate('/');
   };
   return (
