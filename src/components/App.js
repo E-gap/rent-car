@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import HomePage from '../pages/HomePage/HomePage';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 import { RestrictedRoute } from '../utils/RestrictedRoute';
+import { PrivateRoute } from '../utils/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { refresh } from '../redux/auth/authOperations';
 import { useEffect } from 'react';
@@ -32,14 +34,42 @@ function App() {
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<HomePage />} />
-              <Route path="login" element={<Login />} />
-              <Route path="register" element={<Register />} />
+              <Route
+                path="login"
+                element={
+                  <RestrictedRoute component={Login} redirectTo="/cars/all" />
+                }
+              />
+              <Route
+                path="register"
+                element={
+                  <RestrictedRoute
+                    component={Register}
+                    redirectTo="/cars/all"
+                  />
+                }
+              />
               <Route path="cars/all" element={<CarsPage />} />
               <Route path="cars/:id" element={<OneCarPage />} />
-              <Route path="user" element={<UserPage />} />
-              <Route path="cars/favorite" element={<FavoritePage />} />
-              <Route path="user/userCars" element={<UserCarsPage />} />
-              <Route path="*" element={<RestrictedRoute redirectTo="/" />} />
+              <Route
+                path="user"
+                element={
+                  <PrivateRoute component={UserPage} redirectTo="/login" />
+                }
+              />
+              <Route
+                path="cars/favorite"
+                element={
+                  <PrivateRoute component={FavoritePage} redirectTo="/login" />
+                }
+              />
+              <Route
+                path="user/userCars"
+                element={
+                  <PrivateRoute component={UserCarsPage} redirectTo="/login" />
+                }
+              />
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
         </>
