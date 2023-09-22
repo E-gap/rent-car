@@ -5,8 +5,7 @@ import { selectIsLogin, selectUserName } from '../../redux/selectors';
 import { useState } from 'react';
 import { logout } from '../../redux/auth/authOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
-// import FormSign from '../../components/FormSign/FormSign';
-import FormAddCar from '../../components/FormAddCar/FormAddCar';
+
 import Container from 'components/Container/Container';
 import { MdFavorite } from 'react-icons/md';
 import { HiOutlineUserCircle } from 'react-icons/hi';
@@ -16,23 +15,20 @@ import { NavLink, useNavigate } from 'react-router-dom';
 const Header = () => {
   const navigate = useNavigate();
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
-  const [sign, setSign] = useState('');
   const isLogin = useSelector(selectIsLogin);
   const userName = useSelector(selectUserName);
 
   const dispatch = useDispatch();
 
-  const closeModal = () => {
+  /* const closeModal = () => {
     setIsModalWindowOpen(false);
-  };
+  }; */
 
   const handleHeaderButton = e => {
     if (e.target.getAttribute('class').includes('Up')) {
       navigate('/register');
-      setSign('signUp');
     } else if (e.target.getAttribute('class').includes('In')) {
       navigate('/login');
-      setSign('signIn');
     } else if (e.target.getAttribute('class').includes('Out')) {
       dispatch(logout());
     }
@@ -49,8 +45,8 @@ const Header = () => {
   };
 
   const handleAddCar = () => {
-    setIsModalWindowOpen(true);
-    setSign('addCar');
+    // setIsModalWindowOpen(true);
+    navigate('/cars/addCar');
   };
 
   return (
@@ -111,9 +107,7 @@ const Header = () => {
         <ModalWindow
           setIsModalWindowOpen={setIsModalWindowOpen}
           onKeyDown={onKeyDown}
-        >
-          {sign === 'addCar' && <FormAddCar closeModal={closeModal} />}
-        </ModalWindow>
+        ></ModalWindow>
       )}
     </>
   );

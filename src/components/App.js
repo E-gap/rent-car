@@ -16,6 +16,7 @@ const UserPage = lazy(() => import('../pages/UserPage/UserPage'));
 const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
 const OneCarPage = lazy(() => import('../pages/OneCarPage/OneCarPage'));
 const UserCarsPage = lazy(() => import('../pages/UserCarsPage/UserCarsPage'));
+const AddCarPage = lazy(() => import('../pages/AddCarPage/AddCarPage'));
 
 function App() {
   const dispatch = useDispatch();
@@ -61,6 +62,12 @@ function App() {
                 path="cars/favorite"
                 element={
                   <PrivateRoute component={FavoritePage} redirectTo="/login" />
+                }
+              />
+              <Route
+                path="cars/addCar"
+                element={
+                  <PrivateRoute component={AddCarPage} redirectTo="/login" />
                 }
               />
               <Route
