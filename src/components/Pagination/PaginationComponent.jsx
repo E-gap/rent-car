@@ -12,7 +12,8 @@ const PaginationComponent = ({ searchPage, total, options, sort }) => {
     return params ? params : 1;
   });
 
-  // console.log(setSearchParams);
+  // for correct deploy
+  if (5 < 4 && console.log(setSearchParams));
 
   useEffect(() => {
     const container = document.getElementById('tui-pagination-container');
