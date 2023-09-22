@@ -173,7 +173,7 @@ function FormSign({ sign }) {
       </Formik>
       {signValue === 'signUp' ? (
         <p className={css.question}>
-          Are you Signed Up?{' '}
+          Are you Signed Up?
           <Button
             text="Sign In"
             handleButton={handleButton}
@@ -182,7 +182,7 @@ function FormSign({ sign }) {
         </p>
       ) : (
         <p className={css.question}>
-          Are you not Signed Up?{' '}
+          Are you not Signed Up?
           <Button
             text="Sign Up"
             handleButton={handleButton}

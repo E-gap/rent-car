@@ -103,7 +103,7 @@ const ItemCar = ({ oneCar, state }) => {
           <QuestionSure
             textQuestion="Are you sure you want to delete this item?"
             setIsModalWindowOpen={setIsModalWindowOpen}
-            handleDelete={handleDelete}
+            handleOk={handleDelete}
           />
         </ModalWindow>
       )}

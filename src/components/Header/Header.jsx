@@ -10,18 +10,16 @@ import { MdFavorite } from 'react-icons/md';
 import { HiOutlineUserCircle } from 'react-icons/hi';
 import { ImPlus } from 'react-icons/im';
 import { NavLink, useNavigate } from 'react-router-dom';
+import QuestionSure from 'components/QuestionSure/QuestionSure';
 
 const Header = () => {
   const navigate = useNavigate();
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const isLogin = useSelector(selectIsLogin);
   const userName = useSelector(selectUserName);
+  const [sign, setSign] = useState('');
 
   const dispatch = useDispatch();
-
-  /* const closeModal = () => {
-    setIsModalWindowOpen(false);
-  }; */
 
   const handleHeaderButton = e => {
     if (e.target.getAttribute('class').includes('Up')) {
@@ -29,7 +27,8 @@ const Header = () => {
     } else if (e.target.getAttribute('class').includes('In')) {
       navigate('/login');
     } else if (e.target.getAttribute('class').includes('Out')) {
-      dispatch(logout());
+      setSign('out');
+      setIsModalWindowOpen(true);
     }
   };
 
@@ -44,7 +43,6 @@ const Header = () => {
   };
 
   const handleAddCar = () => {
-    // setIsModalWindowOpen(true);
     navigate('/cars/addCar');
   };
 
@@ -106,7 +104,17 @@ const Header = () => {
         <ModalWindow
           setIsModalWindowOpen={setIsModalWindowOpen}
           onKeyDown={onKeyDown}
-        ></ModalWindow>
+        >
+          {sign === 'out' && (
+            <QuestionSure
+              textQuestion="Do you really want to log out"
+              setIsModalWindowOpen={setIsModalWindowOpen}
+              handleOk={() => {
+                dispatch(logout());
+              }}
+            />
+          )}
+        </ModalWindow>
       )}
     </>
   );

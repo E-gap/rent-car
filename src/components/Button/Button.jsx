@@ -42,6 +42,14 @@ const Button = ({ text, handleButton, view }) => {
       style = css.goToHome;
       break;
 
+    case 'ok':
+      style = css.ok;
+      break;
+
+    case 'cancel':
+      style = css.cancel;
+      break;
+
     default:
       style = '';
   }
