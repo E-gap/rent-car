@@ -1,21 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
-import HomePage from '../pages/HomePage/HomePage';
-import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 import { RestrictedRoute } from '../utils/RestrictedRoute';
 import { PrivateRoute } from '../utils/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { refresh } from '../redux/auth/authOperations';
-import { useEffect } from 'react';
-import CarsPage from '../pages/CarsPage/CarsPage';
+import { useEffect, lazy } from 'react';
 import SharedLayout from '../components/SharedLayout/SharedLayout';
 import Preloader from '../components/Preloader/Preloader';
-import OneCarPage from '../pages/OneCarPage/OneCarPage';
-import UserPage from '../pages/UserPage/UserPage';
-import FavoritePage from '../pages/FavoritePage/FavoritePage';
-import Login from '../pages/Login/Login';
-import Register from '../pages/Register/Register';
-import UserCarsPage from '../pages/UserCarsPage/UserCarsPage';
 import { selectIsUserLoading } from '../redux/selectors';
+const Register = lazy(() => import('../pages/Register/Register'));
+const Login = lazy(() => import('../pages/Login/Login'));
+const CarsPage = lazy(() => import('../pages/CarsPage/CarsPage'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
+const UserPage = lazy(() => import('../pages/UserPage/UserPage'));
+const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
+const OneCarPage = lazy(() => import('../pages/OneCarPage/OneCarPage'));
+const UserCarsPage = lazy(() => import('../pages/UserCarsPage/UserCarsPage'));
 
 function App() {
   const dispatch = useDispatch();
