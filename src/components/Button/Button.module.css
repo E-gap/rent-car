@@ -4,6 +4,8 @@ button {
   border: 2px solid var(--default-color);
   background-color: aliceblue;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     font-size: var(--middle-font-size);
@@ -67,4 +69,8 @@ button:focus {
   margin: 0 auto;
   display: block;
   margin-bottom: 10px;
+}
+
+.logOutIcon {
+  margin-left: 5px;
 }

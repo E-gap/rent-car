@@ -27,11 +27,12 @@ export const updateUser = createAsyncThunk(
   'auth/changeUser',
   async (reqBody, thunkApi) => {
     const { dataUser, userId } = reqBody;
-
     try {
       const { data } = await instance.patch(`/users/${userId}`, dataUser);
+      Notiflix.Notify.success('User is updated');
       return data.user;
     } catch (error) {
+      Notiflix.Notify.failure('User is not updated, try later');
       return thunkApi.rejectWithValue(error.message);
     }
   }
