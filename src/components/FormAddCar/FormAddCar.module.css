@@ -1,0 +1,56 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 20px;
+  width: 100%;
+  border-radius: 10px;
+}
+input,
+textarea {
+  padding-left: 5px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: calc((100% - 10px) / 2);
+  margin-bottom: var(--default-interval);
+  position: relative;
+  font-size: 12px;
+  font-weight: 700;
+  color: yellow;
+}
+
+.label.description {
+  width: 100%;
+}
+
+.label .descriptionText {
+  height: 100px;
+  resize: none;
+}
+
+.field {
+  flex-basis: calc((100% - 10px) / 2);
+}
+
+.submit {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.errorValidation {
+  color: red;
+}
+
+.label.uploadFile {
+  display: inline-block;
+  margin-right: auto;
+}
+
+.file {
+  padding-left: 0;
+}
