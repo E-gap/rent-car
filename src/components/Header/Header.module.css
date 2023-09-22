@@ -78,3 +78,8 @@
 .addCar:hover {
   cursor: pointer;
 }
+
+.header_buttons {
+  display: flex;
+  align-items: center;
+}

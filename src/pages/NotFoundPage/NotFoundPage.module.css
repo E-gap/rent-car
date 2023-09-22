@@ -1,4 +1,22 @@
 .notFoundPage {
   color: red;
-  font-size: 30px;
+  font-size: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.notFound_title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.notFound_Wrapper {
+  height: 360px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background-image: url(../../images/not-found.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }

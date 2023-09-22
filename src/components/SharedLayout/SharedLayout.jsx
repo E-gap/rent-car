@@ -6,7 +6,7 @@ const SharedLayout = () => {
   return (
     <>
       <Header />
-      <Suspense fallback={<p>loading</p>}>
+      <Suspense>
         <Outlet />
       </Suspense>
     </>

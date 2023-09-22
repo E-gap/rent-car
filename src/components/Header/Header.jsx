@@ -68,7 +68,7 @@ const Header = () => {
             </div>
 
             {!isLogin ? (
-              <div>
+              <div className={css.header_buttons}>
                 <Button
                   text="Sign In"
                   handleButton={handleHeaderButton}

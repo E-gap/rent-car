@@ -63,3 +63,8 @@ button:focus {
   background-color: transparent;
   color: purple;
 }
+.goToHome {
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 10px;
+}
