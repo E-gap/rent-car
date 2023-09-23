@@ -13,10 +13,21 @@
 }
 
 .mitsubishi {
+  width: 130px;
   top: 10%;
   left: 15%;
   animation-delay: 500ms;
   animation-name: allCars;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    left: 15%;
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    left: 20%;
+    width: unset;
+  }
 }
 
 @keyframes allCars {
@@ -29,36 +40,91 @@
 }
 
 .bmw {
-  top: 10%;
-  left: 55%;
+  width: 130px;
+  top: 11%;
+  left: 57%;
   animation-delay: 700ms;
   animation-name: allCars;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    left: 58%;
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    left: 60%;
+    width: unset;
+  }
 }
 
 .audi {
-  top: 45%;
-  left: 67%;
+  width: 130px;
+  top: 40%;
+  left: 70%;
   animation-delay: 900ms;
   animation-name: allCars;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    left: 68%;
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    left: 71%;
+    width: unset;
+  }
 }
 
 .ferrari {
-  top: 75%;
-  left: 55%;
+  width: 150px;
+  top: 74%;
+  left: 57%;
   animation-delay: 1100ms;
   animation-name: allCars;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    left: 58%;
+    width: 220px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    left: 60%;
+    width: unset;
+  }
 }
 
 .mercedes {
+  width: 130px;
   top: 75%;
   left: 15%;
   animation-delay: 1300ms;
   animation-name: allCars;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    left: 15%;
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    left: 20%;
+    width: unset;
+  }
 }
 
 .citroen {
-  top: 42%;
-  left: 5%;
+  width: 130px;
+  top: 39%;
+  left: 2%;
   animation-delay: 1500ms;
   animation-name: allCars;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    left: 5%;
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    left: 7%;
+    width: unset;
+  }
 }

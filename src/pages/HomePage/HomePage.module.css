@@ -4,7 +4,7 @@
 
 .moveToCars {
   position: absolute;
-  font-size: 12px;
+  font-size: var(--min-font-size);
   font-weight: 600;
   text-decoration: none;
   top: 50%;
@@ -21,7 +21,7 @@
   border: 2px;
 
   @media screen and (min-width: 768px) {
-    font-size: 18px;
+    font-size: var(--max-font-size);
   }
 }
 

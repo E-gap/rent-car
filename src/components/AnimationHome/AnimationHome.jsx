@@ -1,10 +1,10 @@
 import css from './AnimationHome.module.css';
-import mitsubishi from '../../images/gifsForHome/mitsubishi-static.png';
-import ferrari from '../../images/gifsForHome/ferrari-static.png';
-import bmw from '../../images/gifsForHome/bmw-static.png';
-import citroen from '../../images/gifsForHome/citroen-static.png';
-import audi from '../../images/gifsForHome/audi-static.png';
-import mercedes from '../../images/gifsForHome/mercedes-static.png';
+import mitsubishi from '../../images/gifsForHome/mitsubishi.png';
+import ferrari from '../../images/gifsForHome/ferrari.png';
+import bmw from '../../images/gifsForHome/bmw.png';
+import citroen from '../../images/gifsForHome/citroen.png';
+import audi from '../../images/gifsForHome/audi.png';
+import mercedes from '../../images/gifsForHome/mercedes.png';
 
 const AnimationHome = () => {
   return (
