@@ -46,6 +46,7 @@ button:focus {
 
 .buttonSignUp {
   margin-right: var(--default-interval);
+  margin-right: 0;
 }
 
 .buttonLogOut {
