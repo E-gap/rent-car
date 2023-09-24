@@ -1,6 +1,5 @@
 button {
   cursor: pointer;
-  font-size: var(--min-font-size);
   border: 2px solid var(--default-color);
   background-color: aliceblue;
   border-radius: 5px;
@@ -9,7 +8,6 @@ button {
   justify-content: center;
 
   @media screen and (min-width: 768px) {
-    font-size: var(--middle-font-size);
   }
 }
 

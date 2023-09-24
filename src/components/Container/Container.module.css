@@ -7,6 +7,9 @@
   padding-left: 10px;
   padding-right: 10px;
   overflow-y: auto;
+  font-size: var(--min-font-size);
+  font-weight: var(--min-font-weight);
+  color: var(--default-color);
 
   @media screen and (min-width: 481px) and (max-width: 767px) {
     max-width: unset;
@@ -20,6 +23,8 @@
     width: 768px;
     padding-left: 20px;
     padding-right: 20px;
+    font-size: var(--middle-font-size);
+    font-weight: var(--middle-font-weight);
   }
 
   @media screen and (min-width: 1200px) {
@@ -28,5 +33,7 @@
     width: 1200px;
     padding-left: 20px;
     padding-right: 20px;
+    font-size: var(--max-font-size);
+    font-weight: var(--max-font-weight);
   }
 }

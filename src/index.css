@@ -4,6 +4,9 @@
   --min-font-size: 10px;
   --middle-font-size: 15px;
   --max-font-size: 20px;
+  --min-font-weight: 400;
+  --middle-font-weight: 500;
+  --max-font-weight: 600;
   --background-color-modal: cornflowerblue;
   --border-modal: 5px solid pink;
 }
@@ -49,8 +52,18 @@ ul {
   padding-left: 0;
 }
 
+input,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 button {
   min-width: 50px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1;
 }
 
 @import '../src/components/Pagination/pagination.css';
