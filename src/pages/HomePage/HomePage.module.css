@@ -27,10 +27,10 @@
 
 @keyframes border {
   0% {
-    color: yellow;
+    color: var(--default-color);
   }
   100% {
-    color: lime;
+    color: #00ff00;
   }
 }
 

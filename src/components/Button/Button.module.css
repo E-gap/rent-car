@@ -14,7 +14,7 @@ button {
 button:hover,
 button:focus {
   background-color: darkgreen;
-  color: yellow;
+  color: var(--default-color);
   border: 2px solid red;
   outline: none;
 }
