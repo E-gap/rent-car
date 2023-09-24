@@ -1,7 +1,6 @@
 .carInfoShirt {
   color: blue;
   width: 300px;
-  border: 1px solid red;
   display: none;
 
   @media screen and (min-width: 768px) {
@@ -12,6 +11,8 @@
 .mainInfo {
   display: flex;
   margin-bottom: 10px;
+  font-size: var(--max-font-size);
+  color: blueviolet;
 }
 
 .mainInfo p:not(:last-child) {
@@ -20,11 +21,15 @@
 }
 
 .priceInfo {
+  font-size: var(--max-font-size);
   margin-bottom: 10px;
+  color: green;
 }
 
 .iconInfo {
   margin-right: 5px;
+  fill: orangered;
+  stroke: orangered;
 }
 
 .detailInfo {

@@ -72,6 +72,7 @@ const CarsPage = () => {
   return (
     <div className={css.carsPage}>
       <Container>
+        <h1 className={css.titlePage}>All cars</h1>
         <HandlePanel
           changeSort={changeSort}
           changeFilter={changeFilter}
