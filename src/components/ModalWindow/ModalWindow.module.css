@@ -18,9 +18,21 @@
   padding-bottom: 5px;
   background-color: var(--background-color-modal);
   border: var(--border-modal);
+  font-size: var(--min-font-size);
+  font-weight: var(--min-font-weight);
 
-  @media screen and (min-width: 768px) {
-    max-width: 500px;
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    max-width: unset;
+    width: 500px;
+    font-size: var(--middle-font-size);
+    font-weight: var(--middle-font-weight);
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: unset;
+    width: 500px;
+    font-size: var(--max-font-size);
+    font-weight: var(--max-font-weight);
   }
 }
 
@@ -33,6 +45,6 @@
 
 .closeModalIcon:hover,
 .closeModalIcon:focus {
-  color: red;
+  color: #ff0000;
   cursor: pointer;
 }

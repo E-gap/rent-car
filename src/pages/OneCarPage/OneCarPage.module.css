@@ -113,11 +113,22 @@
 
 .backIcon {
   margin-right: 0px;
-  padding-top: 3px;
-  width: 23px;
-  height: 23px;
+  padding-top: 1px;
+  width: 18px;
+  height: 18px;
   padding-right: 5px;
   margin-right: -5px;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    width: 23px;
+    height: 23px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 2px;
+    width: 29px;
+    height: 29px;
+  }
 }
 
 .notImageIcon {
