@@ -33,48 +33,59 @@
   stroke: var(--default-color);
 }
 
+.userIcon {
+  cursor: pointer;
+  margin-right: 10px;
+  stroke: inherit;
+  margin-right: 10px;
+  color: var(--default-color);
+}
+
 .userFavoriteIcon {
   cursor: pointer;
   margin-right: 10px;
   fill: inherit;
 }
 
-.userIcon {
-  cursor: pointer;
-  margin-right: 10px;
-  stroke: inherit;
-}
-
 [aria-current] {
   color: red;
-  font-weight: 700;
   fill: red;
   stroke: red;
 }
 
-.userIcon {
-  width: 20px;
-  height: 20px;
+.userName {
+  display: inline;
+  color: var(--default-color);
+  margin-right: var(--default-interval);
+
+  @media screen and (min-width: 768px) {
+    margin-right: 20px;
+  }
+}
+
+.addCarIcon {
   margin-right: 10px;
   color: var(--default-color);
 }
 
-.userName {
-  display: inline;
-  font-size: var(--middle-font-size);
-  color: var(--default-color);
-  font-weight: 700;
-  margin-right: var(--default-interval);
-}
-
-.addCar {
+.icon {
   width: 15px;
   height: 15px;
   margin-right: 10px;
-  color: var(--default-color);
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 25px;
+    height: 25px;
+  }
 }
 
-.addCar:hover {
+.icon:hover {
   cursor: pointer;
 }
 

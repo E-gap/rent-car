@@ -80,16 +80,23 @@ const Header = () => {
                   to="/user"
                   className={`${css.linkUser} ${css.displayFlex}`}
                 >
-                  <HiOutlineUserCircle className={css.userIcon} />
+                  <HiOutlineUserCircle
+                    className={`${css.userIcon} ${css.icon}`}
+                  />
                 </NavLink>
                 <p className={css.userName}>{userName}</p>
                 <NavLink
                   to="/cars/favorite"
                   className={`${css.linkFavorite} ${css.displayFlex}`}
                 >
-                  <MdFavorite className={css.userFavoriteIcon} />
+                  <MdFavorite
+                    className={`${css.userFavoriteIcon} ${css.icon}`}
+                  />
                 </NavLink>
-                <ImPlus className={css.addCar} onClick={handleAddCar} />
+                <ImPlus
+                  className={`${css.addCarIcon} ${css.icon}`}
+                  onClick={handleAddCar}
+                />
                 <Button
                   text="Log out"
                   handleButton={handleHeaderButton}
