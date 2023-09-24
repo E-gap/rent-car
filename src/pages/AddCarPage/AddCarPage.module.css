@@ -1,9 +1,11 @@
 .titlePage {
   text-align: center;
-  color: yellow;
-  font-size: 20px;
-  font-weight: 600;
   text-transform: uppercase;
   margin: 5px auto;
   text-decoration: underline;
+
+  @media screen and (min-width: 768px) {
+    font-size: 25px;
+    font-weight: 700;
+  }
 }

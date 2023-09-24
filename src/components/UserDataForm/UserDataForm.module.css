@@ -24,7 +24,6 @@ textarea {
   width: calc((100% - 10px) / 2);
   margin-bottom: 5px;
   position: relative;
-  color: var(--default-color);
 }
 
 .field {

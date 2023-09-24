@@ -9,6 +9,7 @@
   --max-font-weight: 600;
   --background-color-modal: cornflowerblue;
   --border-modal: 5px solid pink;
+  --label-color: green;
 }
 
 body {
@@ -54,10 +55,15 @@ ul {
 }
 
 input,
-label {
+label,
+select {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
+}
+
+label {
+  color: var(--label-color);
 }
 
 button {

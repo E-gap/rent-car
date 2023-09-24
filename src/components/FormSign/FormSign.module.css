@@ -15,7 +15,6 @@
   width: 100%;
   margin-bottom: var(--default-interval);
   position: relative;
-  color: var(--default-color);
 
   @media screen and (min-width: 768px) {
     font-size: var(--middle-font-size);
