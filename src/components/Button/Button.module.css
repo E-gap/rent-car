@@ -25,12 +25,7 @@ button:focus {
 
 .sortCars,
 .filterCars {
-  font-size: var(--middle-font-size);
   padding: 2px 2px 2px 2px;
-
-  @media screen and (min-width: 768px) {
-    font-size: var(--middle-font-size);
-  }
 }
 
 .filterCars,

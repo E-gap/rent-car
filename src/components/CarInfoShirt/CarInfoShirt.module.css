@@ -1,0 +1,46 @@
+.carInfoShirt {
+  color: blue;
+  width: 300px;
+  border: 1px solid red;
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+  }
+}
+
+.mainInfo {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.mainInfo p:not(:last-child) {
+  display: flex;
+  margin-right: 5px;
+}
+
+.priceInfo {
+  margin-bottom: 10px;
+}
+
+.iconInfo {
+  margin-right: 5px;
+}
+
+.detailInfo {
+  display: flex;
+}
+
+.detailInfo ul:not(:last-child) {
+  margin-right: 20px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+}
+
+.infoPart_1 li:not(:last-child),
+.infoPart_2 li:not(:last-child) {
+  margin-bottom: 15px;
+}

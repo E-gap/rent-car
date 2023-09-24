@@ -16,6 +16,7 @@ import { deleteCar } from '../../redux/cars/carsOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import QuestionSure from '../../components/QuestionSure/QuestionSure';
 import Notiflix from 'notiflix';
+import CarInfoShirt from '../CarInfoShirt/CarInfoShirt';
 
 const ItemCar = ({ oneCar, state }) => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
@@ -70,6 +71,7 @@ const ItemCar = ({ oneCar, state }) => {
             <BsCardImage className={css.notImageIcon} />
           )}
         </NavLink>
+        <CarInfoShirt oneCar={oneCar} />
         <div className={css.carInfo}>
           <p className={css.info}>
             {oneCar.mark} {oneCar.model}
