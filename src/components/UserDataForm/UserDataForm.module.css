@@ -5,6 +5,12 @@
   align-items: flex-start;
   padding: 10px 20px;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
 }
 
 input,
@@ -18,8 +24,6 @@ textarea {
   width: calc((100% - 10px) / 2);
   margin-bottom: 5px;
   position: relative;
-  font-size: 12px;
-  font-weight: 500;
   color: var(--default-color);
 }
 

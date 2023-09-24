@@ -17,6 +17,7 @@ const UserPage = () => {
   return (
     <div className={css.userPage}>
       <Container>
+        <h1 className={css.titlePage}>Your information</h1>
         <UserDataForm userData={{ userData, userId }} />
         <Button
           text="My Cars"
