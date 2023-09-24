@@ -8,8 +8,20 @@
 }
 
 .messageNotItems {
-  color: green;
-  font-size: 20px;
-  font-weight: 500;
+  color: var(--no-items-color);
   text-align: center;
+}
+
+.titlePage {
+  font-size: var(--middle-font-size);
+  font-weight: var(--middle-font-weight);
+  text-align: center;
+  text-transform: uppercase;
+  margin: 5px auto;
+  text-decoration: underline;
+
+  @media screen and (min-width: 768px) {
+    font-size: 25px;
+    font-weight: 700;
+  }
 }

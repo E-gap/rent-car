@@ -11,6 +11,7 @@
   --border-modal: 5px solid #ffc0cb;
   --label-color: #008000;
   --error-color: #ff0000;
+  --no-items-color: #008000;
 }
 
 body {

@@ -72,6 +72,7 @@ const FavoritePage = () => {
   return (
     <div className={css.favoritePage}>
       <Container>
+        <h1 className={css.titlePage}>Your favorite cars</h1>
         <HandlePanel
           changeSort={changeSort}
           changeFilter={changeFilter}
