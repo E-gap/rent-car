@@ -4,7 +4,7 @@ const isMobile = screenWidth <= 768;
 
 const optionsForPaginationCars = {
   totalItems: 0,
-  itemsPerPage: 2,
+  itemsPerPage: 10,
   visiblePages: isMobile ? 4 : 5,
   page: 1,
   centerAlign: false,
