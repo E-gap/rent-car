@@ -12,7 +12,7 @@ const NotFoundPage = () => {
     <section className={css.notFoundPage}>
       <Container>
         <h1 className={css.notFound_title}>
-          Oooops! <br /> This page is not found
+          Oooops! <br></br> This page is not found :(
         </h1>
         <div className={css.notFound_Wrapper}></div>
         <Button
