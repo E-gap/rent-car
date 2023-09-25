@@ -12,7 +12,6 @@ const carsSlice = createSlice({
   name: 'cars',
   initialState: {
     allCars: [],
-    carsByUser: [],
     isLoading: false,
     total: 0,
     error: null,

@@ -7,17 +7,11 @@ const CarsList = ({ cars }) => {
   const location = useLocation();
 
   return (
-    <>
-      <ul className={css.carList}>
-        {cars.map(oneCar => (
-          <ItemCar
-            key={oneCar._id}
-            oneCar={oneCar}
-            state={{ from: location }}
-          />
-        ))}
-      </ul>
-    </>
+    <ul className={css.carList}>
+      {cars.map(oneCar => (
+        <ItemCar key={oneCar._id} oneCar={oneCar} state={{ from: location }} />
+      ))}
+    </ul>
   );
 };
 

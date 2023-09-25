@@ -15,7 +15,7 @@ const UserPage = () => {
   };
 
   return (
-    <div className={css.userPage}>
+    <section className={css.userPage}>
       <Container>
         <h1 className={css.titlePage}>Your information</h1>
         <UserDataForm userData={{ userData, userId }} />
@@ -25,7 +25,7 @@ const UserPage = () => {
           view="mycars"
         />
       </Container>
-    </div>
+    </section>
   );
 };
 

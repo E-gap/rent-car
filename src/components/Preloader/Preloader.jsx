@@ -4,10 +4,8 @@ import css from './Preloader.module.css';
 
 const Preloader = () => {
   return (
-    <div>
-      <div className={css.preloader}>
-        <img src={loader} alt="qwerty" className={css.imagePreloader} />
-      </div>
+    <div className={css.preloader}>
+      <img src={loader} alt="qwerty" className={css.imagePreloader} />
     </div>
   );
 };

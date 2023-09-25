@@ -91,7 +91,7 @@ const OneCarPage = () => {
       {isLoading ? (
         <Preloader />
       ) : (
-        <div className={css.oneCarPage}>
+        <section className={css.oneCarPage}>
           <Container>
             {error ? (
               <ErrorComponent errorText={error} />
@@ -138,7 +138,7 @@ const OneCarPage = () => {
               </div>
             )}
           </Container>
-        </div>
+        </section>
       )}
       {isModalWindowOpen && (
         <ModalWindow

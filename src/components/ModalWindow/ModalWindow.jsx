@@ -30,7 +30,7 @@ export const ModalWindow = ({ setIsModalWindowOpen, children }) => {
   }, [setIsModalWindowOpen]);
 
   return createPortal(
-    <div className={css.backdrop}>
+    <section className={css.backdrop}>
       <div className={css.modal}>
         <AiOutlineCloseCircle
           className={css.closeModalIcon}
@@ -40,7 +40,7 @@ export const ModalWindow = ({ setIsModalWindowOpen, children }) => {
         />
         {children}
       </div>
-    </div>,
+    </section>,
     modalRoot
   );
 };

@@ -34,7 +34,7 @@ const HandlePanel = ({ changeSort, changeFilter, resetFilters }) => {
   };
 
   return (
-    <div className={css.handlePanel}>
+    <section className={css.handlePanel}>
       <Button
         text="Reset filters and sort"
         view="reset filters"
@@ -54,7 +54,7 @@ const HandlePanel = ({ changeSort, changeFilter, resetFilters }) => {
           )}
         </ModalWindow>
       )}
-    </div>
+    </section>
   );
 };
 

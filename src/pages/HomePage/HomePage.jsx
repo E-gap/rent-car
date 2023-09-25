@@ -5,14 +5,14 @@ import AnimationHome from '../../components/AnimationHome/AnimationHome';
 
 const HomePage = () => {
   return (
-    <div className={css.homePage}>
+    <section className={css.homePage}>
       <Container>
         <AnimationHome />
         <NavLink to="/cars/all" className={css.moveToCars}>
           Go to Cars
         </NavLink>
       </Container>
-    </div>
+    </section>
   );
 };
 

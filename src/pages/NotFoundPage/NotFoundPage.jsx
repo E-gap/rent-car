@@ -9,7 +9,7 @@ const NotFoundPage = () => {
     navigate('/');
   };
   return (
-    <div className={css.notFoundPage}>
+    <section className={css.notFoundPage}>
       <Container>
         <h1 className={css.notFound_title}>
           Oooops! <br /> This page is not found
@@ -21,7 +21,7 @@ const NotFoundPage = () => {
           view="goToHome"
         />
       </Container>
-    </div>
+    </section>
   );
 };
 

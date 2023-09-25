@@ -70,7 +70,7 @@ const UserCarsPage = () => {
   };
 
   return (
-    <div className={css.userCarsPage}>
+    <section className={css.userCarsPage}>
       <Container>
         <h1 className={css.titlePage}>Your cars</h1>
         <HandlePanel
@@ -96,7 +96,7 @@ const UserCarsPage = () => {
           />
         )}
       </Container>
-    </div>
+    </section>
   );
 };
 
