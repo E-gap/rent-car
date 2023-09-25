@@ -1,3 +1,7 @@
+.loginPage {
+  min-height: 100vh;
+}
+
 .titlePage {
   text-align: center;
   font-size: var(--middle-font-size);

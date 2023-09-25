@@ -1,3 +1,7 @@
+.addCarPage {
+  min-height: 100vh;
+}
+
 .titlePage {
   text-align: center;
   text-transform: uppercase;

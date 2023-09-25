@@ -1,6 +1,7 @@
 .carsPage {
   padding-top: var(--default-interval);
   padding-bottom: var(--default-interval);
+  min-height: 100vh;
 }
 
 .titlePage {

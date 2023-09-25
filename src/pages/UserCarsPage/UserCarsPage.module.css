@@ -1,6 +1,7 @@
 .userCarsPage {
   padding-top: 10px;
   padding-bottom: 10px;
+  min-height: 100vh;
 }
 
 .carList {

@@ -18,12 +18,12 @@ const AddCarPage = () => {
   };
 
   return (
-    <>
+    <section className={css.addCarPage}>
       <Container>
         <h1 className={css.titlePage}>Add car</h1>
         <FormAddCar handleAddCar={handleAddCar} />
       </Container>
-    </>
+    </section>
   );
 };
 

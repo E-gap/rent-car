@@ -13,7 +13,7 @@ import Container from 'components/Container/Container';
 import { MdFavorite } from 'react-icons/md';
 import { HiOutlineUserCircle } from 'react-icons/hi';
 import { ImPlus } from 'react-icons/im';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import QuestionSure from 'components/QuestionSure/QuestionSure';
 import logo from '../../images/logo.jpg';
 
@@ -24,8 +24,10 @@ const Header = () => {
   const userName = useSelector(selectUserName);
   const favorites = useSelector(selectUserFavorites);
   const [sign, setSign] = useState('');
-
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  console.log(location.pathname.includes('favorite'));
 
   const handleHeaderButton = e => {
     if (e.target.getAttribute('class').includes('Up')) {
@@ -95,9 +97,17 @@ const Header = () => {
                   className={`${css.linkFavorite} ${css.displayFlex}`}
                 >
                   <MdFavorite
-                    className={`${css.userFavoriteIcon} ${css.icon}`}
+                    className={`${css.userFavoriteIcon}  ${css.icon}`}
                   />
-                  <p className={css.numberFavorites}>{favorites.length}</p>
+                  <p
+                    className={
+                      location.pathname.includes('favorite')
+                        ? `${css.numberFavorites} ${css.numberFavoritesYellow}`
+                        : `${css.numberFavorites} ${css.numberFavoritesRed}`
+                    }
+                  >
+                    {favorites.length}
+                  </p>
                 </NavLink>
 
                 <ImPlus

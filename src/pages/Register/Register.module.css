@@ -1,3 +1,7 @@
+.registerPage {
+  min-height: 100vh;
+}
+
 .titlePage {
   text-align: center;
   color: var(--default-color);

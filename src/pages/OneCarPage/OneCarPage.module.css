@@ -1,9 +1,10 @@
-.pageRelative {
-  position: relative;
-}
-
 .oneCarPage {
   padding-top: 10px;
+  min-height: 100vh;
+}
+
+.pageRelative {
+  position: relative;
 }
 
 .carPhoto {
