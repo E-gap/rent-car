@@ -1,20 +1,6 @@
 import css from './Footer.module.css';
-import Button from '../Button/Button';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectIsLogin,
-  selectUserName,
-  selectUserFavorites,
-} from '../../redux/selectors';
-import { useState } from 'react';
-import { logout } from '../../redux/auth/authOperations';
-import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
 import Container from 'components/Container/Container';
-import { MdFavorite } from 'react-icons/md';
-import { HiOutlineUserCircle } from 'react-icons/hi';
-import { ImPlus } from 'react-icons/im';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
-import QuestionSure from 'components/QuestionSure/QuestionSure';
+import { NavLink, Link } from 'react-router-dom';
 import logo from '../../images/logo.jpg';
 
 const Footer = () => {
