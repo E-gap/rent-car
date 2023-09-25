@@ -19,34 +19,30 @@ button:focus {
   outline: none;
 }
 
-.back {
-  margin-right: 10px;
-}
-
 .sortCars,
 .filterCars {
   padding: 2px 2px 2px 2px;
 }
 
 .filterCars,
-.resetFilter {
+.resetFilters {
   margin-right: 10px;
 }
 
-.buttonSignIn {
+.signIn {
   margin-right: var(--default-interval);
 }
 
-.buttonSignUp {
+.signUp {
   margin-right: var(--default-interval);
   margin-right: 0;
 }
 
-.buttonLogOut {
+.logOut {
   margin-right: var(--default-interval);
 }
 
-.buttonQuestionSign {
+.questionSign {
   color: var(--default-color);
   background-color: transparent;
   border: none;
@@ -54,8 +50,8 @@ button:focus {
   font-weight: 700;
 }
 
-.buttonQuestionSign:hover,
-.buttonQuestionSign:focus {
+.questionSign:hover,
+.questionSign:focus {
   border: none;
   background-color: transparent;
   color: purple;

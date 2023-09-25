@@ -3,60 +3,7 @@ import css from './Button.module.css';
 import { FiLogOut } from 'react-icons/fi';
 
 const Button = ({ text, handleButton, view }) => {
-  let style;
-  let fff;
-
-  fff = view;
-  console.log(fff);
-
-  switch (view) {
-    case 'signIn':
-      style = css.buttonSignIn;
-      break;
-
-    case 'signUp':
-      style = css.buttonSignUp;
-      break;
-
-    case 'logOut':
-      style = css.buttonLogOut;
-      break;
-
-    case 'buttonQuestionSign':
-      style = css.buttonQuestionSign;
-      break;
-
-    case 'sort':
-      style = css.sortCars;
-      break;
-
-    case 'filter':
-      style = css.filterCars;
-      break;
-
-    case 'reset filters':
-      style = css.resetFilter;
-      break;
-
-    case 'back':
-      style = css.back;
-      break;
-
-    case 'goToHome':
-      style = css.goToHome;
-      break;
-
-    case 'ok':
-      style = css.ok;
-      break;
-
-    case 'cancel':
-      style = css.cancel;
-      break;
-
-    default:
-      style = '';
-  }
+  const style = css[view];
 
   return (
     <button type="button" className={style} onClick={handleButton}>

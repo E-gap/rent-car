@@ -103,7 +103,7 @@ const ItemCar = ({ oneCar, state }) => {
           onKeyDown={onKeyDown}
         >
           <QuestionSure
-            textQuestion="Are you sure you want to delete this item?"
+            textQuestion="Are you sure you want to delete this item ?"
             setIsModalWindowOpen={setIsModalWindowOpen}
             handleOk={handleDelete}
           />

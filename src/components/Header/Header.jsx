@@ -121,7 +121,7 @@ const Header = () => {
         >
           {sign === 'out' && (
             <QuestionSure
-              textQuestion="Do you really want to log out"
+              textQuestion="Do you really want to log out ?"
               setIsModalWindowOpen={setIsModalWindowOpen}
               handleOk={() => {
                 dispatch(logout());

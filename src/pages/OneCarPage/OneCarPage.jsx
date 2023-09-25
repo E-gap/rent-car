@@ -146,7 +146,7 @@ const OneCarPage = () => {
           onKeyDown={onKeyDown}
         >
           <QuestionSure
-            textQuestion="Are you sure you want to delete this item?"
+            textQuestion="Are you sure you want to delete this item ?"
             setIsModalWindowOpen={setIsModalWindowOpen}
             handleDelete={handleDelete}
           />

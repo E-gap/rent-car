@@ -37,11 +37,15 @@ const HandlePanel = ({ changeSort, changeFilter, resetFilters }) => {
     <section className={css.handlePanel}>
       <Button
         text="Reset filters and sort"
-        view="reset filters"
+        view="resetFilters"
         handleButton={resetFilters}
       />
-      <Button text="Filter" view="filter" handleButton={handlePanelButton} />
-      <Button text="Sort" view="sort" handleButton={handlePanelButton} />
+      <Button
+        text="Filter"
+        view="filterCars"
+        handleButton={handlePanelButton}
+      />
+      <Button text="Sort" view="sortCars" handleButton={handlePanelButton} />
       {isModalWindowOpen && (
         <ModalWindow
           setIsModalWindowOpen={setIsModalWindowOpen}
