@@ -15,6 +15,7 @@ import { HiOutlineUserCircle } from 'react-icons/hi';
 import { ImPlus } from 'react-icons/im';
 import { NavLink, useNavigate } from 'react-router-dom';
 import QuestionSure from 'components/QuestionSure/QuestionSure';
+import logo from '../../images/logo.jpg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -57,8 +58,8 @@ const Header = () => {
         <Container>
           <div className={css.displayFlex}>
             <div className={css.displayFlex}>
-              <NavLink to="/" className={`${css.marginRight10} ${css.link}`}>
-                Home
+              <NavLink to="/" className={`${css.marginRight10} ${css.logo}`}>
+                <img src={logo} alt="" className={css.logoImage} />
               </NavLink>
               <NavLink className={css.link} to="/cars/all">
                 All cars

@@ -1,7 +1,4 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
   background: radial-gradient(
@@ -57,11 +54,7 @@
 .userName {
   display: inline;
   color: var(--default-color);
-  margin-right: var(--default-interval);
-
-  @media screen and (min-width: 768px) {
-    margin-right: 20px;
-  }
+  margin-right: 20px;
 }
 
 .addCarIcon {
@@ -73,7 +66,7 @@
   width: 15px;
   height: 15px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
     width: 20px;
     height: 20px;
   }
@@ -108,5 +101,21 @@
 
   @media screen and (min-width: 1200px) {
     font-size: 15px;
+  }
+}
+
+.logoImage {
+  width: 30px;
+  height: 20px;
+  border-radius: 5px;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    width: 35px;
+    height: 25px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 40px;
+    height: 30px;
   }
 }

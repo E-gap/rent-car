@@ -1,5 +1,6 @@
 .homePage {
   padding-top: var(--default-interval);
+  padding-bottom: var(--default-interval);
 }
 
 .moveToCars {
