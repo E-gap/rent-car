@@ -27,8 +27,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  console.log(location.pathname.includes('favorite'));
-
   const handleHeaderButton = e => {
     if (e.target.getAttribute('class').includes('Up')) {
       navigate('/register');
