@@ -18,37 +18,39 @@
 
 .carPhoto {
   width: 100%;
-  height: 250px;
+  height: 150px;
   margin: 0 auto;
   background: transparent;
+}
 
-  @media screen and (min-width: 768px) {
-    width: 300px;
-  }
+.notImageIcon {
+  width: 100%;
+  margin: 0 auto;
+  height: 150px;
+  color: #808080;
 }
 
 .carInfo {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* font-size: 15px; */
 }
 
 .iconFavorite {
   width: 25px;
   height: 25px;
-  color: grey;
+  color: #808080;
   margin-bottom: 5px;
 }
 
 .favoriteSelected {
-  color: red;
+  color: #ff0000;
 }
 
 .iconDelete {
   width: 20px;
   height: 20px;
-  color: grey;
+  color: #808080;
 }
 
 .iconsFavoriteDelete {
@@ -68,13 +70,11 @@
 }
 
 .carLink {
-  /* border: 1px solid blue; */
   display: block;
+  width: 200px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5px;
-  width: 300px;
-  /* font-size: 0; */
 
   @media screen and (min-width: 768px) {
     margin-left: unset;
@@ -82,15 +82,8 @@
   }
 }
 
-.notImageIcon {
-  width: 300px;
-  height: 300px;
-  color: grey;
-}
-
 .info {
-  /* font-weight: 500; */
-  color: blueviolet;
+  color: #8a2be2;
   text-decoration: underline;
 
   @media screen and (min-width: 768px) {
