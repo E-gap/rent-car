@@ -1,7 +1,11 @@
 import css from './Header.module.css';
 import Button from '../Button/Button';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectIsLogin, selectUserName } from '../../redux/selectors';
+import {
+  selectIsLogin,
+  selectUserName,
+  selectUserFavorites,
+} from '../../redux/selectors';
 import { useState } from 'react';
 import { logout } from '../../redux/auth/authOperations';
 import { ModalWindow } from '../../components/ModalWindow/ModalWindow';
@@ -17,6 +21,7 @@ const Header = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const isLogin = useSelector(selectIsLogin);
   const userName = useSelector(selectUserName);
+  const favorites = useSelector(selectUserFavorites);
   const [sign, setSign] = useState('');
 
   const dispatch = useDispatch();
@@ -59,7 +64,6 @@ const Header = () => {
                 All cars
               </NavLink>
             </div>
-
             {!isLogin ? (
               <div className={css.header_buttons}>
                 <Button
@@ -67,7 +71,6 @@ const Header = () => {
                   handleButton={handleHeaderButton}
                   view="signIn"
                 />
-
                 <Button
                   text="Sign Up"
                   handleButton={handleHeaderButton}
@@ -85,6 +88,7 @@ const Header = () => {
                   />
                 </NavLink>
                 <p className={css.userName}>{userName}</p>
+
                 <NavLink
                   to="/cars/favorite"
                   className={`${css.linkFavorite} ${css.displayFlex}`}
@@ -92,7 +96,9 @@ const Header = () => {
                   <MdFavorite
                     className={`${css.userFavoriteIcon} ${css.icon}`}
                   />
+                  <p className={css.numberFavorites}>{favorites.length}</p>
                 </NavLink>
+
                 <ImPlus
                   className={`${css.addCarIcon} ${css.icon}`}
                   onClick={handleAddCar}

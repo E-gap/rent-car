@@ -4,7 +4,6 @@
   align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: var(--default-color);
   background: radial-gradient(
     circle,
     rgba(23, 33, 168, 1) 64%,
@@ -31,26 +30,28 @@
 .linkUser {
   fill: var(--default-color);
   stroke: var(--default-color);
+  margin-right: 20px;
+}
+
+.linkFavorite {
+  position: relative;
 }
 
 .userIcon {
   cursor: pointer;
-  margin-right: 10px;
   stroke: inherit;
-  margin-right: 10px;
   color: var(--default-color);
 }
 
 .userFavoriteIcon {
   cursor: pointer;
-  margin-right: 10px;
   fill: inherit;
 }
 
 [aria-current] {
-  color: red;
-  fill: red;
-  stroke: red;
+  color: #ff0000;
+  fill: #ff0000;
+  stroke: #ff0000;
 }
 
 .userName {
@@ -71,12 +72,10 @@
 .icon {
   width: 15px;
   height: 15px;
-  margin-right: 10px;
 
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
-    margin-right: 20px;
   }
 
   @media screen and (min-width: 1200px) {
@@ -92,4 +91,22 @@
 .header_buttons {
   display: flex;
   align-items: center;
+}
+
+.numberFavorites {
+  top: 0;
+  right: 2px;
+  position: absolute;
+  color: #ff0000;
+  font-size: 8px;
+  line-height: 1;
+  font-weight: 700;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    font-size: 10px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 15px;
+  }
 }

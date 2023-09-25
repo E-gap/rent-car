@@ -18,7 +18,6 @@ import { CarSchema } from '../../utils/CarSchema';
 
 function FormAddCar({ handleAddCar }) {
   const [selectedFile, setSelectedFile] = useState(null);
-
   const {
     tel = 'not tel yet',
     city = 'not city yet',
@@ -277,7 +276,7 @@ function FormAddCar({ handleAddCar }) {
               />
             </label>
             <button type="submit" className={css.submit}>
-              Submit
+              Add car
             </button>
           </Form>
         )}
@@ -289,5 +288,5 @@ function FormAddCar({ handleAddCar }) {
 export default FormAddCar;
 
 FormAddCar.propTypes = {
-  closeModal: PropTypes.func.isRequired,
+  handleAddCar: PropTypes.func.isRequired,
 };
