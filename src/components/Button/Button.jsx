@@ -4,6 +4,10 @@ import { FiLogOut } from 'react-icons/fi';
 
 const Button = ({ text, handleButton, view }) => {
   let style;
+  let fff;
+
+  fff = view;
+  console.log(fff);
 
   switch (view) {
     case 'signIn':
