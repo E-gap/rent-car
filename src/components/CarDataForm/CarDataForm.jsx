@@ -359,7 +359,7 @@ CarDataForm.propTypes = {
     year: PropTypes.number.isRequired,
     color: PropTypes.string.isRequired,
     fueltype: PropTypes.string.isRequired,
-    engine: PropTypes.string.isRequired,
+    engine: PropTypes.number.isRequired,
     city: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
