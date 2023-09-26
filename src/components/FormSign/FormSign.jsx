@@ -186,7 +186,7 @@ function FormSign({ sign }) {
           <Button
             text="Sign Up"
             handleButton={handleButton}
-            view="buttonQuestionSign"
+            view="questionSign"
           />
         </p>
       )}
