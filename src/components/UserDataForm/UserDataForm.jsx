@@ -1,4 +1,5 @@
 import css from './UserDataForm.module.css';
+import PropTypes from 'prop-types';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { updateUser } from '../../redux/auth/authOperations';
@@ -121,3 +122,11 @@ const UserDataForm = ({
 };
 
 export default UserDataForm;
+
+UserDataForm.propTypes = {
+  email: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  city: PropTypes.string.isRequired,
+  tel: PropTypes.string.isRequired,
+  userId: PropTypes.string.isRequired,
+};

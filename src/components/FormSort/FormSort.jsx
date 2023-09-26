@@ -138,4 +138,5 @@ export default FormSort;
 
 FormSort.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  changeSort: PropTypes.func.isRequired,
 };

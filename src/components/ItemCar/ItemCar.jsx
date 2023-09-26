@@ -116,7 +116,6 @@ const ItemCar = ({ oneCar, state }) => {
 export default ItemCar;
 
 ItemCar.propTypes = {
-  // id: PropTypes.number.isRequired,
-  name: PropTypes.string,
-  price: PropTypes.number,
+  oneCar: PropTypes.object.isRequired,
+  state: PropTypes.object.isRequired,
 };

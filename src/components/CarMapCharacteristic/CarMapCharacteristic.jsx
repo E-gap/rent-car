@@ -1,4 +1,5 @@
 import css from './CarMapCharacteristic.module.css';
+import PropTypes from 'prop-types';
 
 const CarMapCharacteristic = ({ characteristics }) => {
   return (
@@ -19,3 +20,7 @@ const CarMapCharacteristic = ({ characteristics }) => {
 };
 
 export default CarMapCharacteristic;
+
+CarMapCharacteristic.propTypes = {
+  characteristics: PropTypes.arrayOf(PropTypes.string).isRequired,
+};

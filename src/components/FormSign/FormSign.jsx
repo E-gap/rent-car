@@ -197,5 +197,5 @@ function FormSign({ sign }) {
 export default FormSign;
 
 FormSign.propTypes = {
-  sign: PropTypes.string,
+  sign: PropTypes.string.isRequired,
 };

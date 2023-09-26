@@ -1,4 +1,5 @@
 import css from './HandlePanel.module.css';
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import { useState } from 'react';
 import FormFilter from '../FormFilter/FormFilter';
@@ -63,3 +64,9 @@ const HandlePanel = ({ changeSort, changeFilter, resetFilters }) => {
 };
 
 export default HandlePanel;
+
+HandlePanel.propTypes = {
+  changeFilter: PropTypes.func.isRequired,
+  changeSort: PropTypes.func.isRequired,
+  resetFilters: PropTypes.func.isRequired,
+};

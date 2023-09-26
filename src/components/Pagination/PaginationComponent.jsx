@@ -1,7 +1,6 @@
-//import css from './PaginationComponent.module.css';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -51,8 +50,9 @@ const PaginationComponent = ({ searchPage, total, options, sort }) => {
 };
 export default PaginationComponent;
 
-/* PaginationComponent.propTypes = {
+PaginationComponent.propTypes = {
   searchPage: propTypes.func.isRequired,
   total: propTypes.number.isRequired,
   options: propTypes.object.isRequired,
-}; */
+  sort: propTypes.object.isRequired,
+};

@@ -1,4 +1,5 @@
 import css from './CarInfoShirt.module.css';
+import PropTypes from 'prop-types';
 import {
   BsSpeedometer,
   BsFuelPumpFill,
@@ -9,11 +10,9 @@ import { MdOutlinePlace, MdHdrAuto } from 'react-icons/md';
 import { TbManualGearbox } from 'react-icons/tb';
 import { FaChargingStation } from 'react-icons/fa';
 
-// import PropTypes from 'prop-types';
-
-const CarInfoShirt = ({ oneCar }) => {
-  const { mark, model, price, year, mileage, fueltype, city, transmission } =
-    oneCar;
+const CarInfoShirt = ({
+  oneCar: { mark, model, price, year, mileage, fueltype, city, transmission },
+}) => {
   return (
     <section className={css.carInfoShirt}>
       <div className={css.mainInfo}>
@@ -62,6 +61,13 @@ const CarInfoShirt = ({ oneCar }) => {
 
 export default CarInfoShirt;
 
-/* CarInfoShirt.propTypes = {
-  oneCar: PropTypes.array,
-}; */
+CarInfoShirt.propTypes = {
+  mark: PropTypes.string.isRequired,
+  model: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
+  mileage: PropTypes.number.isRequired,
+  fueltype: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  transmission: PropTypes.string.isRequired,
+};

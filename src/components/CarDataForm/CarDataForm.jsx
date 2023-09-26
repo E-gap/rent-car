@@ -1,4 +1,5 @@
 import css from './CarDataForm.module.css';
+import PropTypes from 'prop-types';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { changeCar } from '../../redux/cars/carsOperations';
@@ -343,3 +344,24 @@ const CarDataForm = ({
 };
 
 export default CarDataForm;
+
+CarDataForm.propTypes = {
+  getCar: PropTypes.func.isRequired,
+  canChange: PropTypes.bool.isRequired,
+  mark: PropTypes.string.isRequired,
+  model: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  transmission: PropTypes.string.isRequired,
+  mileage: PropTypes.number.isRequired,
+  power: PropTypes.number.isRequired,
+  tel: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
+  fueltype: PropTypes.string.isRequired,
+  engine: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
+};

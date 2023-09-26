@@ -1,5 +1,5 @@
 import loader from '../../images/loader-car.gif';
-// import PropTypes from 'prop-types';
+
 import css from './Preloader.module.css';
 
 const Preloader = () => {
@@ -11,7 +11,3 @@ const Preloader = () => {
 };
 
 export default Preloader;
-
-/* Preloader.propTypes = {
-  sign: PropTypes.string,
-}; */

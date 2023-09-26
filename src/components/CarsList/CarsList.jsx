@@ -18,5 +18,5 @@ const CarsList = ({ cars }) => {
 export default CarsList;
 
 CarsList.propTypes = {
-  cars: PropTypes.array,
+  cars: PropTypes.arrayOf(PropTypes.object),
 };

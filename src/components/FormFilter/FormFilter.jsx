@@ -237,4 +237,5 @@ export default FormFilter;
 
 FormFilter.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
