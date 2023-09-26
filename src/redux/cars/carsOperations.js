@@ -2,15 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../auth/authOperations';
 import Notiflix from 'notiflix';
 
-/* export const getAllCars = async () => {
-  try {
-    const { data } = await instance.get('/cars');
-    return data;
-  } catch (error) {
-    return error;
-  }
-}; */
-
 export const getAllCars = createAsyncThunk(
   'cars/getAllCars',
   async (search, thunkApi) => {
@@ -31,19 +22,6 @@ export const getOneCar = async carId => {
     return error;
   }
 };
-
-/* export const getOneCar = createAsyncThunk(
-  'cars/getOneCar',
-  async (carId, thunkApi) => {
-    try {
-      const { data } = await instance.get(`/cars/${carId}`);
-
-      return data.data;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
-    }
-  }
-); */
 
 export const getFavoriteCars = createAsyncThunk(
   'cars/getFavoriteCars',
@@ -67,15 +45,6 @@ export const getFavoriteCars = createAsyncThunk(
   }
 );
 
-/* export const getFavoriteCars = async () => {
-  try {
-    const { data } = await instance.get('/cars/favorite');
-    return data;
-  } catch (error) {
-    return error;
-  }
-}; */
-
 export const getUserCars = createAsyncThunk(
   'cars/getUserCars',
   async (search, thunkApi) => {
@@ -94,15 +63,6 @@ export const getUserCars = createAsyncThunk(
     }
   }
 );
-
-/* export const getUserCars = async () => {
-  try {
-    const { data } = await instance.get('/cars/user');
-    return data;
-  } catch (error) {
-    return error;
-  }
-}; */
 
 export const addCar = createAsyncThunk(
   'cars/addCar',
