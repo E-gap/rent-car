@@ -33,8 +33,9 @@ and create his own list of favorite cars:
 User can also sort list of cars by pressing on button `«Sort»`:
 ![Sort option](./assets/sort-cars.jpg)  
 or filter list by pressing on button `«Filter»`:  
-![Filter option](./assets/filter-cars.jpg) User can change his own information
-on [User page](https://cards-fawn-nine.vercel.app/cards):
+![Filter option](./assets/filter-cars.jpg)  
+User can change his own information on
+[User page](https://cards-fawn-nine.vercel.app/cards):
 ![User page](./assets/user-page.jpg)
 
 ---
