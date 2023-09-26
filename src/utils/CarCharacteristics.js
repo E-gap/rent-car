@@ -21,13 +21,6 @@ function range(start, stop, step) {
     a.push((b += step || 1));
   }
 
-  /* function toArray( obj ) {
-  var i, arr = [];
-  for ( i = obj.length; i--; ){
-    arr[i] = obj[i];
-  }
-  return arr; */
-
   return a;
 }
 

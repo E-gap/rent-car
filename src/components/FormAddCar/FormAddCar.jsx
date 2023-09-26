@@ -141,7 +141,7 @@ function FormAddCar({ handleAddCar }) {
             <label className={css.label}>
               Year
               <Field name="year" as="select">
-                <CarMapCharacteristic characteristics={carYears} />
+                <CarMapCharacteristic characteristics={carYears} sort="down" />
               </Field>
               <ErrorMessage
                 name="year"
