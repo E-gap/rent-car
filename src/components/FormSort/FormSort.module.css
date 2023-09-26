@@ -7,12 +7,12 @@
 }
 
 .label {
-  background-color: white;
+  background-color: #ffffff;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   width: 70%;
-  margin-bottom: var(--default-interval);  
+  margin-bottom: var(--default-interval);
   padding: 2px 10px;
 }
 

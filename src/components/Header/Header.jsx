@@ -89,7 +89,6 @@ const Header = () => {
                   />
                 </NavLink>
                 <p className={css.userName}>{userName}</p>
-
                 <NavLink
                   to="/cars/favorite"
                   className={`${css.linkFavorite} ${css.displayFlex}`}

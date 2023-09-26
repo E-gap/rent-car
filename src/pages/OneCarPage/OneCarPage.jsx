@@ -120,7 +120,6 @@ const OneCarPage = () => {
                     }
                     onClick={handleFavorite}
                   />
-
                   {owner === userId && (
                     <BsTrashFill
                       className={css.iconDelete}

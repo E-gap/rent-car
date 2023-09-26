@@ -46,10 +46,10 @@ const CarInfoShirt = ({
             {city}
           </li>
           <li className={css.trasmission}>
-            {transmission === 'Automatic' ? (
-              <MdHdrAuto className={css.iconInfo} />
-            ) : (
+            {transmission === 'Manual' ? (
               <TbManualGearbox className={css.iconInfo} />
+            ) : (
+              <MdHdrAuto className={css.iconInfo} />
             )}
             {transmission}
           </li>
@@ -62,12 +62,12 @@ const CarInfoShirt = ({
 export default CarInfoShirt;
 
 CarInfoShirt.propTypes = {
-  mark: PropTypes.string,
-  model: PropTypes.string,
-  price: PropTypes.number,
-  year: PropTypes.number,
-  mileage: PropTypes.number,
-  fueltype: PropTypes.string,
-  city: PropTypes.string,
-  transmission: PropTypes.string,
+  mark: PropTypes.string.isRequired,
+  model: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
+  mileage: PropTypes.number.isRequired,
+  fueltype: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  transmission: PropTypes.string.isRequired,
 };
