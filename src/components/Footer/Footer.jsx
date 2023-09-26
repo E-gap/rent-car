@@ -1,6 +1,6 @@
 import css from './Footer.module.css';
 import Container from 'components/Container/Container';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../../images/logo.jpg';
 
 const Footer = () => {
@@ -13,21 +13,10 @@ const Footer = () => {
               <img src={logo} alt="" className={css.logoImage} />
             </NavLink>
             <ul className={css.displayFlex}>
-              <li>
-                <Link to="#" className={css.linkSupport}>
-                  Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className={css.linkAgreement}>
-                  Agreement about services
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className={css.linkSupport}>
-                  Support
-                </Link>
-              </li>
+              <li>Support contacts:</li>
+              <li>+38(093)123-45-67</li>
+              <li>+38(097)123-45-67</li>
+              <li>+38(050)123-45-67</li>
             </ul>
           </div>
         </Container>

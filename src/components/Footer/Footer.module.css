@@ -12,6 +12,7 @@
   width: 30px;
   height: 20px;
   border-radius: 5px;
+  margin-right: 20px;
 
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     width: 35px;
@@ -30,11 +31,10 @@
 }
 
 .footer ul {
-  justify-content: space-around;
+  justify-content: center;
   width: calc(100% - 50px);
 }
 
-/* .logo,
-.linkAgreement {
-  margin-right: 50px;
-} */
+footer li:not(:last-child) {
+  margin-right: var(--default-interval);
+}
