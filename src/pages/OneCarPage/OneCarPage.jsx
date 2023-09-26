@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { BsTrashFill } from 'react-icons/bs';
 import css from './OneCarPage.module.css';
 import { useEffect, useState } from 'react';

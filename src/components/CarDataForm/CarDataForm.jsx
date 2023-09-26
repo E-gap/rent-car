@@ -173,7 +173,7 @@ const CarDataForm = ({
             <label className={css.label}>
               Year
               <Field name="year" disabled={isDisabledFields} as="select">
-                <CarMapCharacteristic characteristics={carYears} />
+                <CarMapCharacteristic characteristics={carYears} sort="down" />
               </Field>
               <ErrorMessage
                 name="year"
@@ -348,20 +348,22 @@ export default CarDataForm;
 CarDataForm.propTypes = {
   getCar: PropTypes.func.isRequired,
   canChange: PropTypes.bool.isRequired,
-  mark: PropTypes.string.isRequired,
-  model: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  transmission: PropTypes.string.isRequired,
-  mileage: PropTypes.number.isRequired,
-  power: PropTypes.number.isRequired,
-  tel: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
-  color: PropTypes.string.isRequired,
-  fueltype: PropTypes.string.isRequired,
-  engine: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  description: PropTypes.string.isRequired,
-  _id: PropTypes.string.isRequired,
+  oneCar: PropTypes.shape({
+    mark: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    transmission: PropTypes.string.isRequired,
+    mileage: PropTypes.number.isRequired,
+    power: PropTypes.number.isRequired,
+    tel: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
+    fueltype: PropTypes.string.isRequired,
+    engine: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
+  }),
 };
