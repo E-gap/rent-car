@@ -27,10 +27,10 @@ Page [All cars](https://cards-fawn-nine.vercel.app/cards) looks like this:
 ![All cars page of app](./assets/all-cars-page.jpg)  
 If user is not loged in he can only review the list of all cars and review page
 of certain car: ![One car page of app](./assets/one-car-page.jpg) After loggin
-in he can add his own car's ad: ![Add car page](./assets/add-car.jpg) and create
-his own list of favorite cars:
-![Favorite cars page of app](./assets/favorite-cars-page.jpg) User can also sort
-list of cars by pressing on button `«Sort»`:
+in he can add his own car's ad: ![Add car page](./assets/add-car.jpg)  
+and create his own list of favorite cars:
+![Favorite cars page of app](./assets/favorite-cars-page.jpg)  
+User can also sort list of cars by pressing on button `«Sort»`:
 ![Sort option](./assets/sort-cars.jpg)  
 or filter list by pressing on button `«Filter»`:
 ![Filter option](./assets/filter-cars.jpg). User can change his own information
