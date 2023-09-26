@@ -1,4 +1,4 @@
-# **_Cards_**
+# **_Rent cars_**
 
 This application is made with  
 [Create React App](https://github.com/facebook/create-react-app).
@@ -22,14 +22,15 @@ On the page [Home](https://cards-fawn-nine.vercel.app/) we can see general
 decoration of Home page with animation.
 ![Home page of app](./assets/home-page.jpg) Also on Home page is button
 `«Go to Cars»` that we can click on and go to the page
-[All cars](https://cards-fawn-nine.vercel.app/cards). Page
-[All cars](https://cards-fawn-nine.vercel.app/cards) looks like this:
-![All cars page of app](./assets/all-cars-page.jpg) If user is not loged in he
-can only review the list of all cars and review page of certain car:
-![One car page of app](./assets/one-car-page.jpg) After loggin in he can add his
-own car's ad: ![Add car page](./assets/add-car.jpg) and create his own list of
-favorite cars: ![Favorite cars page of app](./assets/favorite-cars-page.jpg)
-User can also sort list of cars by pressing on button `«Sort»`:
+[All cars](https://cards-fawn-nine.vercel.app/cards).  
+Page [All cars](https://cards-fawn-nine.vercel.app/cards) looks like this:
+![All cars page of app](./assets/all-cars-page.jpg)  
+If user is not loged in he can only review the list of all cars and review page
+of certain car: ![One car page of app](./assets/one-car-page.jpg) After loggin
+in he can add his own car's ad: ![Add car page](./assets/add-car.jpg) and create
+his own list of favorite cars:
+![Favorite cars page of app](./assets/favorite-cars-page.jpg) User can also sort
+list of cars by pressing on button `«Sort»`:
 ![Sort option](./assets/sort-cars.jpg)  
 or filter list by pressing on button `«Filter»`:
 ![Filter option](./assets/filter-cars.jpg). User can change his own information
