@@ -1,6 +1,6 @@
 import css from './CarMapCharacteristic.module.css';
 import PropTypes from 'prop-types';
-import { sortOrder } from '../../utils/operations';
+import { sortOrder } from '../../utils/helpers';
 
 const CarMapCharacteristic = ({ characteristics, sort = 'up' }) => {
   return (
