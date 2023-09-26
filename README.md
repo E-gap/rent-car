@@ -10,59 +10,32 @@ This application is made with
 App link -
 [https://cards-fawn-nine.vercel.app/](https://cards-fawn-nine.vercel.app/)
 
-App is a game, where user can choose cards and score points. After Sign In user
-can save his score automatically after each game. He can view score history
-every user ant his own history as well. User can sort score history by date and
-by user as well.
+App is a platform, where user can find car for rent or place an ad for rent car
+out. After sign in user can also add cars ad to favorite and remove from
+favorite. For more comfortable search he can filter and sort all car ads.
 
-App consists of two pages: [Home](https://cards-fawn-nine.vercel.app/) and
-[Cards](https://cards-fawn-nine.vercel.app/cards).
+App consists of such pages as: [Home](https://cards-fawn-nine.vercel.app/),
+[All cars](https://cards-fawn-nine.vercel.app/cards),
+[User](https://cards-fawn-nine.vercel.app/cards),
+[Favorite](https://cards-fawn-nine.vercel.app/cards),
 
 On the page [Home](https://cards-fawn-nine.vercel.app/) we can see general
 decoration of Home page with animation. Also on Home page is button
-`«Go to Cards»` that we can click on and go to the page
-[Cards](https://cards-fawn-nine.vercel.app/cards).
+`«Go to Cars»` that we can click on and go to the page
+[All cars](https://cards-fawn-nine.vercel.app/cards).
 
 ![Home page of app](./assets/home-page.jpg)
 
-Page [Cards](https://cards-fawn-nine.vercel.app/cards) looks like this:
+Page [Cars](https://cards-fawn-nine.vercel.app/cards) looks like this:
 
-![Card page of app](./assets/card-page.jpg)
+![All cars page of app](./assets/card-page.jpg)
 
-On this page user can play the game. User chooses a card and click on it. After
-this user's action card turns and user can see score. This score adds to current
-user's score. After choosing three cards the game is over and user can see his
-final score a few seconds. After few seconds final score disappears and
-automatically is being saved saved to the score history (if user Signed In).
+If user is not loged in he can only review the list of all cars and review page
+of certain car. After loggin in he can add his own car's ad and create his own
+list of favorite cars.
 
-![Final user's score](./assets/final-score.jpg)
-
-After click on button `«Start New Game»`
-![Start New Game](./assets/start-new-game.jpg) user can start new game.
-
-Also on the page `«Cards»` in left high corner exists button `«Back»` that user
-can click on and return to the page `«Home»`.
-
-On the page `«Cards»` Signed In user can see general or his own score history.
-For this he must click on button `«Show all Scores»` or `«Show my Scores»`
-accordingly.
-
-User can also sort score history by date or score by clicking on buttons
-`«Sort by Date»` or `«Sort by Score»` accordingly.
-
-![Show history](./assets/show-history.jpg)
-
-User can scroll down the list of scores.
-
-User can face with different errors during using application. On page `«Cards»`
-error will be showed at the bottom of the page.
-
-![Error on the Card page](./assets/error-card-page.jpg)
-
-Error of loading of the score history will be showed at the middle of the
-history window.
-
-![Error of loading history](./assets/error-history.jpg)
+User can also sort list of cars by pressing on button `«Sort»` or filter list by
+pressing on button `«Filter»`.
 
 ---
 
@@ -72,7 +45,6 @@ history window.
 [prop-types](https://github.com/facebook/prop-types)
 [Formik](https://formik.org/)
 [react-router-dom](https://github.com/remix-run/react-router)
-[Moment.js](https://momentjs.com/)
 [react-icons](https://github.com/react-icons/react-icons)
 [React Redux](https://github.com/reduxjs/react-redux)
 [React Persist](https://github.com/rt2zz/redux-persist)

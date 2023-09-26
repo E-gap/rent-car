@@ -12,10 +12,7 @@
   align-items: baseline;
   justify-content: space-between;
   width: 70%;
-  margin-bottom: var(--default-interval);
-  font-size: 15px;
-  line-height: 1.12;
-  font-weight: 500;
+  margin-bottom: var(--default-interval);  
   padding: 2px 10px;
 }
 

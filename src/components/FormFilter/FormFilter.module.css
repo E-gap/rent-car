@@ -5,7 +5,6 @@
   align-items: flex-start;
   padding: 20px 20px;
   width: 100%;
-  
 }
 input,
 textarea {
@@ -18,8 +17,6 @@ textarea {
   width: calc((100% - 10px) / 2);
   margin-bottom: var(--default-interval);
   position: relative;
-  font-size: 12px;
-  font-weight: 500;
   color: var(--default-color);
 }
 
