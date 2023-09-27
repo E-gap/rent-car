@@ -124,9 +124,13 @@ const UserDataForm = ({
 export default UserDataForm;
 
 UserDataForm.propTypes = {
-  email: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  city: PropTypes.string.isRequired,
-  tel: PropTypes.string.isRequired,
-  userId: PropTypes.string.isRequired,
+  userData: PropTypes.shape({
+    userData: PropTypes.shape({
+      email: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      city: PropTypes.string,
+      tel: PropTypes.string,
+    }),
+    userId: PropTypes.string.isRequired,
+  }),
 };

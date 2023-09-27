@@ -155,8 +155,3 @@ const OneCarPage = () => {
 };
 
 export default OneCarPage;
-
-/* OneCarPage.propTypes = {
-  scores: PropTypes.array,
-  sign: PropTypes.string,
-}; */
