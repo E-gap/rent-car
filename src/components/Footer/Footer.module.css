@@ -36,5 +36,5 @@
 }
 
 footer li:not(:last-child) {
-  margin-right: var(--default-interval);
+  margin-right: 5px;
 }
