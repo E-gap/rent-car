@@ -11,7 +11,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getFavoriteCars } from '../../redux/cars/carsOperations';
 import { selectAllCars } from '../../redux/selectors';
 import { selectIsCarsLoading, selectCarsError } from '../../redux/selectors';
-import Preloader from '../../components/Preloader/Preloader';
 import ErrorComponent from '../../components/ErrorComponent/ErrorComponent';
 
 const FavoritePage = () => {
@@ -78,7 +77,7 @@ const FavoritePage = () => {
           changeFilter={changeFilter}
           resetFilters={resetFilters}
         />
-        {isLoading && <Preloader />}
+
         {carsError && <ErrorComponent errorText={carsError} />}
         {!isLoading && !carsError && cars.length > 0 && (
           <CarsList cars={cars} />

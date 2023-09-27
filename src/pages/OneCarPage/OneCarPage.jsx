@@ -5,7 +5,7 @@ import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCar, getOneCar } from '../../redux/cars/carsOperations';
 import { changeFavorite } from '../../redux/auth/authOperations';
-import Preloader from '../../components/Preloader/Preloader';
+// import Preloader from '../../components/Preloader/Preloader';
 import CarDataForm from '../../components/CarDataForm/CarDataForm';
 import {
   selectUserFavorites,
@@ -24,7 +24,7 @@ import { BsCardImage } from 'react-icons/bs';
 const OneCarPage = () => {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const [oneCar, setOneCar] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ const OneCarPage = () => {
 
   const getCar = () => {
     getOneCar(carId).then(res => {
-      setIsLoading(false);
+      // setIsLoading(false);
       if (res.status === 'OK') {
         setError('');
         setOneCar(res.data[0]);
@@ -86,58 +86,52 @@ const OneCarPage = () => {
   const backLinkHref = location.state?.from ?? '/';
 
   return (
-    <>
-      {isLoading ? (
-        <Preloader />
-      ) : (
-        <section className={css.oneCarPage}>
-          <Container>
-            {error ? (
-              <ErrorComponent errorText={error} />
+    <section className={css.oneCarPage}>
+      <Container>
+        {error ? (
+          <ErrorComponent errorText={error} />
+        ) : (
+          <div className={css.pageRelative}>
+            <Link to={backLinkHref} className={css.linkGoBack}>
+              <HiChevronDoubleLeft className={css.backIcon} />
+              Back
+            </Link>
+            {oneCar.photo !== 'null' ? (
+              <img
+                src={oneCar.photo}
+                className={css.carPhoto}
+                alt="car appearance"
+              />
             ) : (
-              <div className={css.pageRelative}>
-                <Link to={backLinkHref} className={css.linkGoBack}>
-                  <HiChevronDoubleLeft className={css.backIcon} />
-                  Back
-                </Link>
-                {oneCar.photo !== 'null' ? (
-                  <img
-                    src={oneCar.photo}
-                    className={css.carPhoto}
-                    alt="car appearance"
-                  />
-                ) : (
-                  <BsCardImage className={css.notImageIcon} />
-                )}
-
-                <div className={css.mainCarInfo}>
-                  <MdFavorite
-                    className={
-                      favorites.includes(carId)
-                        ? `${css.iconFavorite} ${css.favoriteSelected}`
-                        : css.iconFavorite
-                    }
-                    onClick={handleFavorite}
-                  />
-                  {owner === userId && (
-                    <BsTrashFill
-                      className={css.iconDelete}
-                      onClick={() => {
-                        setIsModalWindowOpen(true);
-                      }}
-                    />
-                  )}
-                </div>
-                <CarDataForm
-                  oneCar={oneCar}
-                  getCar={getCar}
-                  canChange={owner === userId}
-                />
-              </div>
+              <BsCardImage className={css.notImageIcon} />
             )}
-          </Container>
-        </section>
-      )}
+
+            <div className={css.mainCarInfo}>
+              <MdFavorite
+                className={
+                  favorites.includes(carId)
+                    ? `${css.iconFavorite} ${css.favoriteSelected}`
+                    : css.iconFavorite
+                }
+                onClick={handleFavorite}
+              />
+              {owner === userId && (
+                <BsTrashFill
+                  className={css.iconDelete}
+                  onClick={() => {
+                    setIsModalWindowOpen(true);
+                  }}
+                />
+              )}
+            </div>
+            <CarDataForm
+              oneCar={oneCar}
+              getCar={getCar}
+              canChange={owner === userId}
+            />
+          </div>
+        )}
+      </Container>
       {isModalWindowOpen && (
         <ModalWindow
           setIsModalWindowOpen={setIsModalWindowOpen}
@@ -150,7 +144,7 @@ const OneCarPage = () => {
           />
         </ModalWindow>
       )}
-    </>
+    </section>
   );
 };
 
