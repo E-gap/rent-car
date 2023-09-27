@@ -48,6 +48,7 @@ const CarsPage = () => {
     setPageNumber(1);
   }, []);
 
+  console.log(isLoading);
   const changeSort = useCallback(sortParam => {
     setSort({ sort: sortParam });
     setPageNumber(1);
