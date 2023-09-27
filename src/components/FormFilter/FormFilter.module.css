@@ -40,5 +40,5 @@ textarea {
 }
 
 .errorValidation {
-  color: red;
+  color: var(--error-color);
 }
