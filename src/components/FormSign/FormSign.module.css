@@ -37,7 +37,7 @@
   right: 5px;
 
   @media screen and (min-width: 768px) {
-    top: 25px;
+    top: 20px;
     right: 5px;
   }
 }
