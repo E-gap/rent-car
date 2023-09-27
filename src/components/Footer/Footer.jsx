@@ -13,7 +13,7 @@ const Footer = () => {
               <img src={logo} alt="" className={css.logoImage} />
             </NavLink>
             <ul className={css.displayFlex}>
-              <li>Support contacts:</li>
+              <li>Contacts:</li>
               <li>+38(093)123-45-67</li>
               <li>+38(097)123-45-67</li>
               <li>+38(050)123-45-67</li>
