@@ -1,6 +1,6 @@
 .animation {
   position: relative;
-  width: 100%;
+  width: 90%;
   height: 90vh;
 }
 
@@ -60,7 +60,7 @@
 .audi {
   width: 130px;
   top: 40%;
-  left: 70%;
+  left: 65%;
   animation-delay: 900ms;
   animation-name: allCars;
 
