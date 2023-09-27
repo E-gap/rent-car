@@ -39,6 +39,24 @@
   }
 }
 
+/* .bmw {
+  width: 130px;
+  top: 11%;
+  left: 57%;
+  animation-delay: 700ms;
+  animation-name: allCars;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    left: 58%;
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    left: 60%;
+    width: 200px;
+  }
+} */
+
 .bmw {
   width: 130px;
   top: 11%;
