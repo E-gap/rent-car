@@ -49,4 +49,5 @@ User can change his own information on
 [react-icons](https://github.com/react-icons/react-icons)
 [React Redux](https://github.com/reduxjs/react-redux)
 [React Persist](https://github.com/rt2zz/redux-persist)
-[Yup](https://github.com/jquense/yup)
+[Yup](https://github.com/jquense/yup)  
+[Tui-pagination](https://github.com/nhn/tui.pagination)
